@@ -12,51 +12,46 @@ $(document).ready(function () {
   // ======================================================
 
   // ======================================================
-// 1. ABRIR / CERRAR VENTANA + MENSAJE INICIAL AL ABRIR
-// ======================================================
+  // 1. ABRIR / CERRAR VENTANA + MENSAJE INICIAL AL ABRIR
+  // ======================================================
 
-$openBtn.on("click", function () {
-  const isClosed = $chatWindow.hasClass("opacity-0");
-  hideTyping();
+  $openBtn.on("click", function () {
+    const isClosed = $chatWindow.hasClass("opacity-0");
+    hideTyping();
 
-  if (isClosed) {
-    // Abrir chat
-    $chatWindow.removeClass("opacity-0 pointer-events-none scale-95");
+    if (isClosed) {
+      // Abrir chat
+      $chatWindow.removeClass("opacity-0 pointer-events-none scale-95");
 
-    // Solo mostrar mensaje inicial la PRIMER vez
-    if (!$chatWindow.data("opened")) {
-      $chatWindow.data("opened", true);
+      // Solo mostrar mensaje inicial la PRIMER vez
+      if (!$chatWindow.data("opened")) {
+        $chatWindow.data("opened", true);
 
-      // Esperar un poco antes de empezar a escribir (más natural)
-      setTimeout(() => {
-        showTyping();
-
-        // Duración del "escribiendo"
+        // Esperar un poco antes de empezar a escribir (más natural)
         setTimeout(() => {
-          hideTyping();
+          showTyping();
 
-          addMessage(
-            "¡Hola! Soy el asistente virtual de Mind & Design. ¿En qué puedo ayudarte hoy?",
-            "bot"
-          );
-
+          // Duración del "escribiendo"
           setTimeout(() => {
-            addMessage("Aquí tienes algunas opciones rápidas:", "bot");
-            addMessage(faqMenu(), "bot");
-          }, 300);
+            hideTyping();
 
-        }, 1200); // <── tiempo de typing REALISTA
+            addMessage(
+              "¡Hola! Soy el asistente virtual de Mind & Design. ¿En qué puedo ayudarte hoy?",
+              "bot"
+            );
 
-      }, 400); // <── delay antes de empezar a escribir
-
+            setTimeout(() => {
+              addMessage("Aquí tienes algunas opciones rápidas:", "bot");
+              addMessage(faqMenu(), "bot");
+            }, 300);
+          }, 1200); // <── tiempo de typing REALISTA
+        }, 400); // <── delay antes de empezar a escribir
+      }
+    } else {
+      // Cerrar chat
+      $chatWindow.addClass("opacity-0 pointer-events-none scale-95");
     }
-
-  } else {
-    // Cerrar chat
-    $chatWindow.addClass("opacity-0 pointer-events-none scale-95");
-  }
-});
-
+  });
 
   // Botón interno de cierre
   $closeBtn.on("click", function () {
@@ -99,9 +94,11 @@ $openBtn.on("click", function () {
     const bubble = `
       <div class="flex ${sender === "user" ? "justify-end" : "justify-start"}">
         <div class="max-w-[80%] p-3 rounded-lg text-sm
-          ${sender === "user"
-            ? "bg-primary text-primary-foreground"
-            : "bg-secondary text-secondary-foreground"}">
+          ${
+            sender === "user"
+              ? "bg-primary text-primary-foreground"
+              : "bg-secondary text-secondary-foreground"
+          }">
           ${text}
         </div>
       </div>
@@ -179,21 +176,36 @@ $openBtn.on("click", function () {
           break;
 
         case "entretenimientos":
-          addMessage("Tenemos actividades y espacios recreativos para toda la familia.", "bot");
-          setTimeout(() => (window.location.href = "entretenimientos.html"), 800);
+          addMessage(
+            "Tenemos actividades y espacios recreativos para toda la familia.",
+            "bot"
+          );
+          setTimeout(
+            () => (window.location.href = "entretenimientos.html"),
+            800
+          );
           break;
 
         case "contacto":
-          addMessage("Puedes comunicarte con nosotros desde la sección Contacto.", "bot");
+          addMessage(
+            "Puedes comunicarte con nosotros desde la sección Contacto.",
+            "bot"
+          );
           setTimeout(() => (window.location.href = "contacto.html"), 800);
           break;
 
         case "horarios":
-          addMessage("Nuestro horario es de 10:00 a 22:00 todos los días.", "bot");
+          addMessage(
+            "Nuestro horario es de 10:00 a 22:00 todos los días.",
+            "bot"
+          );
           break;
 
         case "ubicacion":
-          addMessage("Nos encontramos en Av. Diseño 1234, frente al parque central.", "bot");
+          addMessage(
+            "Nos encontramos en Av. del Libertador 15800, San Isidro.",
+            "bot"
+          );
           break;
       }
     }, 600);
@@ -211,7 +223,7 @@ $openBtn.on("click", function () {
     }
 
     if (m.includes("ubic")) {
-      return "Nos encontramos en Av. Diseño 1234.";
+      return "Nos encontramos en Av. del Libertador 15800, San Isidro.";
     }
 
     if (m.includes("servic")) {

@@ -11,11 +11,11 @@ const localsData = [
     id: 1,
     name: "Tay Shop",
     category: "Decoración", // ← La categoría más cercana
-    image: "img/localtaylor/imagenLocalTaylor.jpg",
+    image: "assets/localtaylor/imagenLocalTaylor.jpg",
     gallery: [
-      "img/localtaylor/imagenLocalTaylor.jpg",
-      "img/localtaylor/imagenLocalTaylor2.jpg",
-      "img/localtaylor/imagenLocalTaylor3.jpg",
+      "assets/localtaylor/imagenLocalTaylor.jpg",
+      "assets/localtaylor/imagenLocalTaylor2.jpg",
+      "assets/localtaylor/imagenLocalTaylor3.jpg",
     ],
     description:
       "La tienda oficial para transformar tu espacio con el estilo de Taylor Swift. Especialistas en stickers duraderos y prints digitales inspirados en sus álbumes, eras y diseños icónicos.",
@@ -36,11 +36,11 @@ const localsData = [
     id: 2,
     name: "Op Art Studio",
     category: "Decoración",
-    image: "img/localOpArt/imagenOpArt.jpg",
+    image: "assets/localOpArt/imagenOpArt.jpg",
     gallery: [
-      "img/localOpArt/imagenOpArt.jpg",
-      "img/localOpArt/imagenOpArt2.jpg",
-      "img/localOpArt/imagenOpArt3.jpg",
+      "assets/localOpArt/imagenOpArt.jpg",
+      "assets/localOpArt/imagenOpArt2.jpg",
+      "assets/localOpArt/imagenOpArt3.jpg",
     ],
     description:
       "Objetos de diseño, cerámicas y muebles que combinan formas modernas con colores suaves.",
@@ -61,11 +61,11 @@ const localsData = [
     id: 3,
     name: "Sofía Sarkany",
     category: "Moda",
-    image: "img/localSofiaSarkany/imagenLocalSofia.png",
+    image: "assets/localSofiaSarkany/imagenLocalSofia.png",
     gallery: [
-      "img/localSofiaSarkany/imagenLocalSofia2.png",
-      "img/localSofiaSarkany/imagenLocalSofia3.png",
-      "img/localSofiaSarkany/imagenLocalSofia4.png",
+      "assets/localSofiaSarkany/imagenLocalSofia2.png",
+      "assets/localSofiaSarkany/imagenLocalSofia3.png",
+      "assets/localSofiaSarkany/imagenLocalSofia4.png",
     ],
     description:
       "Moda moderna, femenina y vanguardista con el estilo característico de Sofía Sarkany.",
@@ -86,11 +86,11 @@ const localsData = [
     id: 4,
     name: "LUMEN",
     category: "Iluminación",
-    image: "img/localLumen/imagenLocalLumen.jpg", // cambiá si tu archivo principal tiene otro nombre
+    image: "assets/localLumen/imagenLocalLumen.jpg", // cambiá si tu archivo principal tiene otro nombre
     gallery: [
-      "img/localLumen/imagenLocalLumen.jpg",
-      "img/localLumen/imagenLocalLumen2.png",
-      "img/localLumen/imagenLocalLumen3.png",
+      "assets/localLumen/imagenLocalLumen.jpg",
+      "assets/localLumen/imagenLocalLumen2.png",
+      "assets/localLumen/imagenLocalLumen3.png",
     ],
     description:
       "Iluminación moderna y cálida inspirada en el diseño minimalista y materiales naturales.",
@@ -112,12 +112,12 @@ const localsData = [
     id: 5,
     name: "ROSES",
     category: "Moda",
-    image: "img/localRoses/imagenLocalRoses.png",
+    image: "assets/localRoses/imagenLocalRoses.png",
     gallery: [
-      "img/localRoses/imagenLocalRoses.png",
-      "img/localRoses/imagenLocalRoses2.png",
-      "img/localRoses/imagenLocalRoses3.png",
-      "img/localRoses/imagenLocalRoses4.png",
+      "assets/localRoses/imagenLocalRoses.png",
+      "assets/localRoses/imagenLocalRoses2.png",
+      "assets/localRoses/imagenLocalRoses3.png",
+      "assets/localRoses/imagenLocalRoses4.png",
     ],
     description:
       "Moda natural, moderna y auténtica, con estilo propio y sin exageraciones.",
@@ -138,10 +138,10 @@ const localsData = [
     id: 6,
     name: "Luna Studio",
     category: "Moda",
-    image: "img/imagenesLocales/localModa.jpg",
+    image: "assets/imagenesLocales/localModa.jpg",
     gallery: [
-      "img/imagenesLocales/localModa2.jpg",
-      "img/imagenesLocales/localModa3.jpg",
+      "assets/imagenesLocales/localModa2.jpg",
+      "assets/imagenesLocales/localModa3.jpg",
     ],
     description: "Moda suave inspirada en telas etéreas y tonos neutros.",
     longDescription:
@@ -156,10 +156,10 @@ const localsData = [
     id: 7,
     name: "Casa Natura",
     category: "Decoración",
-    image: "img/imagenesLocales/imagenLocalDeco2.jpg",
+    image: "assets/imagenesLocales/imagenLocalDeco2.jpg",
     gallery: [
-      "img/imagenesLocales/imagenLocalDeco3.jpg",
-      "img/imagenesLocales/imagenLocalDeco4.jpg",
+      "assets/imagenesLocales/imagenLocalDeco3.jpg",
+      "assets/imagenesLocales/imagenLocalDeco4.jpg",
     ],
     description: "Decoración orgánica con estilo escandinavo.",
     longDescription:
@@ -174,10 +174,10 @@ const localsData = [
     id: 8,
     name: "Olive Wear",
     category: "Moda",
-    image: "img/imagenesLocales/localModa4.jpg",
+    image: "assets/imagenesLocales/localModa4.jpg",
     gallery: [
-      "img/imagenesLocales/localModa5.jpg",
-      "img/imagenesLocales/localModa6.jpg",
+      "assets/imagenesLocales/localModa5.jpg",
+      "assets/imagenesLocales/localModa6.jpg",
     ],
     description: "Moda contemporánea en paletas oliva y beige.",
     longDescription:
@@ -192,10 +192,10 @@ const localsData = [
     id: 9,
     name: "Forma Home Studio",
     category: "Decoración",
-    image: "img/imagenesLocales/imagenLocalDeco5.jpg",
+    image: "assets/imagenesLocales/imagenLocalDeco5.jpg",
     gallery: [
-      "img/imagenesLocales/imagenLocalDeco6.jpg",
-      "img/imagenesLocales/imagenLocalDeco7.jpg",
+      "assets/imagenesLocales/imagenLocalDeco6.jpg",
+      "assets/imagenesLocales/imagenLocalDeco7.jpg",
     ],
     description: "Muebles de líneas suaves y diseño natural.",
     longDescription:
@@ -210,10 +210,10 @@ const localsData = [
     id: 10,
     name: "Natura Deco",
     category: "Decoración",
-    image: "img/imagenesLocales/imagenLocalDeco8.jpg",
+    image: "assets/imagenesLocales/imagenLocalDeco8.jpg",
     gallery: [
-      "img/imagenesLocales/imagenLocalDeco.jpg",
-      "img/imagenesLocales/imagenLocalDeco4.jpg",
+      "assets/imagenesLocales/imagenLocalDeco.jpg",
+      "assets/imagenesLocales/imagenLocalDeco4.jpg",
     ],
     description: "Decoración con fibras naturales y esencia botánica.",
     longDescription:
@@ -228,7 +228,7 @@ const localsData = [
     id: 11,
     name: "Atelier 31",
     category: "Moda",
-    image: "img/imagenesLocales/localModa7.jpg",
+    image: "assets/imagenesLocales/localModa7.jpg",
     description: "Moda artesanal en paletas naturales.",
     longDescription:
       "Atelier 31 combina confección artesanal, materiales puros y un enfoque slow-fashion minimalista.",
@@ -242,7 +242,7 @@ const localsData = [
     id: 12,
     name: "Kinoko Light",
     category: "Iluminación",
-    image: "img/imagenesLocales/imagenLocalLuminaria2.jpg",
+    image: "assets/imagenesLocales/imagenLocalLuminaria2.jpg",
     description: "Iluminación inspirada en formas orgánicas.",
     longDescription:
       "Kinoko Light se destaca por luminarias escultóricas con una estética cálida y natural.",

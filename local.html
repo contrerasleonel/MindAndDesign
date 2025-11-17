@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -36,35 +37,54 @@
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        * { font-family: Manrope, system-ui, sans-serif; }
-        h1, h2, h3, h4 { font-family: "Space Grotesk", Manrope, sans-serif; }
-        .chip { border-radius: 9999px; }
+        * {
+            font-family: Manrope, system-ui, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Space Grotesk", Manrope, sans-serif;
+        }
+
+        .chip {
+            border-radius: 9999px;
+        }
     </style>
 </head>
+
 <body class="bg-background text-foreground antialiased">
 
     <!-- NAVBAR (igual que locales.html) -->
-    <header class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
+    <header
+        class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
         <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                <span class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&D</span>
+                <span
+                    class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&D</span>
                 <span class="text-xl font-medium tracking-[-0.35px]">Mind & Design</span>
             </a>
             <div class="hidden md:flex items-center gap-1">
                 <a href="index.html" class="nav-item px-4 py-2 rounded-md text-base">Inicio</a>
                 <a href="servicios.html" class="nav-item px-4 py-2 rounded-md text-base">Servicios</a>
                 <a href="entretenimientos.html" class="nav-item px-4 py-2 rounded-md text-base">Entretenimientos</a>
-                <a href="locales.html" class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">Locales</a>
+                <a href="locales.html"
+                    class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">Locales</a>
                 <a href="ofertas.html" class="nav-item px-4 py-2 rounded-md text-base">Ofertas</a>
                 <a href="gastronomia.html" class="nav-item px-4 py-2 rounded-md text-base">Gastronomía</a>
                 <a href="contacto.html" class="nav-item px-4 py-2 rounded-md text-base">Contacto</a>
             </div>
-            <a href="contacto.html" class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition">
+            <a href="contacto.html"
+                class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition">
                 Visítanos
             </a>
-            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false" class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors">
+            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
+                class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors">
                 <i data-lucide="menu"></i>
             </button>
         </nav>
@@ -72,7 +92,8 @@
             <a href="index.html" class="mobile-item block px-4 py-3 rounded-md">Inicio</a>
             <a href="servicios.html" class="mobile-item block px-4 py-3 rounded-md">Servicios</a>
             <a href="entretenimientos.html" class="mobile-item block px-4 py-3 rounded-md">Entretenimientos</a>
-            <a href="locales.html" class="mobile-item block px-4 py-3 rounded-md bg-primary text-primary-foreground">Locales</a>
+            <a href="locales.html"
+                class="mobile-item block px-4 py-3 rounded-md bg-primary text-primary-foreground">Locales</a>
             <a href="ofertas.html" class="mobile-item block px-4 py-3 rounded-md">Ofertas</a>
             <a href="gastronomia.html" class="mobile-item block px-4 py-3 rounded-md">Gastronomía</a>
             <a href="contacto.html" class="mobile-item block px-4 py-3 rounded-md">Contacto</a>
@@ -83,7 +104,8 @@
         <!-- BACK BUTTON -->
         <div class="bg-secondary/30 border-b border-border">
             <div class="max-w-content mx-auto px-6 xl:px-0 py-4">
-                <a href="locales.html" class="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                <a href="locales.html"
+                    class="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
                     <i data-lucide="arrow-left" class="w-5 h-5"></i>
                     <span>Volver a Locales</span>
                 </a>
@@ -96,7 +118,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
                 <div class="max-w-content mx-auto">
-                    <span id="heroCategory" class="chip bg-primary text-primary-foreground px-4 py-2 text-sm font-medium mb-4 inline-block"></span>
+                    <span id="heroCategory"
+                        class="chip bg-primary text-primary-foreground px-4 py-2 text-sm font-medium mb-4 inline-block"></span>
                     <h1 id="heroTitle" class="text-3xl md:text-4xl font-medium tracking-[-0.02em] text-white mb-2"></h1>
                     <p id="heroDescription" class="text-white/90 text-xl max-w-2xl"></p>
                 </div>
@@ -107,7 +130,7 @@
         <section class="py-20">
             <div class="max-w-content mx-auto px-6 xl:px-0">
                 <div class="grid lg:grid-cols-3 gap-12">
-                    
+
                     <!-- COLUMNA PRINCIPAL -->
                     <div class="lg:col-span-2 space-y-12">
                         <!-- Descripción -->
@@ -129,7 +152,8 @@
                                 <i data-lucide="map-pin" class="w-12 h-12 mx-auto text-primary mb-4"></i>
                                 <h3 id="mapLocationTitle" class="text-xl font-medium mb-2"></h3>
                                 <p id="mapLocationSubtitle" class="text-muted-foreground mb-6"></p>
-                                <a href="locales.html#interactiveMap" class="inline-flex items-center justify-center h-12 px-6 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition font-medium">
+                                <a href="locales.html#interactiveMap"
+                                    class="inline-flex items-center justify-center h-12 px-6 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition font-medium">
                                     Ver en Mapa
                                 </a>
                             </div>
@@ -173,7 +197,8 @@
                                 <i data-lucide="mail" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
                                 <div class="flex-1">
                                     <p class="text-sm text-muted-foreground mb-1">Email</p>
-                                    <a id="email" href="" class="text-sm hover:text-primary transition-colors break-all"></a>
+                                    <a id="email" href=""
+                                        class="text-sm hover:text-primary transition-colors break-all"></a>
                                 </div>
                             </div>
 
@@ -184,7 +209,8 @@
                             </div>
 
                             <!-- Botón CTA -->
-                            <a id="visitButton" href="#" class="block w-full h-12 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition text-center leading-[3rem] font-medium">
+                            <a id="visitButton" href="#"
+                                class="block w-full h-12 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition text-center leading-[3rem] font-medium">
                                 Visitar Local
                             </a>
                         </div>
@@ -204,21 +230,88 @@
     <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
         <div class="mx-auto max-w-content px-8 xl:px-0 py-12">
             <div class="grid md:grid-cols-4 gap-8">
+
+                <!-- Brand -->
                 <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-primary-foreground font-medium">M&D</span>
-                        <span class="text-xl tracking-[-0.35px]">Mind & Design</span>
+                    <div class="flex items-center gap-2">
+                        <span class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-primary-foreground">
+                            M&amp;D
+                        </span>
+                        <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
                     </div>
-                    <p class="text-muted max-w-[280px] leading-[1.5]">
-                        La Galería del Diseño Contemporáneo.
+
+                    <p class="mt-4 text-muted max-w-[280px]">
+                        La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad
+                        se encuentran.
                     </p>
+
+                    <!-- Icons -->
+                    <div class="flex items-center gap-4 mt-4 text-muted">
+                        <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Enlaces -->
+                <div>
+                    <h4 class="font-medium">Enlaces Rápidos</h4>
+                    <ul class="mt-4 space-y-2 text-muted">
+                        <li><a href="index.html" class="hover:underline">Inicio</a></li>
+                        <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
+                        <li><a href="locales.html" class="hover:underline">Locales</a></li>
+                        <li><a href="ofertas.html" class="hover:underline">Ofertas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Información -->
+                <div>
+                    <h4 class="font-medium">Información</h4>
+                    <ul class="mt-4 space-y-2 text-muted">
+                        <li><a href="#" class="hover:underline">Eventos</a></li>
+                        <li><a href="gastronomia.html" class="hover:underline">Gastronomía</a></li>
+                        <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
+                        <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-medium">Contacto</h4>
+                    <ul class="mt-4 space-y-3 text-muted">
+
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+                            Av. del Libertador 15800, San Isidro, Buenos Aires
+                        </li>
+
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+                            +1 (234) 567-89
+                        </li>
+
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+                            info@mindanddesign.com
+                        </li>
+
+                    </ul>
+                </div>
+
             </div>
+
             <div class="mt-8 border-t border-border pt-6 text-center text-muted">
                 © 2025 Mind & Design. Todos los derechos reservados.
             </div>
         </div>
     </footer>
+
 
     <!-- SCRIPTS -->
     <script>
@@ -239,4 +332,5 @@
     <script src="js/local-detail.js"></script>
     <script src="js/chatbot.js"></script>
 </body>
+
 </html>

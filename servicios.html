@@ -246,60 +246,80 @@
   <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
     <div class="mx-auto max-w-content px-8 xl:px-0 py-12">
       <div class="grid md:grid-cols-4 gap-8">
+
+        <!-- Brand -->
         <div>
           <div class="flex items-center gap-2">
-            <span class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-white">M&amp;D</span>
+            <span class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-primary-foreground">
+              M&amp;D
+            </span>
             <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
           </div>
-          <p class="mt-4 text-muted">
+
+          <p class="mt-4 text-muted max-w-[280px]">
             La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad se
             encuentran.
           </p>
+
           <!-- Icons -->
           <div class="flex items-center gap-4 mt-4 text-muted">
-            <a href="#" class="hover:text-primary transition-colors">
+            <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors">
               <i data-lucide="facebook" class="w-5 h-5"></i>
             </a>
-            <a href="#" class="hover:text-primary transition-colors">
+            <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors">
               <i data-lucide="instagram" class="w-5 h-5"></i>
             </a>
-            <a href="#" class="hover:text-primary transition-colors">
+            <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors">
               <i data-lucide="twitter" class="w-5 h-5"></i>
             </a>
           </div>
         </div>
 
+        <!-- Enlaces -->
         <div>
           <h4 class="font-medium">Enlaces Rápidos</h4>
           <ul class="mt-4 space-y-2 text-muted">
-            <li><a href="#" class="hover:underline">Inicio</a></li>
-            <li><a href="#" class="hover:underline">Servicios</a></li>
-            <li><a href="#" class="hover:underline">Locales</a></li>
-            <li><a href="#" class="hover:underline">Ofertas</a></li>
+            <li><a href="index.html" class="hover:underline">Inicio</a></li>
+            <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
+            <li><a href="locales.html" class="hover:underline">Locales</a></li>
+            <li><a href="ofertas.html" class="hover:underline">Ofertas</a></li>
           </ul>
         </div>
 
+        <!-- Información -->
         <div>
           <h4 class="font-medium">Información</h4>
           <ul class="mt-4 space-y-2 text-muted">
             <li><a href="#" class="hover:underline">Eventos</a></li>
-            <li><a href="#" class="hover:underline">Gastronomía</a></li>
-            <li><a href="#" class="hover:underline">Contacto</a></li>
+            <li><a href="gastronomia.html" class="hover:underline">Gastronomía</a></li>
+            <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
             <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
           </ul>
         </div>
 
+        <!-- Contacto -->
         <div>
           <h4 class="font-medium">Contacto</h4>
           <ul class="mt-4 space-y-3 text-muted">
-            <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-primary"></i> Av. Diseño
-              1234, Centro Comercial</li>
-            <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 text-primary"></i> +1 (234) 567-89
+
+            <li class="flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+              Av. del Libertador 15800, San Isidro, Buenos Aires
             </li>
-            <li class="flex items-center gap-3"><i data-lucide="mail" class="w-5 h-5 text-primary"></i>
-              info@mindanddesign.com</li>
+
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+              +1 (234) 567-89
+            </li>
+
+            <li class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+              info@mindanddesign.com
+            </li>
+
           </ul>
         </div>
+
       </div>
 
       <div class="mt-8 border-t border-border pt-6 text-center text-muted">
@@ -308,51 +328,51 @@
     </div>
   </footer>
 
+
   <button aria-label="Chatbot"
     class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
     <i data-lucide="message-circle" class="w-6 h-6"></i>
   </button>
 
   <!-- VENTANA DEL CHATBOT -->
-    <div id="chatbot-window"
-        class="fixed bottom-24 right-6 w-80 sm:w-96 bg-card rounded-lg shadow-2xl border border-border flex flex-col max-h-[600px] opacity-0 pointer-events-none scale-95 transition-all duration-300 z-50">
+  <div id="chatbot-window"
+    class="fixed bottom-24 right-6 w-80 sm:w-96 bg-card rounded-lg shadow-2xl border border-border flex flex-col max-h-[600px] opacity-0 pointer-events-none scale-95 transition-all duration-300 z-50">
 
-        <!-- Header -->
-        <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
-            <div class="flex items-center space-x-2">
-                <i data-lucide="message-circle" class="w-5 h-5"></i>
-                <h3 class="text-sm font-medium">Asistente Virtual</h3>
-            </div>
-            <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors"
-                aria-label="Cerrar chat">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-        </div>
-
-        <!-- Messages -->
-        <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
-
-        <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
-            <div class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm shadow-soft">
-                Escribiendo...
-            </div>
-        </div>
-
-        <!-- Input -->
-        <div class="p-4 border-t border-border">
-            <div class="flex space-x-2">
-                <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..."
-                    class="flex-1 px-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                    aria-label="Escribe tu mensaje" />
-
-                <button id="chatbot-send"
-                    class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
-                    aria-label="Enviar mensaje">
-                    <i data-lucide="send" class="w-5 h-5"></i>
-                </button>
-            </div>
-        </div>
+    <!-- Header -->
+    <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
+      <div class="flex items-center space-x-2">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <h3 class="text-sm font-medium">Asistente Virtual</h3>
+      </div>
+      <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors" aria-label="Cerrar chat">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
     </div>
+
+    <!-- Messages -->
+    <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
+
+    <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
+      <div class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm shadow-soft">
+        Escribiendo...
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="p-4 border-t border-border">
+      <div class="flex space-x-2">
+        <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..."
+          class="flex-1 px-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          aria-label="Escribe tu mensaje" />
+
+        <button id="chatbot-send"
+          class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
+          aria-label="Enviar mensaje">
+          <i data-lucide="send" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 
 
   <!-- SCRIPTS -->
