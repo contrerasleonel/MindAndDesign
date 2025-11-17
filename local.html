@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mind & Design — Local</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#F6F5F1',
+                        foreground: '#1E1E1E',
+                        primary: '#7A8061',
+                        "primary-foreground": "#FFFFFF",
+                        secondary: '#EAE8E0',
+                        "secondary-foreground": "#1E1E1E",
+                        accent: '#AFC1A1',
+                        'accent-foreground': '#1E1E1E',
+                        card: '#FFFFFF',
+                        border: '#CFC7B5',
+                        muted: '#5B5B5B',
+                        'input-background': "#F8F7F3"
+                    },
+                    boxShadow: {
+                        soft: '0 1px 2px rgba(0,0,0,.10), 0 1px 3px rgba(0,0,0,.10)',
+                        float: '0 4px 6px rgba(0,0,0,.10), 0 10px 15px rgba(0,0,0,.10)'
+                    },
+                    maxWidth: { content: "1216px" }
+                }
+            }
+        }
+    </script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: Manrope, system-ui, sans-serif; }
+        h1, h2, h3, h4 { font-family: "Space Grotesk", Manrope, sans-serif; }
+        .chip { border-radius: 9999px; }
+    </style>
+</head>
+<body class="bg-background text-foreground antialiased">
+
+    <!-- NAVBAR (igual que locales.html) -->
+    <header class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
+        <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <span class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&D</span>
+                <span class="text-xl font-medium tracking-[-0.35px]">Mind & Design</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="index.html" class="nav-item px-4 py-2 rounded-md text-base">Inicio</a>
+                <a href="servicios.html" class="nav-item px-4 py-2 rounded-md text-base">Servicios</a>
+                <a href="entretenimientos.html" class="nav-item px-4 py-2 rounded-md text-base">Entretenimientos</a>
+                <a href="locales.html" class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">Locales</a>
+                <a href="ofertas.html" class="nav-item px-4 py-2 rounded-md text-base">Ofertas</a>
+                <a href="gastronomia.html" class="nav-item px-4 py-2 rounded-md text-base">Gastronomía</a>
+                <a href="contacto.html" class="nav-item px-4 py-2 rounded-md text-base">Contacto</a>
+            </div>
+            <a href="contacto.html" class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition">
+                Visítanos
+            </a>
+            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false" class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
+            <a href="index.html" class="mobile-item block px-4 py-3 rounded-md">Inicio</a>
+            <a href="servicios.html" class="mobile-item block px-4 py-3 rounded-md">Servicios</a>
+            <a href="entretenimientos.html" class="mobile-item block px-4 py-3 rounded-md">Entretenimientos</a>
+            <a href="locales.html" class="mobile-item block px-4 py-3 rounded-md bg-primary text-primary-foreground">Locales</a>
+            <a href="ofertas.html" class="mobile-item block px-4 py-3 rounded-md">Ofertas</a>
+            <a href="gastronomia.html" class="mobile-item block px-4 py-3 rounded-md">Gastronomía</a>
+            <a href="contacto.html" class="mobile-item block px-4 py-3 rounded-md">Contacto</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- BACK BUTTON -->
+        <div class="bg-secondary/30 border-b border-border">
+            <div class="max-w-content mx-auto px-6 xl:px-0 py-4">
+                <a href="locales.html" class="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                    <span>Volver a Locales</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- HERO -->
+        <section class="relative h-96 overflow-hidden">
+            <img id="heroImage" src="" alt="" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                <div class="max-w-content mx-auto">
+                    <span id="heroCategory" class="chip bg-primary text-primary-foreground px-4 py-2 text-sm font-medium mb-4 inline-block"></span>
+                    <h1 id="heroTitle" class="text-3xl md:text-4xl font-medium tracking-[-0.02em] text-white mb-2"></h1>
+                    <p id="heroDescription" class="text-white/90 text-xl max-w-2xl"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <section class="py-20">
+            <div class="max-w-content mx-auto px-6 xl:px-0">
+                <div class="grid lg:grid-cols-3 gap-12">
+                    
+                    <!-- COLUMNA PRINCIPAL -->
+                    <div class="lg:col-span-2 space-y-12">
+                        <!-- Descripción -->
+                        <div>
+                            <h2 id="nameLabel" class="text-2xl font-medium mb-4"></h2>
+                            <p id="longDescription" class="text-muted-foreground leading-relaxed"></p>
+                        </div>
+
+                        <!-- Galería -->
+                        <div id="gallerySection" class="hidden">
+                            <h2 class="text-2xl font-medium mb-6">Galería</h2>
+                            <div id="galleryGrid" class="grid sm:grid-cols-2 gap-6"></div>
+                        </div>
+
+                        <!-- Ubicación en Mapa -->
+                        <div>
+                            <h2 class="text-2xl font-medium mb-6">Ubicación en el Centro</h2>
+                            <div class="bg-secondary/30 rounded-lg p-8 text-center">
+                                <i data-lucide="map-pin" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                                <h3 id="mapLocationTitle" class="text-xl font-medium mb-2"></h3>
+                                <p id="mapLocationSubtitle" class="text-muted-foreground mb-6"></p>
+                                <a href="locales.html#interactiveMap" class="inline-flex items-center justify-center h-12 px-6 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition font-medium">
+                                    Ver en Mapa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SIDEBAR DE CONTACTO -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-card rounded-lg border border-border p-6 sticky top-24 space-y-6">
+                            <h3 class="text-lg font-medium">Información de Contacto</h3>
+
+                            <!-- Horario -->
+                            <div id="hoursBlock" class="hidden flex items-start gap-3">
+                                <i data-lucide="clock" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <div class="flex-1">
+                                    <p class="text-sm text-muted-foreground mb-1">Horario</p>
+                                    <p id="hours" class="text-sm"></p>
+                                </div>
+                            </div>
+
+                            <!-- Ubicación -->
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <div class="flex-1">
+                                    <p class="text-sm text-muted-foreground mb-1">Ubicación</p>
+                                    <p id="locationLabel" class="text-sm"></p>
+                                </div>
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div id="phoneBlock" class="hidden flex items-start gap-3">
+                                <i data-lucide="phone" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <div class="flex-1">
+                                    <p class="text-sm text-muted-foreground mb-1">Teléfono</p>
+                                    <a id="phone" href="" class="text-sm hover:text-primary transition-colors"></a>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div id="emailBlock" class="hidden flex items-start gap-3">
+                                <i data-lucide="mail" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <div class="flex-1">
+                                    <p class="text-sm text-muted-foreground mb-1">Email</p>
+                                    <a id="email" href="" class="text-sm hover:text-primary transition-colors break-all"></a>
+                                </div>
+                            </div>
+
+                            <!-- Redes Sociales -->
+                            <div id="socialsBlock" class="hidden">
+                                <h4 class="text-base font-medium mb-3">Redes Sociales</h4>
+                                <div id="socialLinks" class="flex flex-col gap-2"></div>
+                            </div>
+
+                            <!-- Botón CTA -->
+                            <a id="visitButton" href="#" class="block w-full h-12 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition text-center leading-[3rem] font-medium">
+                                Visitar Local
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOCALES RELACIONADOS -->
+                <div id="relatedSection" class="hidden mt-20">
+                    <h2 class="text-2xl font-medium text-center mb-12">Otros Locales que te Pueden Interesar</h2>
+                    <div id="relatedGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (igual que locales.html) -->
+    <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
+        <div class="mx-auto max-w-content px-8 xl:px-0 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-primary-foreground font-medium">M&D</span>
+                        <span class="text-xl tracking-[-0.35px]">Mind & Design</span>
+                    </div>
+                    <p class="text-muted max-w-[280px] leading-[1.5]">
+                        La Galería del Diseño Contemporáneo.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-border pt-6 text-center text-muted">
+                © 2025 Mind & Design. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        lucide.createIcons();
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
+        let open = false;
+        toggle.addEventListener('click', () => {
+            open = !open;
+            menu.classList.toggle('hidden', !open);
+            toggle.setAttribute('aria-expanded', open);
+            toggle.innerHTML = open ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+            lucide.createIcons();
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/locales-data.js"></script>
+    <script src="js/local-detail.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

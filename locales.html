@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mind & Design — Locales</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#F6F5F1',
+                        foreground: '#1E1E1E',
+                        primary: '#7A8061',
+                        "primary-foreground": "#FFFFFF",
+                        secondary: '#EAE8E0',
+                        "secondary-foreground": "#1E1E1E",
+                        accent: '#AFC1A1',
+                        'accent-foreground': '#1E1E1E',
+                        card: '#FFFFFF',
+                        border: '#CFC7B5',
+                        muted: '#5B5B5B',
+                        'input-background': "#F8F7F3"
+                    },
+                    boxShadow: {
+                        soft: '0 1px 2px rgba(0,0,0,.10), 0 1px 3px rgba(0,0,0,.10)',
+                        float: '0 4px 6px rgba(0,0,0,.10), 0 10px 15px rgba(0,0,0,.10)'
+                    },
+                    maxWidth: { content: "1216px" }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --radius: 10px;
+        }
+
+        * {
+            font-family: Manrope, system-ui, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Space Grotesk", Manrope, sans-serif;
+        }
+
+        .chip {
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground antialiased">
+
+    <!-- NAVBAR -->
+    <header
+        class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
+        <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <span
+                    class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&amp;D</span>
+                <span class="text-xl font-medium tracking-[-0.35px]">Mind &amp; Design</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-1">
+                <a href="index.html" class="nav-item px-4 py-2 rounded-md text-base">Inicio</a>
+                <a href="servicios.html" class="nav-item px-4 py-2 rounded-md text-base">Servicios</a>
+                <a href="entretenimientos.html" class="nav-item px-4 py-2 rounded-md text-base">Entretenimientos</a>
+                <a href="locales.html"
+                    class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">Locales</a>
+                <a href="ofertas.html" class="nav-item px-4 py-2 rounded-md text-base">Ofertas</a>
+                <a href="gastronomia.html" class="nav-item px-4 py-2 rounded-md text-base">Gastronomía</a>
+                <a href="contacto.html" class="nav-item px-4 py-2 rounded-md text-base">Contacto</a>
+            </div>
+
+            <!-- CTA -->
+            <a href="contacto.html"
+                class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition">
+                Visítanos
+            </a>
+
+            <!-- Mobile Button -->
+            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
+                class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
+            <a href="index.html" class="mobile-item block px-4 py-3 rounded-md">Inicio</a>
+            <a href="servicios.html" class="mobile-item block px-4 py-3 rounded-md">Servicios</a>
+            <a href="entretenimientos.html" class="mobile-item block px-4 py-3 rounded-md">Entretenimientos</a>
+            <a href="locales.html"
+                class="mobile-item block px-4 py-3 rounded-md bg-primary text-primary-foreground">Locales</a>
+            <a href="ofertas.html" class="mobile-item block px-4 py-3 rounded-md">Ofertas</a>
+            <a href="gastronomia.html" class="mobile-item block px-4 py-3 rounded-md">Gastronomía</a>
+            <a href="contacto.html" class="mobile-item block px-4 py-3 rounded-md">Contacto</a>
+
+            <a href="contacto.html"
+                class="mobile-item block w-full mt-2 text-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft">
+                Visítanos
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-32">
+
+        <!-- HERO -->
+        <section class="pb-10">
+            <div class="mx-auto max-w-content px-6 xl:px-0 text-center flex flex-col items-center gap-2">
+                <h1 class="text-xl font-medium tracking-[-0.02em]">
+                    Locales Comerciales
+                </h1>
+                <p class="max-w-[672px] text-lg leading-7 text-muted">
+                    Explora nuestra colección de 12 locales especializados en diseño, moda e iluminación.
+                </p>
+            </div>
+        </section>
+
+        <!-- SEARCH BAR & FILTERS -->
+        <section class="max-w-content mx-auto px-6 xl:px-0 pb-10">
+            <div class="flex flex-col items-center gap-5">
+
+                <!-- Buscador -->
+                <div class="relative w-full max-w-2xl">
+                    <input id="searchInput" type="text" placeholder="Buscar por nombre, categoría o descripción..."
+                        class="w-full h-14 pl-12 pr-4 border border-border rounded-[10px] bg-card placeholder:text-muted/60 focus:outline-none text-base" />
+                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted"></i>
+                </div>
+
+                <!-- Filtros -->
+                <div class="flex flex-wrap items-center justify-center gap-3">
+
+                    <!-- Label -->
+                    <div class="flex items-center gap-2 text-muted text-sm md:text-base">
+                        <i data-lucide="filter" class="w-4 h-4"></i>
+                        <span>Filtrar por:</span>
+                    </div>
+
+                    <!-- Chips -->
+                    <div class="flex flex-wrap justify-center gap-3">
+
+                        <!-- Chip activo por defecto -->
+                        <button data-filter="Todos" class="chip px-6 py-2 text-sm md:text-base font-medium
+           bg-primary text-primary-foreground
+           ring-2 ring-primary ring-offset-2
+           transition-all duration-200 cursor-pointer">
+                            Todos <span class="chip-count"></span>
+                        </button>
+
+                        <button data-filter="Moda" class="chip px-6 py-2 text-sm md:text-base font-medium
+           bg-secondary text-foreground hover:bg-secondary/80
+           transition-all duration-200 cursor-pointer">
+                            Moda <span class="chip-count"></span>
+                        </button>
+
+                        <button data-filter="Iluminación" class="chip px-6 py-2 text-sm md:text-base font-medium
+           bg-secondary text-foreground hover:bg-secondary/80
+           transition-all duration-200 cursor-pointer">
+                            Iluminación <span class="chip-count"></span>
+                        </button>
+
+                        <button data-filter="Decoración" class="chip px-6 py-2 text-sm md:text-base font-medium
+           bg-secondary text-foreground hover:bg-secondary/80
+           transition-all duration-200 cursor-pointer">
+                            Decoración <span class="chip-count"></span>
+                        </button>
+
+                    </div>
+                </div>
+
+                <!-- Texto cantidad -->
+                <p id="localesCounter" class="text-muted text-sm md:text-base">
+                    Mostrando 12 locales de 12
+                </p>
+            </div>
+        </section>
+
+
+
+        <!-- GRID DE LOCALES -->
+        <section class="max-w-content mx-auto px-6 xl:px-0 pb-14">
+
+            <div id="localesGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Las cards se generan dinámicamente con locales.js -->
+            </div>
+
+            <!-- EMPTY STATE CENTRADO -->
+            <div id="emptyState" class="flex flex-col items-center py-10 text-muted">
+                <i data-lucide="search-x" class="w-10 h-10 mb-3"></i>
+                <p class="text-base text-center">No encontramos resultados</p>
+                <p class="text-sm mt-1 text-center">
+                    Probá con otra categoría o ajustá tu búsqueda.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- MAPA INTERACTIVO -->
+        <section class="max-w-content mx-auto px-6 xl:px-0 pb-16" id="interactiveMap">
+
+            <!-- TEXTO ENCABEZADO -->
+            <div class="text-center mb-6">
+                <h2 class="text-xl font-medium tracking-[-0.02em]">Mapa Interactivo</h2>
+                <p class="mt-3 max-w-[672px] mx-auto text-muted text-lg leading-7">
+                    Explora la distribución de locales en nuestra galería. Haz hover sobre cada espacio para ver más
+                    detalles.
+                </p>
+            </div>
+
+            <!-- SELECTOR DE PISO -->
+            <div class="flex justify-center gap-4 mt-6 mb-8">
+                <button data-floor="1"
+                    class="floor-btn h-10 px-6 rounded-[10px] bg-primary text-primary-foreground shadow-soft active">
+                    Primer Piso
+                </button>
+                <button data-floor="2"
+                    class="floor-btn h-10 px-6 rounded-[10px] bg-secondary text-foreground border border-border active">
+                    Segundo Piso
+                </button>
+            </div>
+
+            <!-- MAPA -->
+            <div class="relative bg-card border border-border rounded-[10px] shadow-soft p-6 overflow-hidden">
+
+                <div class="relative w-full" style="padding-bottom: 75%;">
+                    <svg id="mallMap" class="absolute inset-0 w-full h-full" viewBox="0 0 100 100"
+                        xmlns="http://www.w3.org/2000/svg">
+
+                        <!-- FONDO -->
+                        <rect x="0" y="0" width="100" height="100" fill="#FAFAFA" />
+
+                        <!-- PASILLOS -->
+                        <rect x="10" y="45" width="80" height="10" fill="#E6E6E6" />
+                        <rect x="45" y="10" width="10" height="80" fill="#E6E6E6" />
+
+                        <!-- ÁREA CENTRAL -->
+                        <circle cx="50" cy="50" r="8" fill="#E6E6E6" />
+
+                        <!-- ENTRADA -->
+                        <rect x="43" y="0" width="14" height="5" fill="#A3936B" />
+                        <text x="50" y="3" text-anchor="middle" font-size="2" fill="#FFFFFF">ENTRADA</text>
+
+                        <!-- ETIQUETA DE PISO -->
+                        <text id="floorLabel" x="50" y="96" text-anchor="middle" font-size="4" fill="#555555">
+                            PRIMER PISO
+                        </text>
+
+                        <!-- CAPA DONDE SE INYECTAN LOS LOCALES -->
+                        <g id="localsLayer" class="cursor-pointer"></g>
+
+                    </svg>
+
+                    <!-- TOOLTIP -->
+                    <div id="mapTooltip"
+                        class="hidden absolute z-50 bg-card border border-border rounded-[12px] shadow-xl p-4 pointer-events-none w-[300px]">
+                    </div>
+                </div>
+
+                <!-- LEYENDA -->
+                <!-- LEYENDA -->
+                <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-muted">
+
+                    <!-- MODA -->
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="shirt" class="w-5 h-5" style="color:#7A8061"></i>
+                        <span style="color:#7A8061">Moda</span>
+                    </div>
+
+                    <!-- ILUMINACIÓN -->
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="lightbulb" class="w-5 h-5" style="color:#A89976"></i>
+                        <span style="color:#A89976">Iluminación</span>
+                    </div>
+
+                    <!-- DECORACIÓN -->
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="sofa" class="w-5 h-5" style="color:#AFC1A1"></i>
+                        <span style="color:#AFC1A1">Decoración</span>
+                    </div>
+
+                    <!-- PRÓXIMAMENTE -->
+                    <div class="flex items-center gap-2">
+                        <span class="w-4 h-4 rounded-sm inline-block" style="background:#B0B0B0"></span>
+                        <span style="color:#B0B0B0">Próximamente</span>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA FINAL -->
+        <section
+            class="max-w-content mx-auto px-6 xl:px-0 my-14 rounded-[10px] bg-gradient-to-tr from-primary/10 to-[#AFC1A1]/10 py-14 text-center">
+            <h2 class="text-xl font-medium tracking-[-0.02em]">
+                ¿Te interesa abrir un local?
+            </h2>
+
+            <p class="mt-3 max-w-[672px] mx-auto text-muted leading-7 text-base md:text-lg">
+                Mind & Design está en constante expansión. Si tienes una propuesta de diseño, moda o decoración,
+                nos encantaría conocerte.
+            </p>
+
+            <a href="contacto.html"
+                class="inline-flex mt-6 h-12 px-6 rounded-[10px] bg-primary text-white items-center justify-center shadow-soft hover:bg-primary/90 hover:-translate-y0.5 transition-all duration-300 text-sm md:text-base">
+                Información de Arrendamiento
+            </a>
+        </section>
+
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
+        <div class="mx-auto max-w-content px-8 xl:px-0 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+
+                <!-- Marca -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span
+                            class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-primary-foreground font-medium">
+                            M&amp;D
+                        </span>
+                        <span class="text-xl tracking-[-0.35px]">Mind &amp; Design</span>
+                    </div>
+
+                    <p class="text-muted max-w-[280px] leading-[1.5]">
+                        La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad
+                        se encuentran.
+                    </p>
+
+                    <!-- Redes -->
+                    <!-- Icons -->
+                    <div class="flex items-center gap-4 mt-4 text-muted">
+                        <a href="#" class="hover:text-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="hover:text-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="hover:text-primary transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enlaces rápidos -->
+                <div>
+                    <h4 class="font-medium mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-muted hover:text-primary transition-colors">Inicio</a></li>
+                        <li><a href="servicios.html"
+                                class="text-muted hover:text-primary transition-colors">Servicios</a></li>
+                        <li><a href="entretenimientos.html"
+                                class="text-muted hover:text-primary transition-colors">Entretenimientos</a></li>
+                        <li><a href="locales.html" class="text-muted hover:text-primary transition-colors">Locales</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Información -->
+                <div>
+                    <h4 class="font-medium mb-4">Información</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-muted hover:text-primary transition-colors">Eventos</a></li>
+                        <li><a href="gastronomia.html"
+                                class="text-muted hover:text-primary transition-colors">Gastronomía</a></li>
+                        <li><a href="contacto.html" class="text-muted hover:text-primary transition-colors">Contacto</a>
+                        </li>
+                        <li><a href="#" class="text-muted hover:text-primary transition-colors">Política de
+                                Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-medium mb-4">Contacto</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+                            <span class="text-muted">Av. Diseño 1234, Centro Comercial</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+                            <a href="tel:+123456789" class="text-muted hover:text-primary transition-colors">+1 (234)
+                                567-89</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+                            <a href="mailto:info@mindanddesign.com"
+                                class="text-muted hover:text-primary transition-colors">
+                                info@mindanddesign.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-8 border-t border-border pt-6 text-center text-muted">
+                © 2025 Mind & Design. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE -->
+    <button aria-label="Chatbot"
+        class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+    </button>
+
+    <!-- VENTANA DEL CHATBOT -->
+    <div id="chatbot-window"
+        class="fixed bottom-24 right-6 w-80 sm:w-96 bg-card rounded-lg shadow-2xl border border-border flex flex-col max-h-[600px] opacity-0 pointer-events-none scale-95 transition-all duration-300 z-50">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <h3 class="text-sm font-medium">Asistente Virtual</h3>
+            </div>
+            <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors"
+                aria-label="Cerrar chat">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Messages -->
+        <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
+
+        <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
+            <div class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm shadow-soft">
+                Escribiendo...
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="p-4 border-t border-border">
+            <div class="flex space-x-2">
+                <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..."
+                    class="flex-1 px-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    aria-label="Escribe tu mensaje" />
+
+                <button id="chatbot-send"
+                    class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
+                    aria-label="Enviar mensaje">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Menú mobile
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
+        let open = false;
+
+        toggle.addEventListener('click', () => {
+            open = !open;
+            menu.classList.toggle('hidden', !open);
+            toggle.setAttribute('aria-expanded', open);
+
+            toggle.innerHTML = open
+                ? '<i data-lucide="x"></i>'
+                : '<i data-lucide="menu"></i>';
+
+            lucide.createIcons();
+        });
+
+        // Detectar página actual
+        const current = window.location.pathname.split("/").pop() || "index.html";
+
+        document.querySelectorAll(".nav-item, .mobile-item").forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === current) {
+                link.classList.add("bg-primary", "text-primary-foreground");
+            } else {
+                link.classList.add(
+                    "hover:bg-secondary",
+                    "hover:text-foreground",
+                    "transition-colors",
+                    "duration-200"
+                );
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/locales-data.js"></script>
+    <script src="js/locales.js"></script>
+    <script src="js/locales-map.js"></script>
+    <script src="js/chatbot.js"></script>
+
+</body>
+
+</html>

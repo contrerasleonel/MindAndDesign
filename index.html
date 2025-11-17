@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mind & Design — Galería del Diseño Contemporáneo</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#F6F5F1',
+            foreground: '#1E1E1E',
+            primary: '#7A8061',
+            'primary-foreground': '#FFFFFF',
+            secondary: '#EAE8E0',
+            'secondary-foreground': '#1E1E1E',
+            accent: '#AFC1A1',
+            'accent-foreground': '#1E1E1E',
+            card: '#FFFFFF',
+            'card-foreground': '#1E1E1E',
+            border: '#CFC7B5',
+            muted: '#5B5B5B',
+            'input-background': "#F8F7F3"
+          },
+          boxShadow: {
+            soft: '0 1px 2px rgba(0,0,0,.10), 0 1px 3px rgba(0,0,0,.10)',
+            float: '0 4px 6px rgba(0,0,0,.10), 0 10px 15px rgba(0,0,0,.10)'
+          },
+          maxWidth: {
+            content: "1216px"
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --radius: 10px;
+    }
+
+    * {
+      font-family: Manrope, system-ui, sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Space Grotesk", Manrope, sans-serif;
+    }
+  </style>
+
+  <meta name="description" content="Un espacio donde el diseño, la naturaleza y la creatividad se encuentran." />
+</head>
+
+<body class="bg-background text-foreground antialiased">
+
+  <!-- NAVBAR UNIFICADO -->
+  <header
+    class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
+    <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <span class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">
+          M&D
+        </span>
+        <span class="text-xl font-medium tracking-[-0.35px]">Mind & Design</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-1">
+        <a href="index.html" class="nav-item px-4 py-2 rounded-md text-base">Inicio</a>
+        <a href="servicios.html" class="nav-item px-4 py-2 rounded-md text-base">Servicios</a>
+        <a href="entretenimientos.html" class="nav-item px-4 py-2 rounded-md text-base">Entretenimientos</a>
+        <a href="locales.html" class="nav-item px-4 py-2 rounded-md text-base">Locales</a>
+        <a href="ofertas.html" class="nav-item px-4 py-2 rounded-md text-base">Ofertas</a>
+        <a href="gastronomia.html" class="nav-item px-4 py-2 rounded-md text-base">Gastronomía</a>
+        <a href="contacto.html" class="nav-item px-4 py-2 rounded-md text-base">
+          Contacto
+        </a>
+      </div>
+
+      <!-- CTA -->
+      <a href="contacto.html"
+        class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition-opacity">
+        Visítanos
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
+        class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors">
+        <i data-lucide="menu"></i>
+      </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
+      <a href="index.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Inicio</a>
+      <a href="servicios.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Servicios</a>
+      <a href="entretenimientos.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md">Entretenimientos</a>
+      <a href="locales.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Locales</a>
+      <a href="ofertas.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Ofertas</a>
+      <a href="gastronomia.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Gastronomía</a>
+      <a href="contacto.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md bg-primary text-primary-foreground">Contacto</a>
+
+      <a href="contacto.html"
+        class="block w-full mt-2 text-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:opacity-90 hover:bg-accent transition-opacity">
+        Visítanos
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="relative h-[90vh] flex items-center justify-center text-center text-white overflow-hidden">
+      <img src="./img/imagenesGeneral/localPortada.png" alt="Galería Mind & Design"
+        class="absolute inset-0 w-full h-full object-cover" />
+
+      <div class="absolute inset-0 bg-black/40"></div>
+
+      <div class="relative z-10 max-w-2xl px-6">
+        <div class="flex justify-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-soft">
+            <i data-lucide="sparkles" class="w-8 h-8 text-primary-foreground"></i>
+          </div>
+        </div>
+
+        <h1 class="font-[Space Grotesk] text-5xl md:text-6xl font-bold mb-4">
+          Mind & Design
+        </h1>
+
+        <p class="text-2xl font-light mb-2">
+          La Galería del Diseño Contemporáneo
+        </p>
+
+        <p class="text-lg opacity-90 mb-6">
+          Un espacio donde el diseño, la naturaleza y la creatividad se encuentran.
+        </p>
+
+        <!-- BOTONES -->
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="locales.html" class="inline-flex items-center justify-center transition-all duration-200 rounded-[10px]
+         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+         disabled:opacity-50 disabled:cursor-not-allowed
+         bg-primary text-primary-foreground hover:bg-accent shadow-sm px-8 py-4">
+            Explorar Locales
+          </a>
+
+
+          <button class="inline-flex items-center justify-center transition-all duration-200 rounded-[10px] gap-2
+         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+         disabled:opacity-50 disabled:cursor-not-allowed
+         bg-secondary text-secondary-foreground border border-border hover:bg-secondary px-8 py-4">
+            <i data-lucide="play" class="w-5 h-5"></i>
+            Ver Video
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="text-center py-24 px-6">
+      <h2 class="text-xl font-medium mb-3">Descubre Nuestro Espacio</h2>
+
+      <p class="text-muted max-w-xl mx-auto">
+        Un recorrido virtual por la galería más innovadora de diseño contemporáneo.
+      </p>
+
+      <div class="max-w-5xl mx-auto mt-10 rounded-xl overflow-hidden shadow-soft bg-secondary relative">
+
+        <!-- VIDEO -->
+        <video id="videoGaleria" class="w-full h-[400px] object-cover">
+          <source src="./img/video/mindanddesign.mp4" type="video/mp4" />
+        </video>
+
+        <!-- OVERLAY + BOTÓN -->
+        <div id="overlayVideo"
+          class="absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300">
+          <button id="btnPlayVideo" aria-label="Reproducir video"
+            class="w-24 h-24 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-2xl transition-all duration-200 hover:bg-primary hover:scale-110">
+            <i data-lucide="play" class="w-10 h-10"></i>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- LOCALES DESTACADOS -->
+    <section class="bg-secondary/30 py-24">
+      <div class="text-center mb-10">
+        <h2 class="text-xl font-medium">Locales Destacados</h2>
+        <p class="text-muted max-w-xl mx-auto">
+          Descubre nuestra selección curada de locales de diseño, moda e iluminación.
+        </p>
+      </div>
+
+      <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+
+        <!-- Card 1 — Sofía Sarkany (MODA, ID 3) -->
+        <div class="relative rounded-2xl overflow-hidden shadow-soft group">
+          <img src="img/localtaylor/imagenLocalTaylor.jpg" alt="Tay Shop"
+            class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105" />
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-6 flex flex-col justify-end">
+            <span class="px-3 py-1 bg-accent text-foreground rounded-full text-sm w-fit mb-2">Decoración</span>
+
+            <h3 class="text-white text-lg font-semibold">Tay Shop</h3>
+
+            <p class="text-white/90 text-sm mb-3">
+              Merch premium y prints digitales inspirados en las eras y estética de Taylor Swift.
+            </p>
+
+            <a href="local.html?id=1" class="text-white/90 text-sm hover:underline">Ver más →</a>
+          </div>
+        </div>
+
+
+
+        <!-- Card 2 — LUMEN (ILUMINACIÓN, ID 4) -->
+        <div class="relative rounded-2xl overflow-hidden shadow-soft group">
+          <img src="img/localLumen/imagenLocalLumen.jpg" alt="LUMEN"
+            class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105" />
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-6 flex flex-col justify-end">
+            <span class="px-3 py-1 bg-accent text-foreground rounded-full text-sm w-fit mb-2">Iluminación</span>
+
+            <h3 class="text-white text-lg font-semibold">LUMEN</h3>
+
+            <p class="text-white/90 text-sm mb-3">
+              Iluminación moderna y cálida inspirada en el diseño minimalista y materiales naturales.
+            </p>
+
+            <a href="local.html?id=4" class="text-white/90 text-sm hover:underline">Ver más →</a>
+          </div>
+        </div>
+
+
+
+        <!-- Card 3 — Op Art Studio (DECORACIÓN, ID 2) -->
+        <div class="relative rounded-2xl overflow-hidden shadow-soft group">
+          <img src="img/localOpArt/imagenOpArt.jpg" alt="Op Art Studio"
+            class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105" />
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-6 flex flex-col justify-end">
+            <span class="px-3 py-1 bg-accent text-foreground rounded-full text-sm w-fit mb-2">Decoración</span>
+
+            <h3 class="text-white text-lg font-semibold">Op Art Studio</h3>
+
+            <p class="text-white/90 text-sm mb-3">
+              Objetos de diseño, cerámicas y muebles que combinan formas modernas con colores suaves.
+            </p>
+
+            <a href="local.html?id=2" class="text-white/90 text-sm hover:underline">Ver más →</a>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="text-center mt-12">
+        <a href="locales.html" class="inline-flex items-center justify-center transition-all duration-200 rounded-[10px]
+         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+         disabled:opacity-50 disabled:cursor-not-allowed
+         bg-primary text-primary-foreground hover:bg-accent shadow-sm px-8 py-4">
+          Ver Todos los Locales
+        </a>
+    </section>
+
+
+    <!-- EXPERIENCIA -->
+    <section class="py-24 px-6 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+      <div class="md:w-1/2 space-y-6">
+
+        <h2 class="text-xl font-medium">Una Experiencia Única</h2>
+
+        <p class="text-muted">
+          Mind & Design es un espacio donde el diseño sostenible, la naturaleza y la
+          funcionalidad convergen para crear experiencias conscientes y memorables.
+        </p>
+
+        <p class="text-muted">
+          Cada local ha sido seleccionado por su compromiso con materiales naturales,
+          diseño orgánico y prácticas responsables con el medio ambiente.
+        </p>
+
+        <p class="text-muted">
+          Te invitamos a explorar, inspirarte y descubrir piezas únicas que transformarán tu
+          espacio con equilibrio y bienestar.
+        </p>
+
+        <div class="flex gap-4">
+          <a href="servicios.html" class="inline-flex items-center justify-center transition-all duration-200 rounded-[10px]
+         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+         disabled:opacity-50 disabled:cursor-not-allowed
+         bg-primary text-primary-foreground hover:bg-accent shadow-sm px-6 py-3">
+            Nuestros Servicios
+          </a>
+
+          <a href="contacto.html" alt="" class="inline-flex items-center justify-center transition-all duration-200 rounded-[10px]
+         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+         disabled:opacity-50 disabled:cursor-not-allowed
+         text-foreground hover:bg-secondary px-6 py-3">
+            Contacto
+          </a>
+        </div>
+      </div>
+
+      <div class="md:w-1/2">
+        <img src="./img/imagenesGeneral/imagenExperienciaUnica.jpg" alt="Experiencia Mind & Design"
+          class="rounded-2xl shadow-soft w-full h-[450px] object-cover" />
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
+    <div class="mx-auto max-w-content px-8 xl:px-0 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-white">M&amp;D</span>
+            <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
+          </div>
+
+          <p class="mt-4 text-muted max-w-[280px]">
+            La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad se
+            encuentran.
+          </p>
+
+          <!-- Icons -->
+          <div class="flex items-center gap-4 mt-4 text-muted">
+            <a href="#" class="hover:text-primary transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="hover:text-primary transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="hover:text-primary transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <h4 class="font-medium">Enlaces Rápidos</h4>
+          <ul class="mt-4 space-y-2 text-muted">
+            <li><a href="index.html" class="hover:underline">Inicio</a></li>
+            <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
+            <li><a href="locales.html" class="hover:underline">Locales</a></li>
+            <li><a href="ofertas.html" class="hover:underline">Ofertas</a></li>
+          </ul>
+        </div>
+
+        <!-- Información -->
+        <div>
+          <h4 class="font-medium">Información</h4>
+          <ul class="mt-4 space-y-2 text-muted">
+            <li><a href="#" class="hover:underline">Eventos</a></li>
+            <li><a href="gastronomia.html" class="hover:underline">Gastronomía</a></li>
+            <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
+            <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div>
+          <h4 class="font-medium">Contacto</h4>
+          <ul class="mt-4 space-y-3 text-muted">
+            <li class="flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+              Av. Diseño 1234, Centro Comercial
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+              +1 (234) 567-89
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+              info@mindanddesign.com
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-8 border-t border-border pt-6 text-center text-muted">
+        © 2025 Mind & Design. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- BOTÓN FLOTANTE -->
+  <button aria-label="Chatbot"
+    class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+  </button>
+
+  <!-- VENTANA DEL CHATBOT -->
+  <div id="chatbot-window"
+    class="fixed bottom-24 right-6 w-80 sm:w-96 bg-card rounded-lg shadow-2xl border border-border flex flex-col max-h-[600px] opacity-0 pointer-events-none scale-95 transition-all duration-300 z-50">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
+      <div class="flex items-center space-x-2">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <h3 class="text-sm font-medium">Asistente Virtual</h3>
+      </div>
+      <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors" aria-label="Cerrar chat">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
+
+    <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
+      <div class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm shadow-soft">
+        Escribiendo...
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="p-4 border-t border-border">
+      <div class="flex space-x-2">
+        <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..."
+          class="flex-1 px-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          aria-label="Escribe tu mensaje" />
+
+        <button id="chatbot-send"
+          class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
+          aria-label="Enviar mensaje">
+          <i data-lucide="send" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- SCRIPTS -->
+  <!-- SCRIPTS -->
+
+  <!-- jQuery SIEMPRE ANTES DE USAR $ -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Tu chatbot (si usa jQuery, también ya tiene $ disponible) -->
+  <script src="js/chatbot.js"></script>
+
+  <!-- Script principal -->
+  <script>
+    // Inicializar iconos Lucide
+    lucide.createIcons();
+
+    /* ⭐ MOBILE MENU */
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    let open = false;
+
+    toggle.addEventListener('click', () => {
+      open = !open;
+      menu.classList.toggle('hidden', !open);
+      toggle.setAttribute('aria-expanded', open);
+
+      toggle.innerHTML = open
+        ? '<i data-lucide="x"></i>'
+        : '<i data-lucide="menu"></i>';
+
+      lucide.createIcons();
+    });
+
+    /* ⭐ DETECTAR PÁGINA ACTIVA */
+    const current = window.location.pathname.split("/").pop() || "index.html";
+
+    document.querySelectorAll(".nav-item, .mobile-item").forEach(link => {
+      const href = link.getAttribute("href");
+
+      if (href === current) {
+        link.classList.add("bg-primary", "text-primary-foreground");
+      } else {
+        link.classList.add(
+          "hover:bg-secondary",
+          "hover:text-foreground",
+          "transition-colors",
+          "duration-200"
+        );
+      }
+    });
+
+    /* ⭐ VIDEO "DESCUBRE NUESTRO ESPACIO" */
+    $(document).ready(function () {
+      const video = document.getElementById("videoGaleria"); // elemento nativo
+      const $overlay = $("#overlayVideo");
+
+      // Play al hacer clic en el botón
+      $("#btnPlayVideo").on("click", function () {
+        if (video) {
+          video.play();
+          $overlay.fadeOut(400);
+        }
+      });
+
+      // Cuando termine el video, volver a mostrar overlay (opcional)
+      if (video) {
+        video.addEventListener("ended", function () {
+          $overlay.fadeIn(300);
+        });
+      }
+    });
+  </script>
+
+  <script src="js/chatbot.js"></script>
+</body>
+
+</html>

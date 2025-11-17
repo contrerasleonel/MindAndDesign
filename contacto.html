@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mind & Design — Contacto</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#F6F5F1',
+                        foreground: '#1E1E1E',
+                        primary: '#7A8061',
+                        'primary-foreground': '#FFFFFF',
+                        secondary: '#EAE8E0',
+                        'secondary-foreground': '#1E1E1E',
+                        accent: '#AFC1A1',
+                        'accent-foreground': '#1E1E1E',
+                        card: '#FFFFFF',
+                        'card-foreground': '#1E1E1E',
+                        border: '#CFC7B5',
+                        muted: '#5B5B5B',
+                        'input-background': "#F8F7F3"
+                    },
+                    boxShadow: {
+                        soft: '0 1px 2px rgba(0,0,0,.10), 0 1px 3px rgba(0,0,0,.10)',
+                        float: '0 4px 6px rgba(0,0,0,.10), 0 10px 15px rgba(0,0,0,.10)'
+                    },
+                    maxWidth: {
+                        content: "1216px"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --radius: 10px;
+        }
+
+        * {
+            font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Space Grotesk", Manrope, sans-serif;
+        }
+
+        .chip {
+            border-radius: 9999px;
+        }
+
+        #typing-indicator {
+            justify-content: flex-start;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground antialiased">
+
+    <!-- NAVBAR UNIFICADA -->
+    <header
+        class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
+        <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <span
+                    class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">
+                    M&D
+                </span>
+                <span class="text-xl font-medium tracking-[-0.35px]">Mind & Design</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-1">
+                <a href="index.html" class="nav-item px-4 py-2 rounded-md text-base">Inicio</a>
+                <a href="servicios.html" class="nav-item px-4 py-2 rounded-md text-base">Servicios</a>
+                <a href="entretenimientos.html" class="nav-item px-4 py-2 rounded-md text-base">Entretenimientos</a>
+                <a href="locales.html" class="nav-item px-4 py-2 rounded-md text-base">Locales</a>
+                <a href="ofertas.html" class="nav-item px-4 py-2 rounded-md text-base">Ofertas</a>
+                <a href="gastronomia.html" class="nav-item px-4 py-2 rounded-md text-base">Gastronomía</a>
+                <a href="contacto.html"
+                    class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">
+                    Contacto
+                </a>
+            </div>
+
+            <!-- CTA -->
+            <a href="contacto.html"
+                class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition-opacity">
+                Visítanos
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
+                class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
+            <a href="index.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Inicio</a>
+            <a href="servicios.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Servicios</a>
+            <a href="entretenimientos.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md">Entretenimientos</a>
+            <a href="locales.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Locales</a>
+            <a href="ofertas.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Ofertas</a>
+            <a href="gastronomia.html" class="mobile-item block w-full text-left px-4 py-3 rounded-md">Gastronomía</a>
+            <a href="contacto.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md bg-primary text-primary-foreground">Contacto</a>
+
+            <a href="contacto.html"
+                class="block w-full mt-2 text-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition-opacity">
+                Visítanos
+            </a>
+        </div>
+    </header>
+
+    <!-- ALERTA ELEGANTE -->
+    <div id="alertBox"
+        class="hidden fixed top-28 left-1/2 -translate-x-1/2 z-[9999] px-6 py-4 rounded-[12px] shadow-float text-sm font-medium transition-all duration-300 opacity-0">
+    </div>
+
+    <main class="pt-32 pb-20">
+        <section class="max-w-content mx-auto px-6 space-y-16">
+
+            <!-- TÍTULO -->
+            <div class="text-center space-y-3">
+                <h1 class="text-2xl md:text-3xl font-semibold tracking-[-0.02em]">
+                    Contacto
+                </h1>
+                <p class="max-w-[672px] mx-auto text-lg leading-7 text-muted">
+                    ¿Tienes alguna pregunta o sugerencia? Estamos aquí para ayudarte
+                </p>
+            </div>
+
+            <!-- GRID PRINCIPAL -->
+            <div class="grid lg:grid-cols-2 gap-12">
+
+                <!-- FORMULARIO -->
+                <div class="bg-card border border-border rounded-[10px] p-8 shadow-soft">
+                    <h2 class="text-xl font-medium mb-6">Envíanos un Mensaje</h2>
+
+                    <form class="space-y-6">
+
+                        <!-- Nombre -->
+                        <div>
+                            <label class="block text-sm font-medium mb-2">
+                                Nombre Completo <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" data-campo="nombre" placeholder="Tu nombre" required
+                                class="w-full px-4 py-3 bg-card border border-border rounded-[10px] placeholder:text-muted text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+                            <p class="text-red-600 text-xs mt-1 hidden" data-error="nombre"></p>
+
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-sm font-medium mb-2">
+                                Email <span class="text-red-500">*</span>
+                            </label>
+                            <input type="email" data-campo="email" placeholder="tu@email.com" required
+                                class="w-full px-4 py-3 bg-card border border-border rounded-[10px] placeholder:text-muted text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+                            <p class="text-red-600 text-xs mt-1 hidden" data-error="email"></p>
+
+                        </div>
+
+                        <!-- Teléfono -->
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Teléfono</label>
+                            <input type="tel" data-campo="telefono" placeholder="+1 (234) 567-89"
+                                class="w-full px-4 py-3 bg-card border border-border rounded-[10px] placeholder:text-muted text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+                            <p class="text-red-600 text-xs mt-1 hidden" data-error="telefono"></p>
+
+                        </div>
+
+                        <!-- Asunto -->
+                        <div>
+                            <label class="block text-sm font-medium mb-2">
+                                Asunto <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" data-campo="asunto" placeholder="¿Sobre qué quieres consultarnos?"
+                                required
+                                class="w-full px-4 py-3 bg-card border border-border rounded-[10px] placeholder:text-muted text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition" />
+                            <p class="text-red-600 text-xs mt-1 hidden" data-error="asunto"></p>
+
+                        </div>
+
+                        <!-- Mensaje -->
+                        <div>
+                            <label class="block text-sm font-medium mb-2">
+                                Mensaje <span class="text-red-500">*</span>
+                            </label>
+                            <textarea data-campo="mensaje" rows="6" placeholder="Cuéntanos en qué podemos ayudarte..."
+                                required
+                                class="w-full px-4 py-3 bg-card border border-border rounded-[10px] placeholder:text-muted text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition"></textarea>
+                            <p class="text-red-600 text-xs mt-1 hidden" data-error="mensaje"></p>
+
+                        </div>
+
+                        <button type="submit"
+                            class="w-full h-12 bg-primary text-primary-foreground rounded-[10px] shadow-soft hover:bg-accent transition-colors">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+                <!-- INFO + REDES + MAPA -->
+                <div class="flex flex-col gap-8">
+
+                    <!-- INFORMACIÓN DE CONTACTO -->
+                    <div class="bg-card border border-border rounded-[10px] p-8 shadow-soft space-y-6">
+                        <h2 class="text-xl font-medium">Información de Contacto</h2>
+
+                        <div class="space-y-6 text-muted text-sm">
+
+                            <!-- Dirección -->
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-primary/10 rounded-[10px] flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-foreground font-medium mb-1">Dirección</h4>
+                                    <p>Av. Diseño 1234</p>
+                                    <p>Centro Comercial Mind & Design</p>
+                                    <p>Ciudad, CP 12345</p>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-primary/10 rounded-[10px] flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="mail" class="w-6 h-6 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-foreground font-medium mb-1">Email</h4>
+                                    <p>info@mindanddesign.com</p>
+                                </div>
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-primary/10 rounded-[10px] flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-6 h-6 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-foreground font-medium mb-1">Teléfono</h4>
+                                    <p>+1 (234) 567-89</p>
+                                </div>
+                            </div>
+
+                            <!-- Horarios -->
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-primary/10 rounded-[10px] flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="clock" class="w-6 h-6 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-foreground font-medium mb-1">Horarios</h4>
+                                    <p>Lun - Vie: 10:00 - 21:00</p>
+                                    <p>Sábados: 10:00 - 22:00</p>
+                                    <p>Dom y Festivos: 11:00 - 20:00</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- MAPA -->
+                    <div class="bg-card border border-border rounded-[10px] p-8 shadow-soft">
+                        <h2 class="text-xl font-medium mb-4">Cómo llegar</h2>
+
+                        <div
+                            class="aspect-video bg-secondary rounded-[10px] flex flex-col items-center justify-center text-muted">
+                            <i data-lucide="map-pin" class="w-10 h-10 text-primary mb-2"></i>
+                            <p>Mapa de ubicación</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- REDES – Full width mejor distribuido -->
+            <div class="bg-card border border-border rounded-[10px] p-10 shadow-soft">
+
+                <!-- Título y descripción centrados -->
+                <div class="text-center mb-8">
+                    <h2 class="text-xl font-medium mb-2">Síguenos</h2>
+                    <p class="text-muted text-sm">
+                        Mantente al día con nuestras novedades, eventos y ofertas exclusivas
+                    </p>
+                </div>
+
+                <!-- Redes centradas y distribuidas -->
+                <div class="flex flex-wrap justify-center gap-6">
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener" class="group flex items-center gap-2 px-5 py-3 bg-secondary rounded-[10px]
+                  transition-all duration-200 hover:bg-primary hover:shadow-md hover:-translate-y-0.5">
+                        <i data-lucide="instagram"
+                            class="w-5 h-5 text-primary transition-colors group-hover:text-primary-foreground"></i>
+                        <span class="text-foreground group-hover:text-primary-foreground transition-colors">
+                            Instagram
+                        </span>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="group flex items-center gap-2 px-5 py-3 bg-secondary rounded-[10px]
+                  transition-all duration-200 hover:bg-primary hover:shadow-md hover:-translate-y-0.5">
+                        <i data-lucide="facebook"
+                            class="w-5 h-5 text-primary transition-colors group-hover:text-primary-foreground"></i>
+                        <span class="text-foreground group-hover:text-primary-foreground transition-colors">
+                            Facebook
+                        </span>
+                    </a>
+
+                    <!-- Twitter -->
+                    <a href="https://twitter.com" target="_blank" rel="noopener" class="group flex items-center gap-2 px-5 py-3 bg-secondary rounded-[10px]
+                  transition-all duration-200 hover:bg-primary hover:shadow-md hover:-translate-y-0.5">
+                        <i data-lucide="twitter"
+                            class="w-5 h-5 text-primary transition-colors group-hover:text-primary-foreground"></i>
+                        <span class="text-foreground group-hover:text-primary-foreground transition-colors">
+                            Twitter
+                        </span>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- FAQ SECTION -->
+            <div class="bg-secondary/30 rounded-[10px] p-10 md:p-12 space-y-10 shadow-soft">
+                <h2 class="text-xl text-center font-medium">Preguntas Frecuentes</h2>
+
+                <div class="grid md:grid-cols-2 gap-8 text-muted text-sm leading-relaxed">
+
+                    <div>
+                        <h3 class="text-foreground font-medium mb-1">¿Tienen estacionamiento?</h3>
+                        <p>Sí, contamos con más de 500 espacios de estacionamiento gratuito para nuestros visitantes.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-foreground font-medium mb-1">¿Puedo reservar espacios para eventos?</h3>
+                        <p>Sí, tenemos espacios disponibles para eventos corporativos y privados. Contáctanos para más
+                            información.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-foreground font-medium mb-1">¿Hay WiFi gratuito?</h3>
+                        <p>Sí, ofrecemos conexión WiFi gratuita de alta velocidad en todas las áreas del centro
+                            comercial.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-foreground font-medium mb-1">¿Cómo puedo arrendar un local?</h3>
+                        <p>Envíanos un mensaje a través del formulario o comunícate directamente con nosotros para
+                            conocer la disponibilidad.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
+        <div class="mx-auto max-w-content px-8 xl:px-0 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-primary-foreground">
+                            M&amp;D
+                        </span>
+                        <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
+                    </div>
+
+                    <p class="mt-4 text-muted max-w-[280px]">
+                        La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad
+                        se encuentran.
+                    </p>
+
+                    <!-- Icons -->
+                    <div class="flex items-center gap-4 mt-4 text-muted">
+                        <a href="#" class="hover:text-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="hover:text-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="hover:text-primary transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enlaces -->
+                <div>
+                    <h4 class="font-medium">Enlaces Rápidos</h4>
+                    <ul class="mt-4 space-y-2 text-muted">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Inicio</a></li>
+                        <li><a href="servicios.html" class="hover:text-primary transition-colors">Servicios</a></li>
+                        <li><a href="entretenimientos.html"
+                                class="hover:text-primary transition-colors">Entretenimientos</a></li>
+                        <li><a href="locales.html" class="hover:text-primary transition-colors">Locales</a></li>
+                    </ul>
+                </div>
+
+                <!-- Info -->
+                <div>
+                    <h4 class="font-medium">Información</h4>
+                    <ul class="mt-4 space-y-2 text-muted">
+                        <li><a href="#" class="hover:text-primary transition-colors">Eventos</a></li>
+                        <li><a href="gastronomia.html" class="hover:text-primary transition-colors">Gastronomía</a></li>
+                        <li><a href="contacto.html" class="hover:text-primary transition-colors">Contacto</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-medium">Contacto</h4>
+                    <ul class="mt-4 space-y-3 text-muted">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+                            Av. Diseño 1234, Centro Comercial
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+                            +1 (234) 567-89
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+                            info@mindanddesign.com
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-8 border-t border-border pt-6 text-center text-muted">
+                © 2025 Mind & Design. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE -->
+    <button aria-label="Chatbot"
+        class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+    </button>
+
+    <!-- VENTANA DEL CHATBOT -->
+    <div id="chatbot-window"
+        class="fixed bottom-24 right-6 w-80 sm:w-96 bg-card rounded-lg shadow-2xl border border-border flex flex-col max-h-[600px] opacity-0 pointer-events-none scale-95 transition-all duration-300 z-50">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <h3 class="text-sm font-medium">Asistente Virtual</h3>
+            </div>
+            <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors"
+                aria-label="Cerrar chat">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Messages -->
+        <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
+
+        <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
+            <div class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm shadow-soft">
+                Escribiendo...
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="p-4 border-t border-border">
+            <div class="flex space-x-2">
+                <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..."
+                    class="flex-1 px-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    aria-label="Escribe tu mensaje" />
+
+                <button id="chatbot-send"
+                    class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
+                    aria-label="Enviar mensaje">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                menuOpen = !menuOpen;
+                menu.classList.toggle('hidden', !menuOpen);
+                toggle.setAttribute('aria-expanded', menuOpen);
+                toggle.innerHTML = menuOpen
+                    ? '<i data-lucide="x"></i>'
+                    : '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            });
+        }
+
+        // Active nav item
+        const current = window.location.pathname.split("/").pop() || "index.html";
+        document.querySelectorAll(".nav-item, nav a, .mobile-item").forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === current) {
+                link.classList.add("bg-primary", "text-primary-foreground");
+            } else {
+                link.classList.add("hover:bg-secondary", "hover:text-foreground", "transition-colors");
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/contacto.js"></script>
+    <script src="js/chatbot.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mind & Design — Gastronomía</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#F6F5F1',
+            foreground: '#1E1E1E',
+            primary: '#7A8061',
+            "primary-foreground": "#FFFFFF",
+            secondary: '#EAE8E0',
+            accent: '#AFC1A1',
+            'accent-foreground': '#1E1E1E',
+            "secondary-foreground": "#1E1E1E",
+            card: '#FFFFFF',
+            "card-foreground": "#1E1E1E",
+            border: '#CFC7B5',
+            muted: '#5B5B5B',
+            'input-background': "#F8F7F3"
+          },
+          boxShadow: {
+            soft: '0 1px 2px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.1)',
+            float: '0 4px 6px rgba(0,0,0,.10), 0 10px 15px rgba(0,0,0,.10)',
+          },
+          maxWidth: {
+            content: '1216px',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --radius: 10px;
+    }
+
+    * {
+      font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+    }
+
+    .chip {
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-foreground antialiased">
+
+  <header
+    class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
+    <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <span
+          class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&amp;D</span>
+        <span class="text-xl font-medium tracking-[-0.35px]">Mind &amp; Design</span>
+      </a>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex items-center gap-1">
+        <a href="index.html"
+          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Inicio</a>
+        <a href="servicios.html"
+          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Servicios</a>
+        <a href="entretenimientos.html"
+          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Entretenimientos</a>
+        <a href="locales.html"
+          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Locales</a>
+        <a href="ofertas.html"
+          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Ofertas</a>
+        <a href="gastronomia.html"
+          class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">Gastronomía</a>
+        <a href="contacto.html"
+          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Contacto</a>
+      </div>
+
+      <!-- CTA -->
+      <a href="contacto.html"
+        class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent">Visítanos</a>
+
+      <!-- Botón móvil -->
+      <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
+        class="md:hidden p-2 rounded-md text-foreground hover:bg-secondary transition-colors">
+        <i data-lucide="menu"></i>
+      </button>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
+      <a href="inicio.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Inicio</a>
+      <a href="servicios.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Servicios</a>
+      <a href="entretenimientos.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Entretenimientos</a>
+      <a href="locales.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Locales</a>
+      <a href="ofertas.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Ofertas</a>
+      <a href="gastronomia.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md text-base bg-primary text-primary-foreground">Gastronomía</a>
+      <a href="contacto.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md text-base transition-colors duration-200 hover:bg-secondary hover:text-foreground">Contacto</a>
+
+      <a href="contacto.html"
+        class="mobile-item block w-full mt-2 text-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:opacity-90 transition-opacity">Visítanos</a>
+    </div>
+  </header>
+
+
+  <main class="pt-32">
+    <!-- ENCABEZADO DE PÁGINA -->
+    <section class="mx-auto max-w-content px-6 xl:px-0">
+      <div class="flex flex-col items-center gap-2 text-center">
+        <div class="w-8 h-8 text-primary">
+          <!-- icon cubiertos -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 32 32" fill="none">
+            <path
+              d="M4 2.667V12a2.67 2.67 0 0 0 2.667 2.667H12a2.67 2.67 0 0 0 2.667-2.667V2.667M9.333 2.667V29.333M28 20V2.667c-1.768 0-3.463.702-4.713 1.952A6.667 6.667 0 0 0 21.333 9.333V17.333A2.667 2.667 0 0 0 24 20H28V29.333"
+              stroke="#7A8061" stroke-width="2.667" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h1 class="text-base">Gastronomía</h1>
+        <p class="max-w-[672px] text-lg leading-7 text-muted">
+          Disfruta de nuestros espacios gastronómicos con propuestas únicas y un diseño excepcional
+        </p>
+      </div>
+    </section>
+
+    <!-- HERO -->
+    <section class="mx-auto max-w-content px-6 xl:px-0 mt-8">
+      <div class="relative h-[500px] rounded-[10px] overflow-hidden">
+        <img src="/img/imagenesGeneral/imagenGastronomia.png"
+          onerror="this.src='https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1600&auto=format&fit=crop'"
+          alt="Experiencia gastronómica" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-tr from-black/80 to-black/0"></div>
+
+        <div class="absolute inset-0 flex items-end">
+          <div class="p-12 w-full md:w-[768px] flex flex-col gap-4">
+            <h2 class="text-white text-xl font-medium">Experiencia Gastronómica Única</h2>
+            <p class="text-white/90 text-lg leading-7">
+              Nuestros espacios gastronómicos combinan diseño contemporáneo con propuestas culinarias innovadoras.
+              Cada rincón está pensado para que disfrutes de una experiencia memorable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUES 2 COL -->
+    <section class="mx-auto max-w-content px-6 xl:px-0 mt-16 space-y-16">
+      <!-- 1) Café -->
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+
+        <!-- Imagen -->
+        <div class="h-[400px] rounded-[14px] overflow-hidden shadow-soft">
+          <img src="/img/imagenesGeneral/imagenGastronomia2.png" alt="Café Botánico" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Texto -->
+        <div class="flex flex-col gap-5">
+
+          <!-- Chip superior (no tocar) -->
+          <span class="chip inline-flex px-4 h-10 items-center bg-primary/10 text-primary text-sm">
+            Café
+          </span>
+
+          <h3 class="text-lg font-medium">Café Botánico</h3>
+
+          <p class="text-muted leading-[28px]">
+            Un rincón rodeado de naturaleza donde disfrutar cafés artesanales,
+            infusiones botánicas y repostería fresca. Ideal para relajarse,
+            trabajar o compartir un momento tranquilo en un ambiente verde.
+          </p>
+
+          <!-- Horario & ubicación -->
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 text-muted">
+              <i data-lucide="clock" class="w-5 h-5 text-primary"></i>
+              <span>Lun–Dom: 8:00 – 21:00</span>
+            </div>
+            <div class="flex items-center gap-3 text-muted">
+              <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+              <span>Planta Baja – Área Central</span>
+            </div>
+          </div>
+
+          <!-- Chips de categorías (funcionaban perfecto, solo les doy más aire) -->
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="chip bg-secondary px-3 py-1.5 text-sm">Café Artesanal</span>
+            <span class="chip bg-secondary px-3 py-1.5 text-sm">Infusiones Botánicas</span>
+            <span class="chip bg-secondary px-3 py-1.5 text-sm">Repostería Natural</span>
+            <span class="chip bg-secondary px-3 py-1.5 text-sm">Opciones Veganas</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- 2) Restaurante -->
+      <div class="grid md:grid-cols-2 gap-8 items-start md:[&>*:first-child]:order-2">
+        <div class="h-[384px] rounded-[10px] overflow-hidden md:order-2">
+          <img src="/img/imagenesGeneral/imagenGastronomia3.png"
+            onerror="this.src='https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1400&auto=format&fit=crop'"
+            alt="Restaurante" class="w-full h-full object-cover">
+        </div>
+        <div class="pt-1 md:order-1">
+          <span class="chip inline-flex px-4 h-10 items-center bg-primary/10 text-primary text-sm">Restaurante</span>
+
+          <h3 class="mt-4 text-base">Bistro Lumière</h3>
+          <p class="mt-3 text-muted leading-[26px]">
+            Nuestro menú fusiona sabores mediterráneos con toques asiáticos, utilizando ingredientes frescos y de
+            temporada.
+          </p>
+
+          <div class="mt-5 space-y-2">
+            <div class="flex items-center gap-3 text-muted">
+              <i data-lucide="clock" class="w-5 h-5 text-primary"></i>
+              <span>Lun–Dom: 12:00 – 23:00</span>
+            </div>
+            <div class="flex items-center gap-3 text-muted">
+              <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+              <span>Segundo Piso – Área Gourmet</span>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="chip bg-secondary px-3 py-1.5 text-sm">Cocina Fusión</span>
+            <span class="chip bg-secondary px-3 py-1.5 text-sm">Vinos Selectos</span>
+            <span class="chip bg-secondary px-3 py-1.5 text-sm">Menú Ejecutivo</span>
+            <span class="chip bg-secondary px-3 py-1.5 text-sm">Cenas Privadas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS ADICIONALES -->
+    <section class="mx-auto max-w-content px-6 xl:px-0 mt-16">
+      <div class="rounded-[10px] bg-[rgba(234,232,224,0.30)] border border-border/0 p-12">
+        <h3 class="text-center text-base">Servicios Adicionales</h3>
+
+        <div class="mt-10 grid md:grid-cols-3 gap-8">
+          <!-- Coffee Stations -->
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto rounded-full grid place-content-center bg-primary/10">
+              <i data-lucide="coffee" class="w-8 h-8 text-primary"></i>
+            </div>
+            <h4 class="mt-5">Coffee Stations</h4>
+            <p class="mt-2 text-muted">
+              Puntos de café express distribuidos en ambos pisos para una pausa rápida.
+            </p>
+          </div>
+
+          <!-- Opciones Saludables -->
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto rounded-full grid place-content-center bg-primary/10 text-2xl">🥗</div>
+            <h4 class="mt-5">Opciones Saludables</h4>
+            <p class="mt-2 text-muted">Menús balanceados, opciones veganas, vegetarianas y sin gluten disponibles.</p>
+          </div>
+
+          <!-- Wine Bar -->
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto rounded-full grid place-content-center bg-primary/10 text-2xl">🍷</div>
+            <h4 class="mt-5">Wine Bar</h4>
+            <p class="mt-2 text-muted">Selección de vinos nacionales e internacionales para tu comida.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA RESERVA -->
+    <section class="mx-auto max-w-content px-6 xl:px-0 mt-10">
+      <div class="rounded-[10px] bg-gradient-to-tr from-primary/10 to-[#AFC1A1]/10 p-12 text-center">
+        <h3 class="text-base">Reserva tu Mesa</h3>
+        <p class="mt-3 max-w-[672px] mx-auto text-muted">
+          Asegura tu lugar en nuestros espacios gastronómicos. Reserva con anticipación y disfruta de una experiencia
+          única.
+        </p>
+        <a href="#"
+          class="inline-flex mt-6 h-12 px-6 rounded-[10px] bg-primary text-white items-center justify-center">Hacer
+          Reserva</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
+    <div class="mx-auto max-w-content px-8 xl:px-0 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-white">M&amp;D</span>
+            <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
+          </div>
+          <p class="mt-4 text-muted">
+            La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad se
+            encuentran.
+          </p>
+          <!-- Icons -->
+          <div class="flex items-center gap-4 mt-4 text-muted">
+            <a href="#" class="hover:text-primary transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="hover:text-primary transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="hover:text-primary transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-medium">Enlaces Rápidos</h4>
+          <ul class="mt-4 space-y-2 text-muted">
+            <li><a href="#" class="hover:underline">Inicio</a></li>
+            <li><a href="#" class="hover:underline">Servicios</a></li>
+            <li><a href="#" class="hover:underline">Locales</a></li>
+            <li><a href="#" class="hover:underline">Ofertas</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-medium">Información</h4>
+          <ul class="mt-4 space-y-2 text-muted">
+            <li><a href="#" class="hover:underline">Eventos</a></li>
+            <li><a href="#" class="hover:underline">Gastronomía</a></li>
+            <li><a href="#" class="hover:underline">Contacto</a></li>
+            <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-medium">Contacto</h4>
+          <ul class="mt-4 space-y-3 text-muted">
+            <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-primary"></i> Av. Diseño
+              1234, Centro Comercial</li>
+            <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 text-primary"></i> +1 (234) 567-89
+            </li>
+            <li class="flex items-center gap-3"><i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+              info@mindanddesign.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 border-t border-border pt-6 text-center text-muted">
+        © 2025 Mind & Design. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE -->
+  <button aria-label="Chatbot"
+    class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+  </button>
+
+  <!-- VENTANA DEL CHATBOT -->
+  <div id="chatbot-window"
+    class="fixed bottom-24 right-6 w-80 sm:w-96 bg-card rounded-lg shadow-2xl border border-border flex flex-col max-h-[600px] opacity-0 pointer-events-none scale-95 transition-all duration-300 z-50">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
+      <div class="flex items-center space-x-2">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <h3 class="text-sm font-medium">Asistente Virtual</h3>
+      </div>
+      <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors" aria-label="Cerrar chat">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
+
+    <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
+      <div class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm shadow-soft">
+        Escribiendo...
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="p-4 border-t border-border">
+      <div class="flex space-x-2">
+        <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..."
+          class="flex-1 px-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          aria-label="Escribe tu mensaje" />
+
+        <button id="chatbot-send"
+          class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
+          aria-label="Enviar mensaje">
+          <i data-lucide="send" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SCRIPTS -->
+  <script>
+    lucide.createIcons();
+
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    let open = false;
+
+    toggle.addEventListener('click', () => {
+      open = !open;
+      menu.classList.toggle('hidden', !open);
+      toggle.setAttribute('aria-expanded', open);
+      toggle.innerHTML = open ?
+        '<i data-lucide="x"></i>' :
+        '<i data-lucide="menu"></i>';
+      lucide.createIcons();
+    });
+
+    const current = window.location.pathname.split("/").pop() || "index.html";
+
+    document.querySelectorAll(".nav-item, .mobile-item").forEach(link => {
+      const href = link.getAttribute("href");
+
+      if (href === current) {
+        link.classList.add("bg-primary", "text-primary-foreground");
+      } else {
+        link.classList.add("hover:bg-secondary", "hover:text-foreground", "transition-colors", "duration-200");
+      }
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script src="js/chatbot.js"></script>
+</body>
+
+</html>
