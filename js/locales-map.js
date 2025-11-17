@@ -50,11 +50,10 @@ function drawLocals(floor = 1) {
     .filter((l) => l.floor === floor)
     .forEach((local) => {
       const color = getCategoryColor(local.category, local.isActive);
-      const ariaLabel = `Local ${local.name}, categoría ${local.category}${
-        local.isActive
+      const ariaLabel = `Local ${local.name}, categoría ${local.category}${local.isActive
           ? ", haz clic para ver más información"
           : ", próximamente"
-      }`;
+        }`;
 
       svgContent += `
         <g 
@@ -63,9 +62,8 @@ function drawLocals(floor = 1) {
           tabindex="0" 
           role="button"
           aria-label="${ariaLabel}"
-          style="cursor: ${
-            local.isActive ? "pointer" : "default"
-          }; outline: none;"
+          style="cursor: ${local.isActive ? "pointer" : "default"
+        }; outline: none;"
         >
           <rect
             class="local-rect"
@@ -155,15 +153,14 @@ function initDesktopTooltip() {
 
         <p class="text-xs text-muted mb-3">${local.location}</p>
 
-        ${
-          local.isActive
-            ? `<button class="w-full h-10 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition font-medium text-sm" aria-label="Ver más información del local ${local.name}">
+        ${local.isActive
+        ? `<button class="w-full h-10 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition font-medium text-sm" aria-label="Ver más información del local ${local.name}">
                  Ver Local →
                </button>`
-            : `<span class="w-full h-10 rounded-[10px] bg-secondary text-muted grid place-content-center text-sm">
+        : `<span class="w-full h-10 rounded-[10px] bg-secondary text-muted grid place-content-center text-sm">
                  En preparación
                </span>`
-        }
+      }
       </div>
     `);
 
@@ -212,19 +209,26 @@ function initDesktopTooltip() {
 
     const id = Number($(this).data("id"));
     const local = localsData.find((l) => l.id === id);
+    if (!local) return;
 
-    // Restaurar estilos originales
+    // 🔥 RECALCULAR color ORIGINAL
+    const color = getCategoryColor(local.category, local.isActive);
+
+    // Restaurar rect
     $(this).find("rect").css({
       "stroke-width": "0.5",
       filter: "none",
       transition: "all 0.2s ease",
     });
-    $(this).find("rect").attr("fill", color);
-    $(this).find("text").attr("fill", "#FFFFFF");
+    $(this).find("rect").attr("fill", "#FFFFFF");
 
+    // Restaurar color del número
+    $(this).find("text").attr("fill", color);
+
+    // Ocultar tooltip
     tooltip.addClass("hidden");
-    currentLocalId = null;
   });
+  ;
 
   // CLICK: Navegar al local (solo si está activo)
   $("#localsLayer").on("click", "g", function () {
@@ -344,9 +348,8 @@ function initMobileBottomSheet() {
         </button>
       </div>
 
-      <p class="text-base font-medium mb-2" style="color:${color}">${
-      local.category
-    }</p>
+      <p class="text-base font-medium mb-2" style="color:${color}">${local.category
+      }</p>
 
       <p class="text-base text-muted-foreground leading-6 mb-3">
         ${local.description}
@@ -357,16 +360,15 @@ function initMobileBottomSheet() {
         ${local.location}
       </p>
 
-      ${
-        local.isActive
-          ? `<a 
+      ${local.isActive
+        ? `<a 
               href="local.html?id=${local.id}" 
               class="w-full h-12 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition font-medium text-base flex items-center justify-center"
               aria-label="Ver más información del local ${local.name}"
             >
               Ver Local →
             </a>`
-          : `<div class="w-full h-12 rounded-[10px] bg-secondary text-muted grid place-content-center text-base">
+        : `<div class="w-full h-12 rounded-[10px] bg-secondary text-muted grid place-content-center text-base">
               En preparación
             </div>`
       }
@@ -452,9 +454,8 @@ function setupFloorButtons() {
     drawLocals(floor);
 
     // Anunciar cambio para lectores de pantalla
-    const announcement = `Mostrando locales del ${
-      floor === 1 ? "primer" : "segundo"
-    } piso`;
+    const announcement = `Mostrando locales del ${floor === 1 ? "primer" : "segundo"
+      } piso`;
     announceToScreenReader(announcement);
   });
 

@@ -15,55 +15,64 @@ $(document).ready(function () {
   // 1. RENDERIZAR TODAS LAS CARDS DESDE localsData
   // ============================================================
   function renderCards() {
-    grid.empty();
+  grid.empty();
 
-    localsData.forEach((local) => {
-      const isInactive = !local.isActive;
+  localsData.forEach((local) => {
+    const isInactive = !local.isActive;
 
-      const card = `
-        <div 
-          data-category="${local.category}" 
-          data-name="${local.name}"
-          class="local-card group border border-border rounded-[10px] bg-card shadow-soft overflow-hidden transition-all duration-300 ${
-            isInactive ? "opacity-60" : ""
-          }"
-          role="listitem"
-        >
-          <div class="overflow-hidden">
-            <img 
-              src="${local.image}" 
-              alt="${local.name}"
-              class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105" 
-            />
-          </div>
-
-          <div class="p-5">
-            <div class="flex justify-between items-center mb-2">
-              <h3 class="text-lg font-medium">${local.name}</h3>
-              <span class="chip bg-secondary px-3 py-1 text-sm">${local.category}</span>
-            </div>
-
+    const card = `
+      <div 
+        data-category="${local.category}" 
+        data-name="${local.name}"
+        class="local-card group border border-border rounded-[10px] bg-card shadow-soft overflow-hidden duration-300 
+        ${
+          isInactive
+            ? "opacity-80 pointer-events-none"
+            : "hover:-translate-y-[2px] hover:shadow-float transition-all"
+        }"
+        role="listitem"
+      >
+        <div class="overflow-hidden">
+          <img 
+            src="${local.image}" 
+            alt="${local.name}"
+            class="h-48 w-full object-cover
             ${
-              local.isActive
-                ? `<a href="local.html?id=${local.id}" 
-                     class="text-primary text-sm font-medium hover:underline"
-                     aria-label="Ver más información del local ${local.name}">
-                     Ver Local →
-                   </a>`
-                : `<button class="w-full chip bg-secondary text-muted py-2 text-sm font-medium"
-                     aria-disabled="true">
-                    Próximamente
-                   </button>`
-            }
-          </div>
+              isInactive
+                ? "grayscale" 
+                : "transition-transform duration-500 group-hover:scale-105"
+            }"
+          />
         </div>
-      `;
 
-      grid.append(card);
-    });
+        <div class="p-5">
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-lg font-medium">${local.name}</h3>
+            <span class="chip bg-secondary px-3 py-1 text-sm">${local.category}</span>
+          </div>
 
-    console.log("✅ Cards renderizadas:", localsData.length);
-  }
+          ${
+            local.isActive
+              ? `<a href="local.html?id=${local.id}" 
+                   class="text-primary text-sm font-medium hover:underline"
+                   aria-label="Ver más información del local ${local.name}">
+                   Ver Local →
+                 </a>`
+              : `<button class="w-full chip bg-[#EAE8E0] text-foreground/60 py-2 text-sm font-medium"
+                   aria-disabled="true">
+                  Próximamente
+                 </button>`
+          }
+        </div>
+      </div>
+    `;
+
+    grid.append(card);
+  });
+
+  console.log("✅ Cards renderizadas:", localsData.length);
+}
+
 
   // ============================================================
   // 2. FUNCIÓN DE FILTRADO
@@ -160,12 +169,16 @@ $(document).ready(function () {
 
     // estilos visuales
     chips
-      .removeClass("bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2")
+      .removeClass(
+        "bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2"
+      )
       .addClass("bg-secondary text-foreground hover:bg-secondary/80");
 
     $(this)
       .removeClass("bg-secondary text-foreground hover:bg-secondary/80")
-      .addClass("bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2");
+      .addClass(
+        "bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2"
+      );
 
     activeCategory = $(this).data("filter");
     filtrar();
