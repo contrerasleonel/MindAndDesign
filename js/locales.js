@@ -27,6 +27,7 @@ $(document).ready(function () {
           class="local-card group border border-border rounded-[10px] bg-card shadow-soft overflow-hidden transition-all duration-300 ${
             isInactive ? "opacity-60" : ""
           }"
+          role="listitem"
         >
           <div class="overflow-hidden">
             <img 
@@ -44,10 +45,13 @@ $(document).ready(function () {
 
             ${
               local.isActive
-                ? `<a href="local.html?id=${local.id}" class="text-primary text-sm font-medium hover:underline">
+                ? `<a href="local.html?id=${local.id}" 
+                     class="text-primary text-sm font-medium hover:underline"
+                     aria-label="Ver más información del local ${local.name}">
                      Ver Local →
                    </a>`
-                : `<button class="w-full chip bg-secondary text-muted py-2 text-sm font-medium">
+                : `<button class="w-full chip bg-secondary text-muted py-2 text-sm font-medium"
+                     aria-disabled="true">
                     Próximamente
                    </button>`
             }
@@ -147,9 +151,14 @@ $(document).ready(function () {
   }
 
   // ============================================================
-  // 7. EVENTOS DE FILTROS
+  // 7. EVENTOS DE FILTROS (ACCESIBILIDAD MEJORADA)
   // ============================================================
   chips.on("click", function () {
+    // estado aria-pressed
+    chips.attr("aria-pressed", "false");
+    $(this).attr("aria-pressed", "true");
+
+    // estilos visuales
     chips
       .removeClass("bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2")
       .addClass("bg-secondary text-foreground hover:bg-secondary/80");

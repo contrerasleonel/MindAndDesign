@@ -63,65 +63,106 @@
         .chip {
             border-radius: 9999px;
         }
+
+        #typing-indicator {
+            justify-content: flex-start;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
     </style>
 </head>
 
 <body class="bg-background text-foreground antialiased">
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR UNIFICADO -->
     <header
         class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
-        <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
+        <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between"
+            aria-label="Navegación principal">
 
             <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href="index.html"
+                class="flex items-center gap-2 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-[12px]">
                 <span
-                    class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&amp;D</span>
-                <span class="text-xl font-medium tracking-[-0.35px]">Mind &amp; Design</span>
+                    class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">
+                    M&D
+                </span>
+                <span class="text-xl font-medium tracking-[-0.35px]">Mind & Design</span>
             </a>
 
-            <!-- Desktop Nav -->
+            <!-- Menú Desktop -->
             <div class="hidden md:flex items-center gap-1">
-                <a href="index.html" class="nav-item px-4 py-2 rounded-md text-base">Inicio</a>
-                <a href="servicios.html" class="nav-item px-4 py-2 rounded-md text-base">Servicios</a>
-                <a href="entretenimientos.html" class="nav-item px-4 py-2 rounded-md text-base">Entretenimientos</a>
+                <a href="index.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Inicio
+                </a>
+                <a href="servicios.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Servicios
+                </a>
+                <a href="entretenimientos.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Entretenimientos
+                </a>
                 <a href="locales.html"
-                    class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">Locales</a>
-                <a href="ofertas.html" class="nav-item px-4 py-2 rounded-md text-base">Ofertas</a>
-                <a href="gastronomia.html" class="nav-item px-4 py-2 rounded-md text-base">Gastronomía</a>
-                <a href="contacto.html" class="nav-item px-4 py-2 rounded-md text-base">Contacto</a>
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Locales
+                </a>
+                <a href="ofertas.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Ofertas
+                </a>
+                <a href="gastronomia.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Gastronomía
+                </a>
+                <a href="contacto.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Contacto
+                </a>
             </div>
 
-            <!-- CTA -->
-            <a href="contacto.html"
-                class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition">
-                Visítanos
-            </a>
-
-            <!-- Mobile Button -->
-            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
-                class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors">
+            <!-- Botón Menú Móvil -->
+            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"
+                class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
                 <i data-lucide="menu"></i>
             </button>
         </nav>
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
-            <a href="index.html" class="mobile-item block px-4 py-3 rounded-md">Inicio</a>
-            <a href="servicios.html" class="mobile-item block px-4 py-3 rounded-md">Servicios</a>
-            <a href="entretenimientos.html" class="mobile-item block px-4 py-3 rounded-md">Entretenimientos</a>
+        <!-- Menú Mobile -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1"
+            aria-label="Navegación móvil">
+            <a href="index.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Inicio
+            </a>
+            <a href="servicios.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Servicios
+            </a>
+            <a href="entretenimientos.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Entretenimientos
+            </a>
             <a href="locales.html"
-                class="mobile-item block px-4 py-3 rounded-md bg-primary text-primary-foreground">Locales</a>
-            <a href="ofertas.html" class="mobile-item block px-4 py-3 rounded-md">Ofertas</a>
-            <a href="gastronomia.html" class="mobile-item block px-4 py-3 rounded-md">Gastronomía</a>
-            <a href="contacto.html" class="mobile-item block px-4 py-3 rounded-md">Contacto</a>
-
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Locales
+            </a>
+            <a href="ofertas.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Ofertas
+            </a>
+            <a href="gastronomia.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Gastronomía
+            </a>
             <a href="contacto.html"
-                class="mobile-item block w-full mt-2 text-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft">
-                Visítanos
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Contacto
             </a>
         </div>
     </header>
+
 
     <main class="pt-32">
 
@@ -143,8 +184,10 @@
 
                 <!-- Buscador -->
                 <div class="relative w-full max-w-2xl">
+                    <label for="searchInput" class="sr-only">Buscar locales</label>
                     <input id="searchInput" type="text" placeholder="Buscar por nombre, categoría o descripción..."
-                        class="w-full h-14 pl-12 pr-4 border border-border rounded-[10px] bg-card placeholder:text-muted/60 focus:outline-none text-base" />
+                        class="w-full h-14 pl-12 pr-4 border border-border rounded-[10px] bg-card placeholder:text-muted/60 focus:outline-none text-base"
+                        aria-describedby="localesCounter" />
                     <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted"></i>
                 </div>
 
@@ -160,31 +203,31 @@
                     <!-- Chips -->
                     <div class="flex flex-wrap justify-center gap-3">
 
-                        <!-- Chip activo por defecto -->
-                        <button data-filter="Todos" class="chip px-6 py-2 text-sm md:text-base font-medium
+                        <button data-filter="Todos" aria-pressed="true" class="chip px-6 py-2 text-sm md:text-base font-medium
            bg-primary text-primary-foreground
            ring-2 ring-primary ring-offset-2
            transition-all duration-200 cursor-pointer">
                             Todos <span class="chip-count"></span>
                         </button>
 
-                        <button data-filter="Moda" class="chip px-6 py-2 text-sm md:text-base font-medium
+                        <button data-filter="Moda" aria-pressed="false" class="chip px-6 py-2 text-sm md:text-base font-medium
            bg-secondary text-foreground hover:bg-secondary/80
            transition-all duration-200 cursor-pointer">
                             Moda <span class="chip-count"></span>
                         </button>
 
-                        <button data-filter="Iluminación" class="chip px-6 py-2 text-sm md:text-base font-medium
+                        <button data-filter="Iluminación" aria-pressed="false" class="chip px-6 py-2 text-sm md:text-base font-medium
            bg-secondary text-foreground hover:bg-secondary/80
            transition-all duration-200 cursor-pointer">
                             Iluminación <span class="chip-count"></span>
                         </button>
 
-                        <button data-filter="Decoración" class="chip px-6 py-2 text-sm md:text-base font-medium
+                        <button data-filter="Decoración" aria-pressed="false" class="chip px-6 py-2 text-sm md:text-base font-medium
            bg-secondary text-foreground hover:bg-secondary/80
            transition-all duration-200 cursor-pointer">
                             Decoración <span class="chip-count"></span>
                         </button>
+
 
                     </div>
                 </div>
@@ -201,12 +244,13 @@
         <!-- GRID DE LOCALES -->
         <section class="max-w-content mx-auto px-6 xl:px-0 pb-14">
 
-            <div id="localesGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div id="localesGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
+
                 <!-- Las cards se generan dinámicamente con locales.js -->
             </div>
 
             <!-- EMPTY STATE CENTRADO -->
-            <div id="emptyState" class="flex flex-col items-center py-10 text-muted">
+            <div id="emptyState" class="flex flex-col items-center py-10 text-muted" role="status">
                 <i data-lucide="search-x" class="w-10 h-10 mb-3"></i>
                 <p class="text-base text-center">No encontramos resultados</p>
                 <p class="text-sm mt-1 text-center">
@@ -230,14 +274,16 @@
 
             <!-- SELECTOR DE PISO -->
             <div class="flex justify-center gap-4 mt-6 mb-8">
-                <button data-floor="1"
-                    class="floor-btn h-10 px-6 rounded-[10px] bg-primary text-primary-foreground shadow-soft active">
+                <button data-floor="1" aria-pressed="true"
+                    class="floor-btn h-10 px-6 rounded-[10px] bg-primary text-primary-foreground shadow-soft">
                     Primer Piso
                 </button>
-                <button data-floor="2"
-                    class="floor-btn h-10 px-6 rounded-[10px] bg-secondary text-foreground border border-border active">
+
+                <button data-floor="2" aria-pressed="false"
+                    class="floor-btn h-10 px-6 rounded-[10px] bg-secondary text-foreground border border-border">
                     Segundo Piso
                 </button>
+
             </div>
 
             <!-- MAPA -->
@@ -245,7 +291,8 @@
 
                 <div class="relative w-full" style="padding-bottom: 75%;">
                     <svg id="mallMap" class="absolute inset-0 w-full h-full" viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg">
+                        xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-label="Mapa interactivo del centro comercial Mind & Design, con distribución de locales por piso">
 
                         <!-- FONDO -->
                         <rect x="0" y="0" width="100" height="100" fill="#FAFAFA" />
@@ -348,21 +395,25 @@
                         <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
                     </div>
 
-                    <p class="mt-4 text-muted max-w-[280px]">
+                    <p class="mt-4 text-foreground/80 max-w-[280px]">
                         La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad
-                        se encuentran.
+                        se
+                        encuentran.
                     </p>
 
-                    <!-- Icons -->
-                    <div class="flex items-center gap-4 mt-4 text-muted">
-                        <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors">
-                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                    <!-- Redes -->
+                    <div class="flex items-center gap-4 mt-4 text-foreground/80">
+                        <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors"
+                            aria-label="Facebook de Mind &amp; Design">
+                            <i data-lucide="facebook" aria-hidden="true" class="w-5 h-5"></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors"
+                            aria-label="Instagram de Mind &amp; Design">
+                            <i data-lucide="instagram" aria-hidden="true" class="w-5 h-5"></i>
                         </a>
-                        <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors">
-                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors"
+                            aria-label="Twitter de Mind &amp; Design">
+                            <i data-lucide="twitter" aria-hidden="true" class="w-5 h-5"></i>
                         </a>
                     </div>
                 </div>
@@ -370,7 +421,7 @@
                 <!-- Enlaces -->
                 <div>
                     <h4 class="font-medium">Enlaces Rápidos</h4>
-                    <ul class="mt-4 space-y-2 text-muted">
+                    <ul class="mt-4 space-y-2 text-foreground/80">
                         <li><a href="index.html" class="hover:underline">Inicio</a></li>
                         <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
                         <li><a href="locales.html" class="hover:underline">Locales</a></li>
@@ -381,31 +432,31 @@
                 <!-- Información -->
                 <div>
                     <h4 class="font-medium">Información</h4>
-                    <ul class="mt-4 space-y-2 text-muted">
-                        <li><a href="#" class="hover:underline">Eventos</a></li>
+                    <ul class="mt-4 space-y-2 text-foreground/80">
+                        <li><a href="entretenimientos.html" class="hover:underline">Eventos</a></li>
                         <li><a href="gastronomia.html" class="hover:underline">Gastronomía</a></li>
                         <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
-                        <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
+                        <li><a href="javascript:void(0)" class="hover:underline">Política de Privacidad</a></li>
                     </ul>
                 </div>
 
                 <!-- Contacto -->
                 <div>
                     <h4 class="font-medium">Contacto</h4>
-                    <ul class="mt-4 space-y-3 text-muted">
+                    <ul class="mt-4 space-y-3 text-foreground/80">
 
                         <li class="flex items-center gap-3">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+                            <i data-lucide="map-pin" aria-hidden="true" class="w-6 h-6 text-primary"></i>
                             Av. del Libertador 15800, San Isidro, Buenos Aires
                         </li>
 
                         <li class="flex items-center gap-3">
-                            <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+                            <i data-lucide="phone" aria-hidden="true" class="w-5 h-5 text-primary"></i>
                             +1 (234) 567-89
                         </li>
 
                         <li class="flex items-center gap-3">
-                            <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+                            <i data-lucide="mail" aria-hidden="true" class="w-5 h-5 text-primary"></i>
                             info@mindanddesign.com
                         </li>
 
@@ -414,17 +465,18 @@
 
             </div>
 
-            <div class="mt-8 border-t border-border pt-6 text-center text-muted">
+            <div class="mt-8 border-t border-border pt-6 text-center text-foreground/80">
                 © 2025 Mind & Design. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
 
-    <!-- BOTÓN FLOTANTE -->
+
+    <!-- BOTÓN FLOTANTE DEL CHATBOT -->
     <button aria-label="Chatbot"
         class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
-        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <i data-lucide="message-circle" aria-hidden="true" class="w-6 h-6"></i>
     </button>
 
     <!-- VENTANA DEL CHATBOT -->
@@ -434,16 +486,16 @@
         <!-- Header -->
         <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
             <div class="flex items-center space-x-2">
-                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <i data-lucide="message-circle" aria-hidden="true" class="w-5 h-5"></i>
                 <h3 class="text-sm font-medium">Asistente Virtual</h3>
             </div>
             <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors"
                 aria-label="Cerrar chat">
-                <i data-lucide="x" class="w-5 h-5"></i>
+                <i data-lucide="x" aria-hidden="true" class="w-5 h-5"></i>
             </button>
         </div>
 
-        <!-- Messages -->
+        <!-- Mensajes -->
         <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
 
         <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
@@ -462,7 +514,7 @@
                 <button id="chatbot-send"
                     class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
                     aria-label="Enviar mensaje">
-                    <i data-lucide="send" class="w-5 h-5"></i>
+                    <i data-lucide="send" aria-hidden="true" class="w-5 h-5"></i>
                 </button>
             </div>
         </div>

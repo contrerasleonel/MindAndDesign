@@ -3,104 +3,83 @@
 // ====================================================================
 
 $(document).ready(function () {
-  // ============================================================
-  // 1. OBTENER ID DE LA URL
-  // ============================================================
   const params = new URLSearchParams(window.location.search);
   const id = Number(params.get("id"));
 
-  console.log("🔍 Buscando local con ID:", id);
-
-  // ============================================================
-  // 2. BUSCAR LOCAL EN localsData
-  // ============================================================
   const local = localsData.find((l) => l.id === id);
 
-  // ============================================================
-  // 3. SI NO EXISTE O NO ESTÁ ACTIVO
-  // ============================================================
+  // --------------------- LOCAL NO DISPONIBLE ---------------------
   if (!local || !local.isActive) {
-    $("#heroImage").attr("src", "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900");
+    $("#heroImage")
+      .attr("src", "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900")
+      .attr("alt", "Local no disponible");
+
     $("#heroTitle").text("Local no disponible");
     $("#heroCategory").text("Próximamente");
-    $("#heroDescription").text("Este local estará disponible muy pronto. Te invitamos a explorar nuestros otros espacios.");
+    $("#heroDescription").text("Este local estará disponible muy pronto.");
 
     $("#nameLabel").text("Local no disponible");
-    $("#longDescription").text("Este espacio está siendo preparado para brindarte la mejor experiencia.");
-    
-    $("#hoursBlock").addClass("hidden");
-    $("#phoneBlock").addClass("hidden");
-    $("#emailBlock").addClass("hidden");
-    $("#socialsBlock").addClass("hidden");
-    $("#gallerySection").addClass("hidden");
+    $("#longDescription").text("Este espacio está en preparación.");
 
-    $("#visitButton").text("Ver todos los locales").attr("href", "locales.html").removeAttr("target");
+    $("#hoursBlock, #phoneBlock, #emailBlock, #socialsBlock, #gallerySection").addClass("hidden");
 
-    console.warn("Local no disponible o inactivo");
-    lucide.createIcons();
+    $("#visitButton")
+      .text("Ver todos los locales")
+      .attr("href", "locales.html")
+      .attr("aria-label", "Volver al listado de locales")
+      .removeAttr("target");
+
     return;
   }
 
-  // ============================================================
-  // 4. LLENAR HERO
-  // ============================================================
-  $("#heroImage").attr("src", local.image).attr("alt", local.name);
+  // --------------------- HERO ---------------------
+  $("#heroImage").attr("src", local.image).attr("alt", `Imagen principal de ${local.name}`);
   $("#heroTitle").text(local.name);
   $("#heroCategory").text(local.category);
   $("#heroDescription").text(local.description);
 
-  // ============================================================
-  // 5. LLENAR CONTENIDO PRINCIPAL
-  // ============================================================
+  // --------------------- DESCRIPCIÓN ---------------------
   $("#nameLabel").text(`Sobre ${local.name}`);
   $("#longDescription").text(local.longDescription || local.description);
 
   $("#locationLabel").text(local.location);
   $("#mapLocationTitle").text(local.location);
-  $("#mapLocationSubtitle").text(`Piso ${local.floor} - Encuentra este local en nuestro mapa interactivo`);
+  $("#mapLocationSubtitle").text(`Piso ${local.floor} — Disponible en el mapa interactivo.`);
 
-  // ============================================================
-  // 6. HORARIOS
-  // ============================================================
+  // --------------------- HORARIOS ---------------------
   if (local.hours) {
     $("#hours").text(local.hours);
     $("#hoursBlock").removeClass("hidden");
-  } else {
-    $("#hoursBlock").addClass("hidden");
   }
 
-  // ============================================================
-  // 7. TELÉFONO
-  // ============================================================
+  // --------------------- TELÉFONO ---------------------
   if (local.contact?.phone) {
-    $("#phone").text(local.contact.phone).attr("href", `tel:${local.contact.phone}`);
+    $("#phone")
+      .text(local.contact.phone)
+      .attr("href", `tel:${local.contact.phone}`)
+      .attr("aria-label", `Llamar a ${local.name}`);
     $("#phoneBlock").removeClass("hidden");
-  } else {
-    $("#phoneBlock").addClass("hidden");
   }
 
-  // ============================================================
-  // 8. EMAIL
-  // ============================================================
+  // --------------------- EMAIL ---------------------
   if (local.contact?.email) {
-    $("#email").text(local.contact.email).attr("href", `mailto:${local.contact.email}`);
+    $("#email")
+      .text(local.contact.email)
+      .attr("href", `mailto:${local.contact.email}`)
+      .attr("aria-label", `Enviar correo a ${local.name}`);
     $("#emailBlock").removeClass("hidden");
-  } else {
-    $("#emailBlock").addClass("hidden");
   }
 
-  // ============================================================
-  // 9. REDES SOCIALES (MEJORADO COMO EN REACT)
-  // ============================================================
+  // --------------------- REDES SOCIALES ---------------------
   if (local.contact?.instagram || local.contact?.facebook) {
-    const socialLinks = $("#socialLinks");
-    socialLinks.empty();
+    const socialLinks = $("#socialLinks").empty();
 
     if (local.contact.instagram) {
-      const igHandle = local.contact.instagram.replace('@', '');
+      const ig = local.contact.instagram.replace("@", "");
       socialLinks.append(`
-        <a href="https://instagram.com/${igHandle}" target="_blank" rel="noopener noreferrer"
-           class="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-muted rounded-lg transition-colors">
+        <a href="https://instagram.com/${ig}" target="_blank" rel="noopener noreferrer"
+          class="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-muted rounded-lg transition-colors"
+          aria-label="Instagram de ${local.name}">
           <i data-lucide="instagram" class="w-5 h-5"></i>
           <span class="text-sm">${local.contact.instagram}</span>
         </a>
@@ -109,8 +88,10 @@ $(document).ready(function () {
 
     if (local.contact.facebook) {
       socialLinks.append(`
-        <a href="https://facebook.com/${local.contact.facebook}" target="_blank" rel="noopener noreferrer"
-           class="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-muted rounded-lg transition-colors">
+        <a href="https://facebook.com/${local.contact.facebook}" target="_blank"
+           rel="noopener noreferrer"
+           class="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-muted rounded-lg transition-colors"
+           aria-label="Facebook de ${local.name}">
           <i data-lucide="facebook" class="w-5 h-5"></i>
           <span class="text-sm">${local.contact.facebook}</span>
         </a>
@@ -118,68 +99,57 @@ $(document).ready(function () {
     }
 
     $("#socialsBlock").removeClass("hidden");
-  } else {
-    $("#socialsBlock").addClass("hidden");
   }
 
-  // ============================================================
-  // 10. GALERÍA DE IMÁGENES
-  // ============================================================
-  if (local.gallery && local.gallery.length > 0) {
-    const galleryGrid = $("#galleryGrid");
-    galleryGrid.empty();
+  // --------------------- GALERÍA ---------------------
+  if (local.gallery?.length > 0) {
+    const grid = $("#galleryGrid").empty();
 
     local.gallery.forEach((img) => {
-      galleryGrid.append(`
+      grid.append(`
         <div class="relative h-64 rounded-lg overflow-hidden group">
-          <img src="${img}" alt="Galería ${local.name}" 
+          <img src="${img}" 
+               alt="Imagen de la galería del local ${local.name}"
                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
         </div>
       `);
     });
 
     $("#gallerySection").removeClass("hidden");
-  } else {
-    $("#gallerySection").addClass("hidden");
   }
 
-  // ============================================================
-  // 11. BOTÓN PRINCIPAL (WEBSITE O VOLVER)
-  // ============================================================
+  // --------------------- BOTÓN PRINCIPAL ---------------------
   if (local.website && local.website !== "#") {
     $("#visitButton")
-      .text("Visitar Web")
+      .text("Visitar sitio web")
       .attr("href", local.website)
-      .attr("target", "_blank")
-      .attr("rel", "noopener noreferrer");
+      .attr("aria-label", `Visitar sitio web de ${local.name}`)
+      .attr("target", "_blank");
   } else {
     $("#visitButton")
       .text("Ver todos los locales")
       .attr("href", "locales.html")
+      .attr("aria-label", "Volver al listado de locales")
       .removeAttr("target");
   }
 
-  // ============================================================
-  // 12. LOCALES RELACIONADOS
-  // ============================================================
-  const relacionados = localsData
+  // --------------------- LOCALES RELACIONADOS ---------------------
+  const rels = localsData
     .filter((l) => l.category === local.category && l.isActive && l.id !== local.id)
     .slice(0, 3);
 
-  if (relacionados.length > 0) {
-    const relatedGrid = $("#relatedGrid");
-    relatedGrid.empty();
+  if (rels.length > 0) {
+    const grid = $("#relatedGrid").empty();
 
-    relacionados.forEach((rel) => {
-      relatedGrid.append(`
+    rels.forEach((rel) => {
+      grid.append(`
         <a href="local.html?id=${rel.id}" 
-           class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-float transition-all duration-300 cursor-pointer">
+           aria-label="Ver detalle del local ${rel.name}"
+           class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-float transition-all duration-300">
           <img src="${rel.image}" alt="${rel.name}" 
                class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 text-white">
-            <span class="inline-block w-fit chip bg-primary text-primary-foreground px-3 py-1 text-sm mb-2">
-              ${rel.category}
-            </span>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-6 text-white flex flex-col justify-end">
+            <span class="chip bg-primary text-primary-foreground px-3 py-1 text-sm mb-2">${rel.category}</span>
             <h3 class="text-xl font-medium">${rel.name}</h3>
             <p class="text-sm opacity-90 mt-1">${rel.description}</p>
           </div>
@@ -188,8 +158,6 @@ $(document).ready(function () {
     });
 
     $("#relatedSection").removeClass("hidden");
-  } else {
-    $("#relatedSection").addClass("hidden");
   }
 
   lucide.createIcons();

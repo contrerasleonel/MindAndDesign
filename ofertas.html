@@ -64,6 +64,12 @@
         .chip {
             border-radius: 9999px;
         }
+
+        #typing-indicator {
+            justify-content: flex-start;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
     </style>
 </head>
 
@@ -72,65 +78,102 @@
     <!-- NAVBAR UNIFICADO -->
     <header
         class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
-        <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
+        <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between"
+            aria-label="Navegación principal">
 
             <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href="index.html"
+                class="flex items-center gap-2 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-[12px]">
                 <span
-                    class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&amp;D</span>
-                <span class="text-xl font-medium tracking-[-0.35px]">Mind &amp; Design</span>
+                    class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">
+                    M&D
+                </span>
+                <span class="text-xl font-medium tracking-[-0.35px]">Mind & Design</span>
             </a>
 
-            <!-- Desktop Nav -->
+            <!-- Menú Desktop -->
             <div class="hidden md:flex items-center gap-1">
-                <a href="index.html" class="nav-item px-4 py-2 rounded-md text-base">Inicio</a>
-                <a href="servicios.html" class="nav-item px-4 py-2 rounded-md text-base">Servicios</a>
-                <a href="entretenimientos.html" class="nav-item px-4 py-2 rounded-md text-base">Entretenimientos</a>
-                <a href="locales.html" class="nav-item px-4 py-2 rounded-md text-base">Locales</a>
+                <a href="index.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Inicio
+                </a>
+                <a href="servicios.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Servicios
+                </a>
+                <a href="entretenimientos.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Entretenimientos
+                </a>
+                <a href="locales.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Locales
+                </a>
                 <a href="ofertas.html"
-                    class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">Ofertas</a>
-                <a href="gastronomia.html" class="nav-item px-4 py-2 rounded-md text-base">Gastronomía</a>
-                <a href="contacto.html" class="nav-item px-4 py-2 rounded-md text-base">Contacto</a>
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Ofertas
+                </a>
+                <a href="gastronomia.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Gastronomía
+                </a>
+                <a href="contacto.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Contacto
+                </a>
             </div>
 
-            <!-- CTA -->
-            <a href="contacto.html"
-                class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition-opacity">
-                Visítanos
-            </a>
-
-            <!-- Mobile Button -->
-            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
-                class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors">
+            <!-- Botón Menú Móvil -->
+            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"
+                class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
                 <i data-lucide="menu"></i>
             </button>
         </nav>
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
-            <a href="index.html" class="mobile-item block px-4 py-3 rounded-md">Inicio</a>
-            <a href="servicios.html" class="mobile-item block px-4 py-3 rounded-md">Servicios</a>
-            <a href="entretenimientos.html" class="mobile-item block px-4 py-3 rounded-md">Entretenimientos</a>
-            <a href="locales.html" class="mobile-item block px-4 py-3 rounded-md">Locales</a>
+        <!-- Menú Mobile -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1"
+            aria-label="Navegación móvil">
+            <a href="index.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Inicio
+            </a>
+            <a href="servicios.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Servicios
+            </a>
+            <a href="entretenimientos.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Entretenimientos
+            </a>
+            <a href="locales.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Locales
+            </a>
             <a href="ofertas.html"
-                class="mobile-item block px-4 py-3 rounded-md bg-primary text-primary-foreground">Ofertas</a>
-            <a href="gastronomia.html" class="mobile-item block px-4 py-3 rounded-md">Gastronomía</a>
-            <a href="contacto.html" class="mobile-item block px-4 py-3 rounded-md">Contacto</a>
-
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Ofertas
+            </a>
+            <a href="gastronomia.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Gastronomía
+            </a>
             <a href="contacto.html"
-                class="mobile-item block w-full mt-2 text-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft">
-                Visítanos
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Contacto
             </a>
         </div>
     </header>
 
+
     <main class="pt-32">
 
-        <!-- ÍCONO + TITULO -->
-        <section class="mx-auto max-w-content px-6 xl:px-0 text-center flex flex-col items-center gap-3 pb-10">
-            <i data-lucide="tag" class="w-8 h-8 text-primary"></i>
+        <!-- HERO PRINCIPAL -->
+        <section class="mx-auto max-w-content px-6 xl:px-0 text-center flex flex-col items-center gap-3 pb-10"
+            aria-labelledby="hero-ofertas-title">
 
-            <h1 class="text-2xl md:text-3xl font-semibold tracking-[-0.02em]">
+            <i data-lucide="tag" aria-hidden="true" class="w-8 h-8 text-primary"></i>
+
+            <h1 id="hero-ofertas-title" class="text-2xl md:text-3xl font-semibold tracking-[-0.02em]">
                 Ofertas Especiales
             </h1>
 
@@ -139,17 +182,23 @@
             </p>
         </section>
 
-        <!-- HERO DESTACADO (SIN CAMBIAR CONTENIDO) -->
-        <section class="max-w-content mx-auto px-6 xl:px-0 pb-16">
+
+        <!-- HERO DESTACADO -->
+        <section class="max-w-content mx-auto px-6 xl:px-0 pb-16" aria-labelledby="destacado-ofertas-title">
+
+            <h2 id="destacado-ofertas-title" class="sr-only">Oferta destacada de la semana</h2>
+
             <div class="relative rounded-[10px] overflow-hidden shadow-soft h-80">
                 <img src="assets/imagenesLocales/imagenLocalDeco.jpg" class="w-full h-full object-cover"
-                    alt="Mind & Design Ofertas">
-
+                    alt="Imagen promocional del Black Friday en Mind & Design">
 
                 <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/20 flex items-center">
                     <div class="px-10 md:px-16 text-white max-w-2xl">
+
                         <span
-                            class="inline-block bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm mb-4">¡NUEVO!</span>
+                            class="inline-block bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm mb-4">
+                            ¡NUEVO!
+                        </span>
 
                         <h3 class="text-2xl md:text-3xl font-medium mb-1">Black Friday en Mind & Design</h3>
 
@@ -165,155 +214,204 @@
             </div>
         </section>
 
-        <!-- GRID DE OFERTAS (REEMPLAZAR TODO EL BLOQUE COMPLETO) -->
-        <!-- GRID DE OFERTAS (REEMPLAZAR COMPLETO) -->
-        <section class="max-w-content mx-auto px-6 xl:px-0 pb-24">
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- OFERTA 1 – Tay Shop -->
-                <a href="local.html?id=1&offer=1" class="space-y-2 group block">
-                    <div
-                        class="border border-border rounded-[12px] bg-card shadow-soft p-5 hover:-translate-y-1 hover:shadow-float transition-all">
-                        <div class="relative">
-                            <img src="assets/localtaylor/imagenLocalTaylor2.jpg"
-                                class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
-                                alt="Tay Shop">
-                            <span
-                                class="absolute top-3 right-3 bg-primary text-primary-foreground text-xs px-3 py-1 rounded-md shadow-soft">
-                                Nuevo
+        <!-- GRID DE OFERTAS -->
+        <section class="max-w-content mx-auto px-6 xl:px-0 pb-24" aria-labelledby="ofertas-disponibles-title">
+
+            <h2 id="ofertas-disponibles-title" class="sr-only">Listado de ofertas disponibles</h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
+
+
+                <!-- OFERTA 1 -->
+                <article role="listitem" class="space-y-2 group block">
+                    <a href="local.html?id=1&offer=1" class="block space-y-2">
+
+                        <div class="border border-border rounded-[12px] bg-card shadow-soft p-5 
+                      hover:-translate-y-1 hover:shadow-float transition-all">
+
+                            <div class="relative">
+                                <img src="assets/localtaylor/imagenLocalTaylor2.jpg"
+                                    class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
+                                    alt="Stickers y prints de Tay Shop">
+
+                                <span class="absolute top-3 right-3 bg-primary text-primary-foreground 
+                           text-xs px-3 py-1 rounded-md shadow-soft">
+                                    Nuevo
+                                </span>
+                            </div>
+
+                            <h3 class="mt-4 text-base font-medium leading-snug">Stickers & Prints – Tay Shop</h3>
+
+                            <span class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 
+                         text-sm font-medium rounded-md">
+                                20% OFF
                             </span>
                         </div>
 
-                        <h3 class="mt-4 text-base font-medium leading-snug">Stickers & Prints – Tay Shop</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            Stickers premium inspirados en todas las eras.
+                        </p>
+                        <p class="text-muted text-xs">Válido hasta: 30 Nov, 2025</p>
 
-                        <span
-                            class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 text-sm font-medium rounded-md">
-                            20% OFF
-                        </span>
-                    </div>
+                    </a>
+                </article>
 
-                    <p class="text-muted text-sm leading-relaxed">Stickers premium inspirados en todas las eras.</p>
-                    <p class="text-muted text-xs">Válido hasta: 30 Nov, 2025</p>
-                </a>
 
-                <!-- OFERTA 2 – Op Art Studio -->
-                <a href="local.html?id=2&offer=2" class="space-y-2 group block">
-                    <div
-                        class="border border-border rounded-[12px] bg-card shadow-soft p-5 hover:-translate-y-1 hover:shadow-float transition-all">
-                        <div class="relative">
-                            <img src="assets/localOpArt/imagenOpArt3.jpg"
-                                class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
-                                alt="Op Art Studio">
-                        </div>
 
-                        <h3 class="mt-4 text-base font-medium leading-snug">Cerámicas Modernas – Op Art Studio</h3>
+                <!-- OFERTA 2 -->
+                <article role="listitem" class="space-y-2 group block">
+                    <a href="local.html?id=2&offer=2" class="block space-y-2">
 
-                        <span
-                            class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 text-sm font-medium rounded-md">
-                            25% OFF
-                        </span>
-                    </div>
+                        <div class="border border-border rounded-[12px] bg-card shadow-soft p-5 
+                      hover:-translate-y-1 hover:shadow-float transition-all">
 
-                    <p class="text-muted text-sm leading-relaxed">Objetos decorativos hechos a mano.</p>
-                    <p class="text-muted text-xs">Válido hasta: 10 Dic, 2025</p>
-                </a>
+                            <div class="relative">
+                                <img src="assets/localOpArt/imagenOpArt3.jpg"
+                                    class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
+                                    alt="Cerámicas modernas de Op Art Studio">
+                            </div>
 
-                <!-- OFERTA 3 – Sofía Sarkany -->
-                <a href="local.html?id=3&offer=3" class="space-y-2 group block">
-                    <div
-                        class="border border-border rounded-[12px] bg-card shadow-soft p-5 hover:-translate-y-1 hover:shadow-float transition-all">
-                        <div class="relative">
-                            <img src="assets/localSofiaSarkany/imagenLocalSofia3.png"
-                                class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
-                                alt="Sofía Sarkany">
-                            <span
-                                class="absolute top-3 right-3 bg-primary text-primary-foreground text-xs px-3 py-1 rounded-md shadow-soft">
-                                Nuevo
+                            <h3 class="mt-4 text-base font-medium leading-snug">Cerámicas Modernas – Op Art Studio</h3>
+
+                            <span class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 
+                         text-sm font-medium rounded-md">
+                                25% OFF
                             </span>
                         </div>
 
-                        <h3 class="mt-4 text-base font-medium leading-snug">Night Collection – Sofía Sarkany</h3>
+                        <p class="text-muted text-sm leading-relaxed">Objetos decorativos hechos a mano.</p>
+                        <p class="text-muted text-xs">Válido hasta: 10 Dic, 2025</p>
 
-                        <span
-                            class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 text-sm font-medium rounded-md">
-                            35% OFF
-                        </span>
-                    </div>
+                    </a>
+                </article>
 
-                    <p class="text-muted text-sm leading-relaxed">Looks nocturnos con actitud & diseño.</p>
-                    <p class="text-muted text-xs">Válido hasta: 20 Dic, 2025</p>
-                </a>
 
-                <!-- OFERTA 4 – LUMEN -->
-                <a href="local.html?id=4&offer=4" class="space-y-2 group block">
-                    <div
-                        class="border border-border rounded-[12px] bg-card shadow-soft p-5 hover:-translate-y-1 hover:shadow-float transition-all">
-                        <div class="relative">
-                            <img src="assets/localLumen/imagenLocalLumen2.png"
-                                class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
-                                alt="LUMEN">
-                        </div>
 
-                        <h3 class="mt-4 text-base font-medium leading-snug">Lámparas Naturales – LUMEN</h3>
+                <!-- OFERTA 3 -->
+                <article role="listitem" class="space-y-2 group block">
+                    <a href="local.html?id=3&offer=3" class="block space-y-2">
 
-                        <span
-                            class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 text-sm font-medium rounded-md">
-                            30% OFF
-                        </span>
-                    </div>
+                        <div class="border border-border rounded-[12px] bg-card shadow-soft p-5 
+                      hover:-translate-y-1 hover:shadow-float transition-all">
 
-                    <p class="text-muted text-sm leading-relaxed">Diseño Neo-Nature para tu hogar.</p>
-                    <p class="text-muted text-xs">Válido hasta: 05 Dic, 2025</p>
-                </a>
+                            <div class="relative">
+                                <img src="assets/localSofiaSarkany/imagenLocalSofia3.png"
+                                    class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
+                                    alt="Night Collection de Sofía Sarkany">
 
-                <!-- OFERTA 5 – ROSÉS -->
-                <a href="local.html?id=5&offer=5" class="space-y-2 group block">
-                    <div
-                        class="border border-border rounded-[12px] bg-card shadow-soft p-5 hover:-translate-y-1 hover:shadow-float transition-all">
-                        <div class="relative">
-                            <img src="assets/localRoses/imagenLocalRoses3.png"
-                                class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
-                                alt="ROSÉS">
-                            <span
-                                class="absolute top-3 right-3 bg-primary text-primary-foreground text-xs px-3 py-1 rounded-md shadow-soft">
-                                Nuevo
+                                <span class="absolute top-3 right-3 bg-primary text-primary-foreground text-xs 
+                           px-3 py-1 rounded-md shadow-soft">
+                                    Nuevo
+                                </span>
+                            </div>
+
+                            <h3 class="mt-4 text-base font-medium leading-snug">Night Collection – Sofía Sarkany</h3>
+
+                            <span class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 
+                         text-sm font-medium rounded-md">
+                                35% OFF
                             </span>
                         </div>
 
-                        <h3 class="mt-4 text-base font-medium leading-snug">Summer Looks – ROSÉS</h3>
+                        <p class="text-muted text-sm leading-relaxed">Looks nocturnos con actitud & diseño.</p>
+                        <p class="text-muted text-xs">Válido hasta: 20 Dic, 2025</p>
 
-                        <span
-                            class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 text-sm font-medium rounded-md">
-                            40% OFF
-                        </span>
-                    </div>
+                    </a>
+                </article>
 
-                    <p class="text-muted text-sm leading-relaxed">Prendas frescas, naturales y modernas.</p>
-                    <p class="text-muted text-xs">Válido hasta: 18 Dic, 2025</p>
-                </a>
 
-                <!-- OFERTA 6 – Casa Natura -->
-                <a href="local.html?id=7&offer=6" class="space-y-2 group block">
-                    <div
-                        class="border border-border rounded-[12px] bg-card shadow-soft p-5 hover:-translate-y-1 hover:shadow-float transition-all">
-                        <div class="relative">
-                            <img src="assets/imagenesLocales/imagenLocalDeco4.jpg"
-                                class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
-                                alt="Casa Natura">
+
+                <!-- OFERTA 4 -->
+                <article role="listitem" class="space-y-2 group block">
+                    <a href="local.html?id=4&offer=4" class="block space-y-2">
+
+                        <div class="border border-border rounded-[12px] bg-card shadow-soft p-5 
+                      hover:-translate-y-1 hover:shadow-float transition-all">
+
+                            <div class="relative">
+                                <img src="assets/localLumen/imagenLocalLumen2.png"
+                                    class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
+                                    alt="Lámparas neo-nature de LUMEN">
+                            </div>
+
+                            <h3 class="mt-4 text-base font-medium leading-snug">Lámparas Naturales – LUMEN</h3>
+
+                            <span class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 
+                         text-sm font-medium rounded-md">
+                                30% OFF
+                            </span>
                         </div>
 
-                        <h3 class="mt-4 text-base font-medium leading-snug">Deco Escandinava – Casa Natura</h3>
+                        <p class="text-muted text-sm leading-relaxed">Diseño Neo-Nature para tu hogar.</p>
+                        <p class="text-muted text-xs">Válido hasta: 05 Dic, 2025</p>
 
-                        <span
-                            class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 text-sm font-medium rounded-md">
-                            30% OFF
-                        </span>
-                    </div>
+                    </a>
+                </article>
 
-                    <p class="text-muted text-sm leading-relaxed">Fibras naturales & tonos claros.</p>
-                    <p class="text-muted text-xs">Válido hasta: 12 Dic, 2025</p>
-                </a>
+
+                <!-- OFERTA 5 -->
+                <article role="listitem" class="space-y-2 group block">
+                    <a href="local.html?id=5&offer=5" class="block space-y-2">
+
+                        <div class="border border-border rounded-[12px] bg-card shadow-soft p-5 
+                      hover:-translate-y-1 hover:shadow-float transition-all">
+
+                            <div class="relative">
+                                <img src="assets/localRoses/imagenLocalRoses3.png"
+                                    class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
+                                    alt="Summer Looks de ROSÉS">
+
+                                <span class="absolute top-3 right-3 bg-primary text-primary-foreground text-xs 
+                           px-3 py-1 rounded-md shadow-soft">
+                                    Nuevo
+                                </span>
+                            </div>
+
+                            <h3 class="mt-4 text-base font-medium leading-snug">Summer Looks – ROSÉS</h3>
+
+                            <span class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 
+                         text-sm font-medium rounded-md">
+                                40% OFF
+                            </span>
+                        </div>
+
+                        <p class="text-muted text-sm leading-relaxed">Prendas frescas, naturales y modernas.</p>
+                        <p class="text-muted text-xs">Válido hasta: 18 Dic, 2025</p>
+
+                    </a>
+                </article>
+
+
+
+                <!-- OFERTA 6 -->
+                <article role="listitem" class="space-y-2 group block">
+                    <a href="local.html?id=7&offer=6" class="block space-y-2">
+
+                        <div class="border border-border rounded-[12px] bg-card shadow-soft p-5 
+                      hover:-translate-y-1 hover:shadow-float transition-all">
+
+                            <div class="relative">
+                                <img src="assets/imagenesLocales/imagenLocalDeco4.jpg"
+                                    class="w-full h-56 rounded-[10px] object-cover group-hover:scale-105 transition-transform"
+                                    alt="Deco Escandinava en Casa Natura">
+                            </div>
+
+                            <h3 class="mt-4 text-base font-medium leading-snug">Deco Escandinava – Casa Natura</h3>
+
+                            <span class="inline-flex items-center mt-3 bg-accent px-4 py-1.5 
+                         text-sm font-medium rounded-md">
+                                30% OFF
+                            </span>
+                        </div>
+
+                        <p class="text-muted text-sm leading-relaxed">Fibras naturales & tonos claros.</p>
+                        <p class="text-muted text-xs">Válido hasta: 12 Dic, 2025</p>
+
+                    </a>
+                </article>
+
 
             </div>
 
@@ -322,12 +420,15 @@
 
 
         <!-- INFO CARDS -->
-        <section class="max-w-content mx-auto px-6 xl:px-0 pb-12">
+        <section aria-labelledby="info-ofertas-title" class="max-w-content mx-auto px-6 xl:px-0 pb-12">
+
+            <h2 id="info-ofertas-title" class="sr-only">Información adicional sobre ofertas</h2>
+
             <div class="grid md:grid-cols-3 gap-8">
 
                 <div class="rounded-[12px] p-8 text-center bg-gradient-to-br from-primary/10 to-accent/10">
                     <div class="w-16 h-16 bg-primary/20 rounded-full mx-auto grid place-content-center mb-4">
-                        <i data-lucide="trending-up" class="w-8 h-8 text-primary"></i>
+                        <i data-lucide="trending-up" aria-hidden="true" class="w-8 h-8 text-primary"></i>
                     </div>
                     <h3 class="font-medium mb-2">Nuevas Ofertas Semanales</h3>
                     <p class="text-muted">Cada semana locales diferentes se suman con promociones exclusivas.</p>
@@ -335,7 +436,7 @@
 
                 <div class="rounded-[12px] p-8 text-center bg-gradient-to-br from-primary/10 to-accent/10">
                     <div class="w-16 h-16 bg-primary/20 rounded-full mx-auto grid place-content-center mb-4">
-                        <i data-lucide="gift" class="w-8 h-8 text-primary"></i>
+                        <i data-lucide="gift" aria-hidden="true" class="w-8 h-8 text-primary"></i>
                     </div>
                     <h3 class="font-medium mb-2">Programa de Fidelidad</h3>
                     <p class="text-muted">Únete y recibe descuentos adicionales y beneficios especiales.</p>
@@ -343,7 +444,7 @@
 
                 <div class="rounded-[12px] p-8 text-center bg-gradient-to-br from-primary/10 to-accent/10">
                     <div class="w-16 h-16 bg-primary/20 rounded-full mx-auto grid place-content-center mb-4">
-                        <i data-lucide="tag" class="w-8 h-8 text-primary"></i>
+                        <i data-lucide="tag" aria-hidden="true" class="w-8 h-8 text-primary"></i>
                     </div>
                     <h3 class="font-medium mb-2">Eventos Especiales</h3>
                     <p class="text-muted">Descuentos extra durante eventos culturales y fechas especiales.</p>
@@ -352,196 +453,211 @@
             </div>
         </section>
 
+
+
         <!-- SUSCRIPCIÓN -->
-        <section class="max-w-content mx-auto px-6 xl:px-0 pb-20">
+        <section class="max-w-content mx-auto px-6 xl:px-0 pb-20" aria-labelledby="suscripcion-title">
+
+            <h2 id="suscripcion-title" class="sr-only">Formulario de suscripción a ofertas</h2>
+
             <div class="bg-card border border-border rounded-[10px] shadow-soft p-10 text-center">
 
-                <h2 class="text-xl font-semibold mb-3">Suscríbete a Nuestras Ofertas</h2>
+                <h3 class="text-xl font-semibold mb-3">Suscríbete a Nuestras Ofertas</h3>
 
                 <p class="text-muted max-w-[672px] mx-auto mb-8">
                     Recibe en tu email las últimas promociones, eventos especiales y descuentos exclusivos
                 </p>
 
-                <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-                    <input type="email" placeholder="tu@email.com"
-                        class="flex-1 h-12 px-4 border border-border rounded-[10px] bg-background focus:outline-none">
+                <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4" aria-labelledby="suscripcion-title">
 
-                    <button
-                        class="h-12 px-6 bg-primary text-primary-foreground rounded-[10px] shadow-soft hover:bg-accent transition">
+                    <input type="email" aria-label="Correo electrónico" placeholder="tu@email.com"
+                        class="flex-1 h-12 px-4 border border-border rounded-[10px] bg-background focus:outline-none" />
+
+                    <button class="h-12 px-6 bg-primary text-primary-foreground rounded-[10px] 
+                       shadow-soft hover:bg-accent transition">
                         Suscribirse
                     </button>
+
                 </form>
 
             </div>
         </section>
 
-        <!-- FOOTER UNIFICADO -->
-        <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
-            <div class="mx-auto max-w-content px-8 xl:px-0 py-12">
-                <div class="grid md:grid-cols-4 gap-8">
+    </main>
 
-                    <!-- Brand -->
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <span
-                                class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-primary-foreground">
-                                M&amp;D
-                            </span>
-                            <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
-                        </div>
 
-                        <p class="mt-4 text-muted max-w-[280px]">
-                            La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la
-                            creatividad se encuentran.
-                        </p>
+    <!-- FOOTER UNIFICADO -->
+    <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
+        <div class="mx-auto max-w-content px-8 xl:px-0 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
 
-                        <!-- Icons -->
-                        <div class="flex items-center gap-4 mt-4 text-muted">
-                            <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors">
-                                <i data-lucide="facebook" class="w-5 h-5"></i>
-                            </a>
-                            <a href="https://instagram.com" target="_blank"
-                                class="hover:text-primary transition-colors">
-                                <i data-lucide="instagram" class="w-5 h-5"></i>
-                            </a>
-                            <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors">
-                                <i data-lucide="twitter" class="w-5 h-5"></i>
-                            </a>
-                        </div>
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-10 h-10 grid place-content-center rounded-xl bg-primary text-primary-foreground">
+                            M&amp;D
+                        </span>
+                        <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
                     </div>
 
-                    <!-- Enlaces -->
-                    <div>
-                        <h4 class="font-medium">Enlaces Rápidos</h4>
-                        <ul class="mt-4 space-y-2 text-muted">
-                            <li><a href="index.html" class="hover:underline">Inicio</a></li>
-                            <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
-                            <li><a href="locales.html" class="hover:underline">Locales</a></li>
-                            <li><a href="ofertas.html" class="hover:underline">Ofertas</a></li>
-                        </ul>
+                    <p class="mt-4 text-foreground/80 max-w-[280px]">
+                        La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la
+                        creatividad se
+                        encuentran.
+                    </p>
+
+                    <!-- Redes -->
+                    <div class="flex items-center gap-4 mt-4 text-foreground/80">
+                        <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors"
+                            aria-label="Facebook de Mind &amp; Design">
+                            <i data-lucide="facebook" aria-hidden="true" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors"
+                            aria-label="Instagram de Mind &amp; Design">
+                            <i data-lucide="instagram" aria-hidden="true" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors"
+                            aria-label="Twitter de Mind &amp; Design">
+                            <i data-lucide="twitter" aria-hidden="true" class="w-5 h-5"></i>
+                        </a>
                     </div>
-
-                    <!-- Información -->
-                    <div>
-                        <h4 class="font-medium">Información</h4>
-                        <ul class="mt-4 space-y-2 text-muted">
-                            <li><a href="#" class="hover:underline">Eventos</a></li>
-                            <li><a href="gastronomia.html" class="hover:underline">Gastronomía</a></li>
-                            <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
-                            <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Contacto -->
-                    <div>
-                        <h4 class="font-medium">Contacto</h4>
-                        <ul class="mt-4 space-y-3 text-muted">
-
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
-                                Av. del Libertador 15800, San Isidro, Buenos Aires
-                            </li>
-
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
-                                +1 (234) 567-89
-                            </li>
-
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
-                                info@mindanddesign.com
-                            </li>
-
-                        </ul>
-                    </div>
-
                 </div>
 
-                <div class="mt-8 border-t border-border pt-6 text-center text-muted">
-                    © 2025 Mind & Design. Todos los derechos reservados.
+                <!-- Enlaces -->
+                <div>
+                    <h4 class="font-medium">Enlaces Rápidos</h4>
+                    <ul class="mt-4 space-y-2 text-foreground/80">
+                        <li><a href="index.html" class="hover:underline">Inicio</a></li>
+                        <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
+                        <li><a href="locales.html" class="hover:underline">Locales</a></li>
+                        <li><a href="ofertas.html" class="hover:underline">Ofertas</a></li>
+                    </ul>
                 </div>
-            </div>
-        </footer>
 
-
-        <button aria-label="Chatbot"
-            class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
-            <i data-lucide="message-circle" class="w-6 h-6"></i>
-        </button>
-
-        <!-- VENTANA DEL CHATBOT -->
-        <div id="chatbot-window"
-            class="fixed bottom-24 right-6 w-80 sm:w-96 bg-card rounded-lg shadow-2xl border border-border flex flex-col max-h-[600px] opacity-0 pointer-events-none scale-95 transition-all duration-300 z-50">
-
-            <!-- Header -->
-            <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
-                <div class="flex items-center space-x-2">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i>
-                    <h3 class="text-sm font-medium">Asistente Virtual</h3>
+                <!-- Información -->
+                <div>
+                    <h4 class="font-medium">Información</h4>
+                    <ul class="mt-4 space-y-2 text-foreground/80">
+                        <li><a href="entretenimientos.html" class="hover:underline">Eventos</a></li>
+                        <li><a href="gastronomia.html" class="hover:underline">Gastronomía</a></li>
+                        <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
+                        <li><a href="javascript:void(0)" class="hover:underline">Política de Privacidad</a></li>
+                    </ul>
                 </div>
-                <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors"
-                    aria-label="Cerrar chat">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-medium">Contacto</h4>
+                    <ul class="mt-4 space-y-3 text-foreground/80">
+
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" aria-hidden="true" class="w-6 h-6 text-primary"></i>
+                            Av. del Libertador 15800, San Isidro, Buenos Aires
+                        </li>
+
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" aria-hidden="true" class="w-5 h-5 text-primary"></i>
+                            +1 (234) 567-89
+                        </li>
+
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" aria-hidden="true" class="w-5 h-5 text-primary"></i>
+                            info@mindanddesign.com
+                        </li>
+
+                    </ul>
+                </div>
+
             </div>
 
-            <!-- Messages -->
-            <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
-
-            <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
-                <div class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm shadow-soft">
-                    Escribiendo...
-                </div>
+            <div class="mt-8 border-t border-border pt-6 text-center text-foreground/80">
+                © 2025 Mind & Design. Todos los derechos reservados.
             </div>
+        </div>
+    </footer>
 
-            <!-- Input -->
-            <div class="p-4 border-t border-border">
-                <div class="flex space-x-2">
-                    <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..."
-                        class="flex-1 px-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                        aria-label="Escribe tu mensaje" />
 
-                    <button id="chatbot-send"
-                        class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
-                        aria-label="Enviar mensaje">
-                        <i data-lucide="send" class="w-5 h-5"></i>
-                    </button>
-                </div>
+
+    <!-- BOTÓN FLOTANTE DEL CHATBOT -->
+    <button aria-label="Chatbot"
+        class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
+        <i data-lucide="message-circle" aria-hidden="true" class="w-6 h-6"></i>
+    </button>
+
+    <!-- VENTANA DEL CHATBOT -->
+    <div id="chatbot-window"
+        class="fixed bottom-24 right-6 w-80 sm:w-96 bg-card rounded-lg shadow-2xl border border-border flex flex-col max-h-[600px] opacity-0 pointer-events-none scale-95 transition-all duration-300 z-50">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="message-circle" aria-hidden="true" class="w-5 h-5"></i>
+                <h3 class="text-sm font-medium">Asistente Virtual</h3>
+            </div>
+            <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors"
+                aria-label="Cerrar chat">
+                <i data-lucide="x" aria-hidden="true" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Mensajes -->
+        <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
+
+        <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
+            <div class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm shadow-soft">
+                Escribiendo...
             </div>
         </div>
 
+        <!-- Input -->
+        <div class="p-4 border-t border-border">
+            <div class="flex space-x-2">
+                <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..."
+                    class="flex-1 px-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    aria-label="Escribe tu mensaje" />
 
-        <!-- SCRIPTS -->
-        <script>
+                <button id="chatbot-send"
+                    class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
+                    aria-label="Enviar mensaje">
+                    <i data-lucide="send" aria-hidden="true" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
+        let open = false;
+
+        toggle.addEventListener('click', () => {
+            open = !open;
+            menu.classList.toggle('hidden', !open);
+            toggle.setAttribute('aria-expanded', open);
+            toggle.innerHTML = open
+                ? '<i data-lucide="x"></i>'
+                : '<i data-lucide="menu"></i>';
             lucide.createIcons();
+        });
 
-            const toggle = document.getElementById('menuToggle');
-            const menu = document.getElementById('mobileMenu');
-            let open = false;
+        const current = window.location.pathname.split("/").pop() || "index.html";
 
-            toggle.addEventListener('click', () => {
-                open = !open;
-                menu.classList.toggle('hidden', !open);
-                toggle.setAttribute('aria-expanded', open);
-                toggle.innerHTML = open
-                    ? '<i data-lucide="x"></i>'
-                    : '<i data-lucide="menu"></i>';
-                lucide.createIcons();
-            });
-
-            const current = window.location.pathname.split("/").pop() || "index.html";
-
-            document.querySelectorAll(".nav-item, .mobile-item").forEach(link => {
-                const href = link.getAttribute("href");
-                if (href === current) {
-                    link.classList.add("bg-primary", "text-primary-foreground");
-                } else {
-                    link.classList.add("hover:bg-secondary", "hover:text-foreground", "transition-colors", "duration-200");
-                }
-            });
-        </script>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script src="js/chatbot.js"></script>
+        document.querySelectorAll(".nav-item, .mobile-item").forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === current) {
+                link.classList.add("bg-primary", "text-primary-foreground");
+            } else {
+                link.classList.add("hover:bg-secondary", "hover:text-foreground", "transition-colors", "duration-200");
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/chatbot.js"></script>
 </body>
 
 </html>

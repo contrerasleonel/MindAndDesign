@@ -45,7 +45,7 @@ function drawLocals(floor = 1) {
       const color = getCategoryColor(local.category, local.isActive);
 
       svgContent += `
-        <g class="local-item" data-id="${local.id}">
+        <g class="local-item" data-id="${local.id}" tabindex="0" aria-label="Local ${local.name}, categoría ${local.category}">
           <rect
             x="${local.mapPosition.x}"
             y="${local.mapPosition.y}"

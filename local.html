@@ -55,120 +55,195 @@
         .chip {
             border-radius: 9999px;
         }
+
+        #typing-indicator {
+            justify-content: flex-start;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
     </style>
 </head>
 
 <body class="bg-background text-foreground antialiased">
 
-    <!-- NAVBAR (igual que locales.html) -->
+    <!-- NAVBAR UNIFICADO -->
     <header
         class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
-        <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between"
+            aria-label="Navegación principal">
+
+            <!-- Logo -->
+            <a href="index.html"
+                class="flex items-center gap-2 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-[12px]">
                 <span
-                    class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&D</span>
+                    class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">
+                    M&D
+                </span>
                 <span class="text-xl font-medium tracking-[-0.35px]">Mind & Design</span>
             </a>
+
+            <!-- Menú Desktop -->
             <div class="hidden md:flex items-center gap-1">
-                <a href="index.html" class="nav-item px-4 py-2 rounded-md text-base">Inicio</a>
-                <a href="servicios.html" class="nav-item px-4 py-2 rounded-md text-base">Servicios</a>
-                <a href="entretenimientos.html" class="nav-item px-4 py-2 rounded-md text-base">Entretenimientos</a>
+                <a href="index.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Inicio
+                </a>
+                <a href="servicios.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Servicios
+                </a>
+                <a href="entretenimientos.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Entretenimientos
+                </a>
                 <a href="locales.html"
-                    class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">Locales</a>
-                <a href="ofertas.html" class="nav-item px-4 py-2 rounded-md text-base">Ofertas</a>
-                <a href="gastronomia.html" class="nav-item px-4 py-2 rounded-md text-base">Gastronomía</a>
-                <a href="contacto.html" class="nav-item px-4 py-2 rounded-md text-base">Contacto</a>
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Locales
+                </a>
+                <a href="ofertas.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Ofertas
+                </a>
+                <a href="gastronomia.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Gastronomía
+                </a>
+                <a href="contacto.html"
+                    class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Contacto
+                </a>
             </div>
-            <a href="contacto.html"
-                class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition">
-                Visítanos
-            </a>
-            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
-                class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors">
+
+            <!-- Botón Menú Móvil -->
+            <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"
+                class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
                 <i data-lucide="menu"></i>
             </button>
         </nav>
-        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
-            <a href="index.html" class="mobile-item block px-4 py-3 rounded-md">Inicio</a>
-            <a href="servicios.html" class="mobile-item block px-4 py-3 rounded-md">Servicios</a>
-            <a href="entretenimientos.html" class="mobile-item block px-4 py-3 rounded-md">Entretenimientos</a>
+
+        <!-- Menú Mobile -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1"
+            aria-label="Navegación móvil">
+            <a href="index.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Inicio
+            </a>
+            <a href="servicios.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Servicios
+            </a>
+            <a href="entretenimientos.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Entretenimientos
+            </a>
             <a href="locales.html"
-                class="mobile-item block px-4 py-3 rounded-md bg-primary text-primary-foreground">Locales</a>
-            <a href="ofertas.html" class="mobile-item block px-4 py-3 rounded-md">Ofertas</a>
-            <a href="gastronomia.html" class="mobile-item block px-4 py-3 rounded-md">Gastronomía</a>
-            <a href="contacto.html" class="mobile-item block px-4 py-3 rounded-md">Contacto</a>
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Locales
+            </a>
+            <a href="ofertas.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Ofertas
+            </a>
+            <a href="gastronomia.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Gastronomía
+            </a>
+            <a href="contacto.html"
+                class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                Contacto
+            </a>
         </div>
     </header>
 
+
     <main class="pt-20">
-        <!-- BACK BUTTON -->
-        <div class="bg-secondary/30 border-b border-border">
+
+        <!-- NAV SECUNDARIA: VOLVER -->
+        <nav aria-label="Volver a listado de locales" class="bg-secondary/30 border-b border-border">
             <div class="max-w-content mx-auto px-6 xl:px-0 py-4">
                 <a href="locales.html"
                     class="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                    <i data-lucide="arrow-left" aria-hidden="true" class="w-5 h-5"></i>
                     <span>Volver a Locales</span>
                 </a>
             </div>
-        </div>
+        </nav>
 
-        <!-- HERO -->
-        <section class="relative h-96 overflow-hidden">
+
+        <!-- HERO DEL LOCAL -->
+        <section aria-labelledby="heroTitle" class="relative h-96 overflow-hidden">
             <img id="heroImage" src="" alt="" class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
             <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
                 <div class="max-w-content mx-auto">
+
                     <span id="heroCategory"
-                        class="chip bg-primary text-primary-foreground px-4 py-2 text-sm font-medium mb-4 inline-block"></span>
+                        class="chip bg-primary text-primary-foreground px-4 py-2 text-sm font-medium mb-4 inline-block"
+                        aria-label="Categoría del local"></span>
+
                     <h1 id="heroTitle" class="text-3xl md:text-4xl font-medium tracking-[-0.02em] text-white mb-2"></h1>
+
                     <p id="heroDescription" class="text-white/90 text-xl max-w-2xl"></p>
                 </div>
             </div>
         </section>
 
-        <!-- CONTENIDO PRINCIPAL -->
-        <section class="py-20">
+
+
+        <!-- CONTENIDO PRINCIPAL DEL LOCAL -->
+        <section aria-labelledby="nameLabel" class="py-20">
             <div class="max-w-content mx-auto px-6 xl:px-0">
                 <div class="grid lg:grid-cols-3 gap-12">
 
                     <!-- COLUMNA PRINCIPAL -->
                     <div class="lg:col-span-2 space-y-12">
+
                         <!-- Descripción -->
-                        <div>
+                        <section aria-labelledby="nameLabel">
                             <h2 id="nameLabel" class="text-2xl font-medium mb-4"></h2>
                             <p id="longDescription" class="text-muted-foreground leading-relaxed"></p>
-                        </div>
+                        </section>
 
                         <!-- Galería -->
-                        <div id="gallerySection" class="hidden">
-                            <h2 class="text-2xl font-medium mb-6">Galería</h2>
+                        <section id="gallerySection" aria-labelledby="galleryTitle" class="hidden">
+                            <h2 id="galleryTitle" class="text-2xl font-medium mb-6">Galería</h2>
                             <div id="galleryGrid" class="grid sm:grid-cols-2 gap-6"></div>
-                        </div>
+                        </section>
 
-                        <!-- Ubicación en Mapa -->
-                        <div>
-                            <h2 class="text-2xl font-medium mb-6">Ubicación en el Centro</h2>
+                        <!-- Ubicación en el centro comercial -->
+                        <section aria-labelledby="ubicacionCentroTitle">
+                            <h2 id="ubicacionCentroTitle" class="text-2xl font-medium mb-6">Ubicación en el Centro</h2>
+
                             <div class="bg-secondary/30 rounded-lg p-8 text-center">
-                                <i data-lucide="map-pin" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                                <i data-lucide="map-pin" aria-hidden="true"
+                                    class="w-12 h-12 mx-auto text-primary mb-4"></i>
+
                                 <h3 id="mapLocationTitle" class="text-xl font-medium mb-2"></h3>
                                 <p id="mapLocationSubtitle" class="text-muted-foreground mb-6"></p>
+
                                 <a href="locales.html#interactiveMap"
                                     class="inline-flex items-center justify-center h-12 px-6 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition font-medium">
                                     Ver en Mapa
                                 </a>
                             </div>
-                        </div>
+                        </section>
+
                     </div>
 
+
+
                     <!-- SIDEBAR DE CONTACTO -->
-                    <div class="lg:col-span-1">
+                    <aside aria-labelledby="contactoLocalTitle" class="lg:col-span-1">
                         <div class="bg-card rounded-lg border border-border p-6 sticky top-24 space-y-6">
-                            <h3 class="text-lg font-medium">Información de Contacto</h3>
+
+                            <h2 id="contactoLocalTitle" class="text-lg font-medium">Información de Contacto</h2>
 
                             <!-- Horario -->
                             <div id="hoursBlock" class="hidden flex items-start gap-3">
-                                <i data-lucide="clock" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
-                                <div class="flex-1">
+                                <i data-lucide="clock" aria-hidden="true"
+                                    class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <div>
                                     <p class="text-sm text-muted-foreground mb-1">Horario</p>
                                     <p id="hours" class="text-sm"></p>
                                 </div>
@@ -176,8 +251,9 @@
 
                             <!-- Ubicación -->
                             <div class="flex items-start gap-3">
-                                <i data-lucide="map-pin" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
-                                <div class="flex-1">
+                                <i data-lucide="map-pin" aria-hidden="true"
+                                    class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <div>
                                     <p class="text-sm text-muted-foreground mb-1">Ubicación</p>
                                     <p id="locationLabel" class="text-sm"></p>
                                 </div>
@@ -185,8 +261,9 @@
 
                             <!-- Teléfono -->
                             <div id="phoneBlock" class="hidden flex items-start gap-3">
-                                <i data-lucide="phone" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
-                                <div class="flex-1">
+                                <i data-lucide="phone" aria-hidden="true"
+                                    class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <div>
                                     <p class="text-sm text-muted-foreground mb-1">Teléfono</p>
                                     <a id="phone" href="" class="text-sm hover:text-primary transition-colors"></a>
                                 </div>
@@ -194,8 +271,9 @@
 
                             <!-- Email -->
                             <div id="emailBlock" class="hidden flex items-start gap-3">
-                                <i data-lucide="mail" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
-                                <div class="flex-1">
+                                <i data-lucide="mail" aria-hidden="true"
+                                    class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <div>
                                     <p class="text-sm text-muted-foreground mb-1">Email</p>
                                     <a id="email" href=""
                                         class="text-sm hover:text-primary transition-colors break-all"></a>
@@ -203,28 +281,38 @@
                             </div>
 
                             <!-- Redes Sociales -->
-                            <div id="socialsBlock" class="hidden">
-                                <h4 class="text-base font-medium mb-3">Redes Sociales</h4>
+                            <section id="socialsBlock" aria-labelledby="socialsTitle" class="hidden">
+                                <h3 id="socialsTitle" class="text-base font-medium mb-3">Redes Sociales</h3>
                                 <div id="socialLinks" class="flex flex-col gap-2"></div>
-                            </div>
+                            </section>
 
                             <!-- Botón CTA -->
                             <a id="visitButton" href="#"
                                 class="block w-full h-12 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition text-center leading-[3rem] font-medium">
                                 Visitar Local
                             </a>
+
                         </div>
-                    </div>
+                    </aside>
+
                 </div>
 
+
+
                 <!-- LOCALES RELACIONADOS -->
-                <div id="relatedSection" class="hidden mt-20">
-                    <h2 class="text-2xl font-medium text-center mb-12">Otros Locales que te Pueden Interesar</h2>
-                    <div id="relatedGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-                </div>
+                <section id="relatedSection" aria-labelledby="relatedTitle" class="hidden mt-20">
+                    <h2 id="relatedTitle" class="text-2xl font-medium text-center mb-12">
+                        Otros Locales que te Pueden Interesar
+                    </h2>
+
+                    <div id="relatedGrid" role="list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+                </section>
+
             </div>
         </section>
+
     </main>
+
 
     <!-- FOOTER (igual que locales.html) -->
     <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
@@ -240,21 +328,25 @@
                         <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
                     </div>
 
-                    <p class="mt-4 text-muted max-w-[280px]">
+                    <p class="mt-4 text-foreground/80 max-w-[280px]">
                         La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad
-                        se encuentran.
+                        se
+                        encuentran.
                     </p>
 
-                    <!-- Icons -->
-                    <div class="flex items-center gap-4 mt-4 text-muted">
-                        <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors">
-                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                    <!-- Redes -->
+                    <div class="flex items-center gap-4 mt-4 text-foreground/80">
+                        <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors"
+                            aria-label="Facebook de Mind &amp; Design">
+                            <i data-lucide="facebook" aria-hidden="true" class="w-5 h-5"></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors"
+                            aria-label="Instagram de Mind &amp; Design">
+                            <i data-lucide="instagram" aria-hidden="true" class="w-5 h-5"></i>
                         </a>
-                        <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors">
-                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors"
+                            aria-label="Twitter de Mind &amp; Design">
+                            <i data-lucide="twitter" aria-hidden="true" class="w-5 h-5"></i>
                         </a>
                     </div>
                 </div>
@@ -262,7 +354,7 @@
                 <!-- Enlaces -->
                 <div>
                     <h4 class="font-medium">Enlaces Rápidos</h4>
-                    <ul class="mt-4 space-y-2 text-muted">
+                    <ul class="mt-4 space-y-2 text-foreground/80">
                         <li><a href="index.html" class="hover:underline">Inicio</a></li>
                         <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
                         <li><a href="locales.html" class="hover:underline">Locales</a></li>
@@ -273,31 +365,31 @@
                 <!-- Información -->
                 <div>
                     <h4 class="font-medium">Información</h4>
-                    <ul class="mt-4 space-y-2 text-muted">
-                        <li><a href="#" class="hover:underline">Eventos</a></li>
+                    <ul class="mt-4 space-y-2 text-foreground/80">
+                        <li><a href="entretenimientos.html" class="hover:underline">Eventos</a></li>
                         <li><a href="gastronomia.html" class="hover:underline">Gastronomía</a></li>
                         <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
-                        <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
+                        <li><a href="javascript:void(0)" class="hover:underline">Política de Privacidad</a></li>
                     </ul>
                 </div>
 
                 <!-- Contacto -->
                 <div>
                     <h4 class="font-medium">Contacto</h4>
-                    <ul class="mt-4 space-y-3 text-muted">
+                    <ul class="mt-4 space-y-3 text-foreground/80">
 
                         <li class="flex items-center gap-3">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+                            <i data-lucide="map-pin" aria-hidden="true" class="w-6 h-6 text-primary"></i>
                             Av. del Libertador 15800, San Isidro, Buenos Aires
                         </li>
 
                         <li class="flex items-center gap-3">
-                            <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+                            <i data-lucide="phone" aria-hidden="true" class="w-5 h-5 text-primary"></i>
                             +1 (234) 567-89
                         </li>
 
                         <li class="flex items-center gap-3">
-                            <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+                            <i data-lucide="mail" aria-hidden="true" class="w-5 h-5 text-primary"></i>
                             info@mindanddesign.com
                         </li>
 
@@ -306,27 +398,113 @@
 
             </div>
 
-            <div class="mt-8 border-t border-border pt-6 text-center text-muted">
+            <div class="mt-8 border-t border-border pt-6 text-center text-foreground/80">
                 © 2025 Mind & Design. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
+    <!-- BOTÓN FLOTANTE DEL CHATBOT -->
+    <button aria-label="Chatbot"
+        class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
+        <i data-lucide="message-circle" aria-hidden="true" class="w-6 h-6"></i>
+    </button>
+
+    <!-- VENTANA DEL CHATBOT -->
+    <div id="chatbot-window"
+        class="fixed bottom-24 right-6 w-80 sm:w-96 bg-card rounded-lg shadow-2xl border border-border flex flex-col max-h-[600px] opacity-0 pointer-events-none scale-95 transition-all duration-300 z-50">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="message-circle" aria-hidden="true" class="w-5 h-5"></i>
+                <h3 class="text-sm font-medium">Asistente Virtual</h3>
+            </div>
+            <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors"
+                aria-label="Cerrar chat">
+                <i data-lucide="x" aria-hidden="true" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Mensajes -->
+        <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
+
+        <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
+            <div class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm shadow-soft">
+                Escribiendo...
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="p-4 border-t border-border">
+            <div class="flex space-x-2">
+                <input id="chatbot-input" type="text" placeholder="Escribe tu mensaje..."
+                    class="flex-1 px-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    aria-label="Escribe tu mensaje" />
+
+                <button id="chatbot-send"
+                    class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
+                    aria-label="Enviar mensaje">
+                    <i data-lucide="send" aria-hidden="true" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- SCRIPTS -->
     <script>
+        // Inicializar iconos Lucide
         lucide.createIcons();
+
+        /* ⭐ MOBILE MENU */
         const toggle = document.getElementById('menuToggle');
         const menu = document.getElementById('mobileMenu');
         let open = false;
+
         toggle.addEventListener('click', () => {
             open = !open;
             menu.classList.toggle('hidden', !open);
             toggle.setAttribute('aria-expanded', open);
-            toggle.innerHTML = open ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+
+            toggle.innerHTML = open
+                ? '<i data-lucide="x"></i>'
+                : '<i data-lucide="menu"></i>';
+
             lucide.createIcons();
         });
+
+        /* ⭐ DETECTAR PÁGINA ACTIVA */
+        const current = window.location.pathname.split("/").pop() || "index.html";
+
+        document.querySelectorAll(".nav-item, .mobile-item").forEach(link => {
+            const href = link.getAttribute("href");
+
+            // Si estoy en local.html o cualquier URL con parámetros que contenga "local.html"
+            if (current.startsWith("local")) {
+                if (href === "locales.html") {
+                    link.classList.add("bg-primary", "text-primary-foreground");
+                    return; // Evita que siga ejecutando
+                }
+            }
+
+            // LÓGICA NORMAL
+            if (href === current) {
+                link.classList.add("bg-primary", "text-primary-foreground");
+            } else {
+                link.classList.add(
+                    "hover:bg-secondary",
+                    "hover:text-foreground",
+                    "transition-colors",
+                    "duration-200"
+                );
+            }
+
+        });
     </script>
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/locales-data.js"></script>
     <script src="js/local-detail.js"></script>

@@ -62,166 +62,235 @@
     h4 {
       font-family: "Space Grotesk", Manrope, sans-serif;
     }
+
+    #typing-indicator {
+      justify-content: flex-start;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   </style>
 </head>
 
 <body class="bg-background text-foreground antialiased">
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR UNIFICADO -->
   <header
     class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
-    <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
+    <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between"
+      aria-label="Navegación principal">
+
       <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-        <span
-          class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&D</span>
+      <a href="index.html"
+        class="flex items-center gap-2 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-[12px]">
+        <span class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">
+          M&D
+        </span>
         <span class="text-xl font-medium tracking-[-0.35px]">Mind & Design</span>
       </a>
 
-      <!-- Menu Desktop -->
+      <!-- Menú Desktop -->
       <div class="hidden md:flex items-center gap-1">
-        <a href="index.html" class="nav-item px-4 py-2 rounded-md">Inicio</a>
-        <a href="servicios.html" class="nav-item px-4 py-2 rounded-md">Servicios</a>
-        <a href="entretenimientos.html" class="nav-item px-4 py-2 rounded-md">Entretenimientos</a>
-        <a href="locales.html" class="nav-item px-4 py-2 rounded-md">Locales</a>
-        <a href="ofertas.html" class="nav-item px-4 py-2 rounded-md">Ofertas</a>
-        <a href="gastronomia.html" class="nav-item px-4 py-2 rounded-md">Gastronomía</a>
-        <a href="contacto.html" class="nav-item px-4 py-2 rounded-md">Contacto</a>
+        <a href="index.html"
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Inicio
+        </a>
+        <a href="servicios.html"
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Servicios
+        </a>
+        <a href="entretenimientos.html"
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Entretenimientos
+        </a>
+        <a href="locales.html"
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Locales
+        </a>
+        <a href="ofertas.html"
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Ofertas
+        </a>
+        <a href="gastronomia.html"
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Gastronomía
+        </a>
+        <a href="contacto.html"
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Contacto
+        </a>
       </div>
 
-      <!-- CTA -->
-      <a href="contacto.html"
-        class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-white shadow-soft hover:bg-accent  transition-opacity">Visítanos</a>
-
-      <!-- Botón móvil -->
-      <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
-        class="md:hidden p-2 rounded-md hover:bg-secondary">
+      <!-- Botón Menú Móvil -->
+      <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"
+        class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
         <i data-lucide="menu"></i>
       </button>
     </nav>
 
-    <!-- Menu Mobile -->
-    <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
-      <a href="index.html" class="mobile-item block px-4 py-3 rounded-md">Inicio</a>
-      <a href="servicios.html" class="mobile-item block px-4 py-3 rounded-md">Servicios</a>
-      <a href="entretenimientos.html" class="mobile-item block px-4 py-3 rounded-md">Entretenimientos</a>
-      <a href="locales.html" class="mobile-item block px-4 py-3 rounded-md">Locales</a>
-      <a href="ofertas.html" class="mobile-item block px-4 py-3 rounded-md">Ofertas</a>
-      <a href="gastronomia.html" class="mobile-item block px-4 py-3 rounded-md">Gastronomía</a>
-      <a href="contacto.html" class="mobile-item block px-4 py-3 rounded-md">Contacto</a>
-
+    <!-- Menú Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1"
+      aria-label="Navegación móvil">
+      <a href="index.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Inicio
+      </a>
+      <a href="servicios.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Servicios
+      </a>
+      <a href="entretenimientos.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Entretenimientos
+      </a>
+      <a href="locales.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Locales
+      </a>
+      <a href="ofertas.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Ofertas
+      </a>
+      <a href="gastronomia.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Gastronomía
+      </a>
       <a href="contacto.html"
-        class="mobile-item block mt-2 text-center h-10 px-4 rounded-[10px] bg-primary text-white shadow-soft hover:opacity-90">Visítanos</a>
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Contacto
+      </a>
     </div>
   </header>
 
+
+
   <!-- HERO -->
-  <section class="pt-32 pb-16 text-center max-w-3xl mx-auto px-6">
-    <h1 class="text-xl font-medium mb-3">Nuestros Servicios</h1>
+  <section class="pt-32 pb-16 text-center max-w-3xl mx-auto px-6" aria-labelledby="hero-servicios-title">
+
+    <!-- Título principal de la página -->
+    <h1 id="hero-servicios-title" class="text-xl font-medium mb-3">
+      Nuestros Servicios
+    </h1>
+
+    <!-- Descripción introductoria -->
     <p class="text-muted text-lg">
       Disfruta de una experiencia completa con todas las comodidades que Mind & Design tiene para ofrecerte.
     </p>
+
   </section>
 
-  <!-- SERVICES GRID -->
-  <!-- SERVICES GRID -->
-  <main class="max-w-content mx-auto px-6 pb-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
-    <!-- 1 — Estacionamiento -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="car" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">Estacionamiento Gratuito</h3>
-      <p class="text-sm text-muted">
-        Amplio estacionamiento para tu comodidad con más de 500 espacios disponibles, incluyendo espacios accesibles.
-      </p>
+  <main class="max-w-content mx-auto px-6 pb-20">
+
+    <!-- Título accesible de la sección principal -->
+    <h2 class="sr-only">Servicios disponibles en Mind & Design</h2>
+
+    <!-- GRID DE SERVICIOS -->
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- 1 — Estacionamiento -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="car" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">Estacionamiento Gratuito</h3>
+        <p class="text-sm text-muted">
+          Amplio estacionamiento para tu comodidad con más de 500 espacios disponibles, incluyendo espacios accesibles.
+        </p>
+      </article>
+
+      <!-- 2 — WiFi -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="wifi" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">WiFi Gratuito</h3>
+        <p class="text-sm text-muted">
+          Conexión de alta velocidad en toda la galería comercial. Mantente conectado mientras disfrutas de tu visita.
+        </p>
+      </article>
+
+      <!-- 3 — Eventos -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="calendar" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">Eventos Culturales</h3>
+        <p class="text-sm text-muted">
+          Exposiciones, talleres y eventos de diseño cada mes con artistas y diseñadores reconocidos.
+        </p>
+      </article>
+
+      <!-- 4 — Descuentos -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="gift" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">Programa de Descuentos</h3>
+        <p class="text-sm text-muted">
+          Beneficios exclusivos y descuentos especiales para clientes frecuentes. Únete a nuestro programa de fidelidad.
+        </p>
+      </article>
+
+      <!-- 5 — Descanso -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="coffee" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">Áreas de Descanso</h3>
+        <p class="text-sm text-muted">
+          Espacios diseñados para relajarte, leer o disfrutar de un café. Zonas de descanso en cada piso.
+        </p>
+      </article>
+
+      <!-- 6 — Asesoría -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="sparkles" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">Asesoría de Diseño</h3>
+        <p class="text-sm text-muted">
+          Consultas gratuitas con expertos en diseño e interiorismo. Agenda tu cita y recibe orientación personalizada.
+        </p>
+      </article>
+
+      <!-- 7 — Seguridad -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="shield-check" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">Seguridad 24/7</h3>
+        <p class="text-sm text-muted">
+          Personal capacitado y sistema de vigilancia en toda la galería para tu tranquilidad.
+        </p>
+      </article>
+
+      <!-- 8 — Métodos -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="credit-card" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">Múltiples Formas de Pago</h3>
+        <p class="text-sm text-muted">
+          Aceptamos tarjetas de crédito/débito, pagos digitales y transferencias bancarias.
+        </p>
+      </article>
+
+      <!-- 9 — Personal Service -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="users" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">Personal Service</h3>
+        <p class="text-sm text-muted">
+          Asistentes personales para ayudarte a encontrar lo que buscas y resolver tus consultas.
+        </p>
+      </article>
+
+      <!-- 10 — Horarios -->
+      <article class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
+        <i data-lucide="clock" aria-hidden="true" class="w-10 h-10 text-primary mb-3"></i>
+        <h3 class="font-medium mb-2">Horarios Extendidos</h3>
+        <p class="text-sm text-muted">
+          Abierto de lunes a domingo con horarios extendidos para que compres a tu conveniencia.
+        </p>
+      </article>
+
     </div>
-
-    <!-- 2 — WiFi -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="wifi" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">WiFi Gratuito</h3>
-      <p class="text-sm text-muted">
-        Conexión de alta velocidad en toda la galería comercial. Mantente conectado mientras disfrutas de tu visita.
-      </p>
-    </div>
-
-    <!-- 3 — Eventos Culturales -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="calendar" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">Eventos Culturales</h3>
-      <p class="text-sm text-muted">
-        Exposiciones, talleres y eventos de diseño cada mes con artistas y diseñadores reconocidos.
-      </p>
-    </div>
-
-    <!-- 4 — Programa de Descuentos -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="gift" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">Programa de Descuentos</h3>
-      <p class="text-sm text-muted">
-        Beneficios exclusivos y descuentos especiales para clientes frecuentes. Únete a nuestro programa de fidelidad.
-      </p>
-    </div>
-
-    <!-- 5 — Áreas de Descanso -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="coffee" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">Áreas de Descanso</h3>
-      <p class="text-sm text-muted">
-        Espacios diseñados para relajarte, leer o disfrutar de un café. Zonas de descanso en cada piso.
-      </p>
-    </div>
-
-    <!-- 6 — Asesoría de Diseño -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="sparkles" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">Asesoría de Diseño</h3>
-      <p class="text-sm text-muted">
-        Consultas gratuitas con expertos en diseño e interiorismo. Agenda tu cita y recibe orientación personalizada.
-      </p>
-    </div>
-
-    <!-- 7 — Seguridad -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="shield-check" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">Seguridad 24/7</h3>
-      <p class="text-sm text-muted">
-        Personal capacitado y sistema de vigilancia en toda la galería para tu tranquilidad.
-      </p>
-    </div>
-
-    <!-- 8 — Métodos de Pago -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="credit-card" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">Múltiples Formas de Pago</h3>
-      <p class="text-sm text-muted">
-        Aceptamos tarjetas de crédito/débito, pagos digitales y transferencias bancarias.
-      </p>
-    </div>
-
-    <!-- 9 — Personal Service -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="users" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">Personal Service</h3>
-      <p class="text-sm text-muted">
-        Asistentes personales para ayudarte a encontrar lo que buscas y resolver tus consultas.
-      </p>
-    </div>
-
-    <!-- 10 — Horarios Extendidos -->
-    <div class="bg-card border border-border rounded-xl shadow-soft p-6 text-center">
-      <i data-lucide="clock" class="w-10 h-10 text-primary mb-3"></i>
-      <h3 class="font-medium mb-2">Horarios Extendidos</h3>
-      <p class="text-sm text-muted">
-        Abierto de lunes a domingo con horarios extendidos para que compres a tu conveniencia.
-      </p>
-    </div>
-
   </main>
 
 
   <!-- EXTRA INFO -->
-  <section class="bg-secondary rounded-xl max-w-content mx-auto my-10 px-8 py-10 grid md:grid-cols-2 gap-10">
+  <section class="bg-secondary rounded-xl max-w-content mx-auto my-10 px-8 py-10 grid md:grid-cols-2 gap-10"
+    aria-labelledby="extra-info-title">
+
+    <!-- Título general de accesibilidad -->
+    <h2 id="extra-info-title" class="sr-only">
+      Información adicional sobre servicios y horarios
+    </h2>
+
+    <!-- Horarios -->
     <div>
       <h3 class="font-medium mb-4">Horarios de Atención</h3>
       <ul class="space-y-2 text-muted">
@@ -230,17 +299,23 @@
         <li><strong class="text-foreground">Domingos y Festivos:</strong> 11:00 - 20:00</li>
       </ul>
     </div>
+
+    <!-- Información adicional -->
     <div>
       <h3 class="font-medium mb-4">Información Adicional</h3>
       <ul class="space-y-2 text-muted">
-        <li>✓ Accesibilidad universal</li>
-        <li>✓ Estación de carga</li>
-        <li>✓ Zona de lactancia</li>
-        <li>✓ Servicio de empaque y envío</li>
-        <li>✓ Información turística</li>
+
+        <li><span aria-hidden="true">✓</span> Accesibilidad universal</li>
+        <li><span aria-hidden="true">✓</span> Estación de carga</li>
+        <li><span aria-hidden="true">✓</span> Zona de lactancia</li>
+        <li><span aria-hidden="true">✓</span> Servicio de empaque y envío</li>
+        <li><span aria-hidden="true">✓</span> Información turística</li>
+
       </ul>
     </div>
+
   </section>
+
 
   <!-- FOOTER -->
   <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
@@ -256,21 +331,24 @@
             <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
           </div>
 
-          <p class="mt-4 text-muted max-w-[280px]">
+          <p class="mt-4 text-foreground/80 max-w-[280px]">
             La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad se
             encuentran.
           </p>
 
-          <!-- Icons -->
-          <div class="flex items-center gap-4 mt-4 text-muted">
-            <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors">
-              <i data-lucide="facebook" class="w-5 h-5"></i>
+          <!-- Redes -->
+          <div class="flex items-center gap-4 mt-4 text-foreground/80">
+            <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors"
+              aria-label="Facebook de Mind &amp; Design">
+              <i data-lucide="facebook" aria-hidden="true" class="w-5 h-5"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors">
-              <i data-lucide="instagram" class="w-5 h-5"></i>
+            <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors"
+              aria-label="Instagram de Mind &amp; Design">
+              <i data-lucide="instagram" aria-hidden="true" class="w-5 h-5"></i>
             </a>
-            <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors">
-              <i data-lucide="twitter" class="w-5 h-5"></i>
+            <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors"
+              aria-label="Twitter de Mind &amp; Design">
+              <i data-lucide="twitter" aria-hidden="true" class="w-5 h-5"></i>
             </a>
           </div>
         </div>
@@ -278,7 +356,7 @@
         <!-- Enlaces -->
         <div>
           <h4 class="font-medium">Enlaces Rápidos</h4>
-          <ul class="mt-4 space-y-2 text-muted">
+          <ul class="mt-4 space-y-2 text-foreground/80">
             <li><a href="index.html" class="hover:underline">Inicio</a></li>
             <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
             <li><a href="locales.html" class="hover:underline">Locales</a></li>
@@ -289,31 +367,31 @@
         <!-- Información -->
         <div>
           <h4 class="font-medium">Información</h4>
-          <ul class="mt-4 space-y-2 text-muted">
-            <li><a href="#" class="hover:underline">Eventos</a></li>
+          <ul class="mt-4 space-y-2 text-foreground/80">
+            <li><a href="entretenimientos.html" class="hover:underline">Eventos</a></li>
             <li><a href="gastronomia.html" class="hover:underline">Gastronomía</a></li>
             <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
-            <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
+            <li><a href="javascript:void(0)" class="hover:underline">Política de Privacidad</a></li>
           </ul>
         </div>
 
         <!-- Contacto -->
         <div>
           <h4 class="font-medium">Contacto</h4>
-          <ul class="mt-4 space-y-3 text-muted">
+          <ul class="mt-4 space-y-3 text-foreground/80">
 
             <li class="flex items-center gap-3">
-              <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+              <i data-lucide="map-pin" aria-hidden="true" class="w-6 h-6 text-primary"></i>
               Av. del Libertador 15800, San Isidro, Buenos Aires
             </li>
 
             <li class="flex items-center gap-3">
-              <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+              <i data-lucide="phone" aria-hidden="true" class="w-5 h-5 text-primary"></i>
               +1 (234) 567-89
             </li>
 
             <li class="flex items-center gap-3">
-              <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+              <i data-lucide="mail" aria-hidden="true" class="w-5 h-5 text-primary"></i>
               info@mindanddesign.com
             </li>
 
@@ -322,16 +400,17 @@
 
       </div>
 
-      <div class="mt-8 border-t border-border pt-6 text-center text-muted">
+      <div class="mt-8 border-t border-border pt-6 text-center text-foreground/80">
         © 2025 Mind & Design. Todos los derechos reservados.
       </div>
     </div>
   </footer>
 
 
+  <!-- BOTÓN FLOTANTE DEL CHATBOT -->
   <button aria-label="Chatbot"
     class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
-    <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <i data-lucide="message-circle" aria-hidden="true" class="w-6 h-6"></i>
   </button>
 
   <!-- VENTANA DEL CHATBOT -->
@@ -341,15 +420,15 @@
     <!-- Header -->
     <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
       <div class="flex items-center space-x-2">
-        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <i data-lucide="message-circle" aria-hidden="true" class="w-5 h-5"></i>
         <h3 class="text-sm font-medium">Asistente Virtual</h3>
       </div>
       <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors" aria-label="Cerrar chat">
-        <i data-lucide="x" class="w-5 h-5"></i>
+        <i data-lucide="x" aria-hidden="true" class="w-5 h-5"></i>
       </button>
     </div>
 
-    <!-- Messages -->
+    <!-- Mensajes -->
     <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
 
     <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
@@ -368,7 +447,7 @@
         <button id="chatbot-send"
           class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
           aria-label="Enviar mensaje">
-          <i data-lucide="send" class="w-5 h-5"></i>
+          <i data-lucide="send" aria-hidden="true" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
@@ -407,8 +486,10 @@
       }
     });
   </script>
+
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="js/chatbot.js"></script>
+
 </body>
 
 </html>

@@ -66,150 +66,170 @@
     .chip {
       border-radius: 9999px;
     }
+
+    #typing-indicator {
+      justify-content: flex-start;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   </style>
 </head>
 
 <body class="bg-background text-foreground antialiased">
 
-  <!-- HEADER -->
+  <!-- NAVBAR UNIFICADO -->
   <header
     class="fixed inset-x-0 top-0 z-50 bg-[rgba(246,245,241,0.9)] backdrop-blur border-b border-border shadow-soft">
-    <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between">
+    <nav class="mx-auto max-w-content px-6 xl:px-0 h-20 flex items-center justify-between"
+      aria-label="Navegación principal">
 
       <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-        <span
-          class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">M&amp;D</span>
-        <span class="text-xl font-medium tracking-[-0.35px]">Mind &amp; Design</span>
+      <a href="index.html"
+        class="flex items-center gap-2 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-[12px]">
+        <span class="w-10 h-10 grid place-content-center rounded-[12px] bg-primary text-primary-foreground font-medium">
+          M&D
+        </span>
+        <span class="text-xl font-medium tracking-[-0.35px]">Mind & Design</span>
       </a>
 
-      <!-- Desktop Menu -->
+      <!-- Menú Desktop -->
       <div class="hidden md:flex items-center gap-1">
         <a href="index.html"
-          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary">Inicio</a>
-
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Inicio
+        </a>
         <a href="servicios.html"
-          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary">Servicios</a>
-
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Servicios
+        </a>
         <a href="entretenimientos.html"
-          class="nav-item px-4 py-2 rounded-md text-base bg-primary text-primary-foreground">Entretenimientos</a>
-
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Entretenimientos
+        </a>
         <a href="locales.html"
-          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary">Locales</a>
-
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Locales
+        </a>
         <a href="ofertas.html"
-          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary">Ofertas</a>
-
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Ofertas
+        </a>
         <a href="gastronomia.html"
-          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary">Gastronomía</a>
-
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Gastronomía
+        </a>
         <a href="contacto.html"
-          class="nav-item px-4 py-2 rounded-md text-base transition-colors duration-200 hover:bg-secondary">Contacto</a>
+          class="nav-item px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          Contacto
+        </a>
       </div>
 
-      <!-- CTA -->
-      <a href="contacto.html"
-        class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft hover:bg-accent transition-opacity">
-        Visítanos
-      </a>
-
-      <!-- Mobile toggle -->
-      <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
-        class="md:hidden p-2 rounded-md text-foreground hover:bg-secondary transition-colors">
+      <!-- Botón Menú Móvil -->
+      <button id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"
+        class="md:hidden p-2 rounded-md hover:bg-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
         <i data-lucide="menu"></i>
       </button>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1">
-
-      <a href="index.html" class="mobile-item block w-full px-4 py-3 rounded-md text-base hover:bg-secondary">Inicio</a>
-
+    <!-- Menú Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-card px-6 pt-3 pb-4 space-y-1"
+      aria-label="Navegación móvil">
+      <a href="index.html"
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Inicio
+      </a>
       <a href="servicios.html"
-        class="mobile-item block w-full px-4 py-3 rounded-md text-base hover:bg-secondary">Servicios</a>
-
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Servicios
+      </a>
       <a href="entretenimientos.html"
-        class="mobile-item block w-full px-4 py-3 rounded-md text-base bg-primary text-primary-foreground">Entretenimientos</a>
-
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Entretenimientos
+      </a>
       <a href="locales.html"
-        class="mobile-item block w-full px-4 py-3 rounded-md text-base hover:bg-secondary">Locales</a>
-
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Locales
+      </a>
       <a href="ofertas.html"
-        class="mobile-item block w-full px-4 py-3 rounded-md text-base hover:bg-secondary">Ofertas</a>
-
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Ofertas
+      </a>
       <a href="gastronomia.html"
-        class="mobile-item block w-full px-4 py-3 rounded-md text-base hover:bg-secondary">Gastronomía</a>
-
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Gastronomía
+      </a>
       <a href="contacto.html"
-        class="mobile-item block w-full px-4 py-3 rounded-md text-base hover:bg-secondary">Contacto</a>
-
-      <a href="contacto.html"
-        class="mobile-item block w-full mt-2 text-center h-10 px-4 rounded-[10px] bg-primary text-primary-foreground shadow-soft">Visítanos</a>
+        class="mobile-item block w-full text-left px-4 py-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        Contacto
+      </a>
     </div>
   </header>
+
 
   <!-- MAIN CONTENT -->
   <main class="pt-32">
 
     <!-- HERO -->
-    <section class="text-center px-6">
-      <h1 class="text-xl font-medium">Entretenimientos</h1>
+    <section class="text-center px-6" aria-labelledby="hero-entretenimientos-title">
+      <h1 id="hero-entretenimientos-title" class="text-xl font-medium">
+        Entretenimientos
+      </h1>
+
       <p class="mt-2 max-w-2xl mx-auto text-lg text-muted">
         Espacios culturales y creativos para inspirarte. Descubre nuestros eventos, talleres y exposiciones.
       </p>
     </section>
 
-    <!-- CARDS DESTACADAS (2) -->
-    <section class="mt-14">
+
+    <!-- CARDS DESTACADAS -->
+    <section class="mt-14" aria-labelledby="destacados-title">
+      <h2 id="destacados-title" class="sr-only">Espacios destacados</h2>
+
       <div class="mx-auto max-w-content px-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-        <!-- Card 1 — Galería de Arte Contemporáneo -->
+        <!-- Card 1 — Galería -->
         <article class="relative h-96 rounded-lg overflow-hidden group">
-          <img src="/assets/imagenesGeneral/entretenimiento.jpg"
-            alt="Galería de Arte"
+          <img src="assets/imagenesGeneral/entretenimiento.jpg" alt="Vista interior de la galería de arte contemporáneo"
             class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" />
 
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
 
-            <h2 class="text-xl font-semibold mb-2">Galería de Arte Contemporáneo</h2>
+            <h3 class="text-xl font-semibold mb-2">Galería de Arte Contemporáneo</h3>
 
             <p class="opacity-90 mb-4">
-              Un espacio curado donde la luz natural, las texturas orgánicas y las piezas contemporáneas
-              dialogan entre sí. Exposiciones rotativas que celebran la forma, el diseño y la materialidad
-              en un ambiente sereno y minimalista.
+              Un espacio curado donde la luz natural, las texturas orgánicas y las piezas contemporáneas dialogan entre
+              sí.
             </p>
 
             <a href="#eventos" class="inline-flex items-center justify-center px-5 py-2 rounded-lg 
-                  bg-secondary text-foreground border border-border 
-                  hover:bg-accent hover:text-accent-foreground 
-                  transition w-fit">
+                    bg-secondary text-foreground border border-border 
+                    hover:bg-accent hover:text-accent-foreground 
+                    transition w-fit">
               Ver Programación
             </a>
           </div>
         </article>
 
-        <!-- Card 2 — Talleres y Workshops -->
+        <!-- Card 2 — Talleres -->
         <article class="relative h-96 rounded-lg overflow-hidden group">
-          <img src="/assets/imagenesGeneral/entretenimiento2.jpg"
-            alt="Talleres y Workshops"
+          <img src="assets/imagenesGeneral/entretenimiento2.jpg"
+            alt="Personas participando en talleres y workshops creativos"
             class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" />
 
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
 
-            <h2 class="text-xl font-semibold mb-2">Talleres y Workshops</h2>
+            <h3 class="text-xl font-semibold mb-2">Talleres y Workshops</h3>
 
             <p class="opacity-90 mb-4">
               Actividades inmersivas que combinan creatividad, diseño y procesos artesanales.
-              Espacios pensados para aprender, experimentar y crear rodeado de materiales nobles,
-              luz cálida y una atmósfera inspiradora.
             </p>
 
             <a href="contacto.html" class="inline-flex items-center justify-center px-5 py-2 rounded-lg 
-                  bg-secondary text-foreground border border-border 
-                  hover:bg-accent hover:text-accent-foreground 
-                  transition w-fit">
+                    bg-secondary text-foreground border border-border 
+                    hover:bg-accent hover:text-accent-foreground 
+                    transition w-fit">
               Inscríbete
             </a>
           </div>
@@ -218,194 +238,184 @@
       </div>
     </section>
 
+
     <!-- PRÓXIMOS EVENTOS -->
-    <section class="mt-16">
-      <h2 class="text-center text-base">Próximos Eventos</h2>
+    <section class="mt-16" aria-labelledby="proximos-eventos-title">
+      <h2 id="proximos-eventos-title" class="text-center text-base">Próximos Eventos</h2>
 
       <div class="mt-12 mx-auto max-w-content px-6 space-y-8">
 
-        <!-- EVENTO 1 - Expo Diseño Minimalista -->
+        <!-- EVENTO 1 -->
         <article
           class="rounded-[10px] border border-border bg-white shadow-soft overflow-hidden grid md:grid-cols-[404px_1fr]">
-
           <img src="assets/imagenesGeneral/expominim2.jpg" alt="Exposición de diseño minimalista"
             class="w-full h-[360px] object-cover object-center rounded-none">
 
           <div class="p-8">
             <h3 class="text-base">Exposición: Diseño Minimalista</h3>
             <p class="mt-2 text-muted">
-              Colección de piezas minimalistas de diseñadores emergentes que exploran la simplicidad,
-              la funcionalidad y los materiales nobles.
+              Colección de piezas minimalistas de diseñadores emergentes.
             </p>
 
             <div class="mt-6 grid sm:grid-cols-2 gap-6 max-w-[760px]">
 
               <div class="flex items-start gap-3">
-                <i data-lucide="calendar-days" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="calendar-days" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Fecha</p>
+                  <p class="text-muted">Fecha</p>
                   <p>15 - 28 Nov, 2025</p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <i data-lucide="clock" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="clock" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Horario</p>
+                  <p class="text-muted">Horario</p>
                   <p>10:00 - 20:00</p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="map-pin" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Ubicación</p>
+                  <p class="text-muted">Ubicación</p>
                   <p>Galería Principal</p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <i data-lucide="users" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="users" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Capacidad</p>
+                  <p class="text-muted">Capacidad</p>
                   <p>Entrada libre</p>
                 </div>
               </div>
 
             </div>
 
-            <a href="#evento-1" class="mt-8 inline-flex items-center justify-center 
-         px-6 h-12 rounded-[10px]
-         bg-primary text-primary-foreground 
-         hover:bg-accent
-         shadow-sm transition-all duration-200
-         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+            <a href="#evento-1" class="mt-8 inline-flex items-center justify-center px-6 h-12 rounded-[10px]
+                    bg-primary text-primary-foreground hover:bg-accent
+                    shadow-sm transition-all duration-200
+                    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
               Más Información
             </a>
           </div>
         </article>
 
-        <!-- EVENTO 2 - Workshop Iluminación -->
+
+        <!-- EVENTO 2 -->
         <article
           class="rounded-[10px] border border-border bg-white shadow-soft overflow-hidden grid md:grid-cols-[404px_1fr]">
-
-          <img src="/assets/imagenesGeneral/exposicionluces.jpg" alt="Workshop de iluminación de espacios"
+          <img src="assets/imagenesGeneral/exposicionluces.jpg" alt="Workshop de iluminación de espacios"
             class="w-full h-[360px] object-cover object-center rounded-none">
 
           <div class="p-8">
             <h3 class="text-base">Workshop: Iluminación de Espacios</h3>
             <p class="mt-2 text-muted">
-              Aprende a iluminar correctamente tus ambientes con expertos en diseño de iluminación,
-              combinando luz natural y artificial de forma consciente.
+              Aprende a iluminar correctamente tus ambientes con expertos en diseño de iluminación.
             </p>
 
             <div class="mt-6 grid sm:grid-cols-2 gap-6 max-w-[760px]">
 
               <div class="flex items-start gap-3">
-                <i data-lucide="calendar-days" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="calendar-days" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Fecha</p>
+                  <p class="text-muted">Fecha</p>
                   <p>20 Nov, 2025</p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <i data-lucide="clock" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="clock" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Horario</p>
+                  <p class="text-muted">Horario</p>
                   <p>18:00 - 20:00</p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="map-pin" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Ubicación</p>
+                  <p class="text-muted">Ubicación</p>
                   <p>LUMEN — Piso 2</p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <i data-lucide="users" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="users" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Capacidad</p>
+                  <p class="text-muted">Capacidad</p>
                   <p>Cupo limitado: 25 personas</p>
                 </div>
               </div>
 
             </div>
 
-            <a href="#evento-2" class="mt-8 inline-flex items-center justify-center 
-         px-6 h-12 rounded-[10px]
-         bg-primary text-primary-foreground 
-         hover:bg-accent
-         shadow-sm transition-all duration-200
-         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+            <a href="#evento-2" class="mt-8 inline-flex items-center justify-center px-6 h-12 rounded-[10px]
+                    bg-primary text-primary-foreground hover:bg-accent
+                    shadow-sm transition-all duration-200
+                    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
               Más Información
             </a>
-
           </div>
         </article>
 
-        <!-- EVENTO 3 - Yoga & Mindfulness -->
+
+        <!-- EVENTO 3 -->
         <article
           class="rounded-[10px] border border-border bg-white shadow-soft overflow-hidden grid md:grid-cols-[404px_1fr]">
-
-          <img src="/assets/imagenesGeneral/yoga.jpg" alt="Sesión de yoga y mindfulness"
+          <img src="assets/imagenesGeneral/yoga.jpg" alt="Sesión de yoga y mindfulness en espacio natural"
             class="w-full h-[360px] object-cover object-center rounded-none">
 
           <div class="p-8">
             <h3 class="text-base">Sesiones de Yoga & Mindfulness</h3>
+
             <p class="mt-2 text-muted">
-              Prácticas guiadas de yoga suave y meditación en un espacio rodeado de luz natural,
-              plantas y texturas cálidas, para reconectar cuerpo y mente.
+              Prácticas guiadas de yoga suave y meditación en un espacio rodeado de luz natural.
             </p>
 
             <div class="mt-6 grid sm:grid-cols-2 gap-6 max-w-[760px]">
 
               <div class="flex items-start gap-3">
-                <i data-lucide="calendar-days" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="calendar-days" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Fecha</p>
+                  <p class="text-muted">Fecha</p>
                   <p>Todos los sábados de Nov, 2025</p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <i data-lucide="clock" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="clock" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Horario</p>
+                  <p class="text-muted">Horario</p>
                   <p>09:30 - 11:00</p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="map-pin" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Ubicación</p>
+                  <p class="text-muted">Ubicación</p>
                   <p>Terraza Verde — Rooftop</p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <i data-lucide="users" class="w-5 h-5 text-primary shrink-0"></i>
+                <i data-lucide="users" aria-hidden="true" class="w-5 h-5 text-primary shrink-0"></i>
                 <div>
-                  <p class="text-muted leading-5">Capacidad</p>
+                  <p class="text-muted">Capacidad</p>
                   <p>Cupo limitado: 18 personas</p>
                 </div>
               </div>
 
             </div>
 
-            <a href="#evento-3" class="mt-8 inline-flex items-center justify-center 
-         px-6 h-12 rounded-[10px]
-         bg-primary text-primary-foreground 
-         hover:bg-accent
-         shadow-sm transition-all duration-200
-         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+            <a href="#evento-3" class="mt-8 inline-flex items-center justify-center px-6 h-12 rounded-[10px]
+                    bg-primary text-primary-foreground hover:bg-accent
+                    shadow-sm transition-all duration-200
+                    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
               Reservar Cupo
             </a>
-
           </div>
         </article>
 
@@ -414,36 +424,46 @@
 
 
     <!-- ESPACIOS ADICIONALES -->
-    <section class="mx-auto max-w-content px-6 mt-16 mb-24">
-      <div class="rounded-[10px] bg-[rgba(234,232,224,0.30)] p-12">
+    <section class="mx-auto max-w-content px-6 mt-16 mb-24" aria-labelledby="espacios-adicionales-title">
 
-        <h3 class="text-center text-xl font-medium">Espacios Adicionales</h3>
+      <h2 id="espacios-adicionales-title" class="text-center text-xl font-medium">
+        Espacios Adicionales
+      </h2>
 
-        <div class="mt-12 grid md:grid-cols-3 gap-8">
+      <div class="mt-12 rounded-[10px] bg-[rgba(234,232,224,0.30)] p-12 grid md:grid-cols-3 gap-8">
 
-          <div class="text-center">
-            <div class="w-16 h-16 mx-auto rounded-full grid place-content-center bg-primary/10 text-3xl">🎨</div>
-            <h4 class="mt-5 text-lg font-medium">Sala de Exposiciones</h4>
-            <p class="mt-3 text-muted">Espacio disponible para artistas y diseñadores emergentes.</p>
+        <!-- Espacio 1 -->
+        <article class="text-center">
+          <div class="w-16 h-16 mx-auto rounded-full grid place-content-center bg-primary/10 text-3xl">
+            <span aria-hidden="true">🎨</span>
           </div>
+          <h3 class="mt-5 text-lg font-medium">Sala de Exposiciones</h3>
+          <p class="mt-3 text-muted">Espacio disponible para artistas y diseñadores emergentes.</p>
+        </article>
 
-          <div class="text-center">
-            <div class="w-16 h-16 mx-auto rounded-full grid place-content-center bg-primary/10 text-3xl">📚</div>
-            <h4 class="mt-5 text-lg font-medium">Biblioteca de Diseño</h4>
-            <p class="mt-3 text-muted">Colección de libros y revistas especializadas en diseño.</p>
+        <!-- Espacio 2 -->
+        <article class="text-center">
+          <div class="w-16 h-16 mx-auto rounded-full grid place-content-center bg-primary/10 text-3xl">
+            <span aria-hidden="true">📚</span>
           </div>
+          <h3 class="mt-5 text-lg font-medium">Biblioteca de Diseño</h3>
+          <p class="mt-3 text-muted">Colección de libros y revistas especializadas en diseño.</p>
+        </article>
 
-          <div class="text-center">
-            <div class="w-16 h-16 mx-auto rounded-full grid place-content-center bg-primary/10 text-3xl">🎭</div>
-            <h4 class="mt-5 text-lg font-medium">Auditorio</h4>
-            <p class="mt-3 text-muted">Espacio para conferencias y eventos especiales.</p>
+        <!-- Espacio 3 -->
+        <article class="text-center">
+          <div class="w-16 h-16 mx-auto rounded-full grid place-content-center bg-primary/10 text-3xl">
+            <span aria-hidden="true">🎭</span>
           </div>
+          <h3 class="mt-5 text-lg font-medium">Auditorio</h3>
+          <p class="mt-3 text-muted">Espacio para conferencias y eventos especiales.</p>
+        </article>
 
-        </div>
       </div>
     </section>
 
   </main>
+
 
   <!-- FOOTER (UNIFICADO) -->
   <footer class="mt-16 border-t border-border bg-[#D8D3C0]">
@@ -459,21 +479,24 @@
             <span class="text-xl tracking-[-.35px]">Mind &amp; Design</span>
           </div>
 
-          <p class="mt-4 text-muted max-w-[280px]">
+          <p class="mt-4 text-foreground/80 max-w-[280px]">
             La Galería del Diseño Contemporáneo. Un espacio donde la moda, la iluminación y la creatividad se
             encuentran.
           </p>
 
-          <!-- Icons -->
-          <div class="flex items-center gap-4 mt-4 text-muted">
-            <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors">
-              <i data-lucide="facebook" class="w-5 h-5"></i>
+          <!-- Redes -->
+          <div class="flex items-center gap-4 mt-4 text-foreground/80">
+            <a href="https://facebook.com" target="_blank" class="hover:text-primary transition-colors"
+              aria-label="Facebook de Mind &amp; Design">
+              <i data-lucide="facebook" aria-hidden="true" class="w-5 h-5"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors">
-              <i data-lucide="instagram" class="w-5 h-5"></i>
+            <a href="https://instagram.com" target="_blank" class="hover:text-primary transition-colors"
+              aria-label="Instagram de Mind &amp; Design">
+              <i data-lucide="instagram" aria-hidden="true" class="w-5 h-5"></i>
             </a>
-            <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors">
-              <i data-lucide="twitter" class="w-5 h-5"></i>
+            <a href="https://twitter.com" target="_blank" class="hover:text-primary transition-colors"
+              aria-label="Twitter de Mind &amp; Design">
+              <i data-lucide="twitter" aria-hidden="true" class="w-5 h-5"></i>
             </a>
           </div>
         </div>
@@ -481,7 +504,7 @@
         <!-- Enlaces -->
         <div>
           <h4 class="font-medium">Enlaces Rápidos</h4>
-          <ul class="mt-4 space-y-2 text-muted">
+          <ul class="mt-4 space-y-2 text-foreground/80">
             <li><a href="index.html" class="hover:underline">Inicio</a></li>
             <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
             <li><a href="locales.html" class="hover:underline">Locales</a></li>
@@ -492,31 +515,31 @@
         <!-- Información -->
         <div>
           <h4 class="font-medium">Información</h4>
-          <ul class="mt-4 space-y-2 text-muted">
-            <li><a href="#" class="hover:underline">Eventos</a></li>
+          <ul class="mt-4 space-y-2 text-foreground/80">
+            <li><a href="entretenimientos.html" class="hover:underline">Eventos</a></li>
             <li><a href="gastronomia.html" class="hover:underline">Gastronomía</a></li>
             <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
-            <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
+            <li><a href="javascript:void(0)" class="hover:underline">Política de Privacidad</a></li>
           </ul>
         </div>
 
         <!-- Contacto -->
         <div>
           <h4 class="font-medium">Contacto</h4>
-          <ul class="mt-4 space-y-3 text-muted">
+          <ul class="mt-4 space-y-3 text-foreground/80">
 
             <li class="flex items-center gap-3">
-              <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+              <i data-lucide="map-pin" aria-hidden="true" class="w-6 h-6 text-primary"></i>
               Av. del Libertador 15800, San Isidro, Buenos Aires
             </li>
 
             <li class="flex items-center gap-3">
-              <i data-lucide="phone" class="w-5 h-5 text-primary"></i>
+              <i data-lucide="phone" aria-hidden="true" class="w-5 h-5 text-primary"></i>
               +1 (234) 567-89
             </li>
 
             <li class="flex items-center gap-3">
-              <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+              <i data-lucide="mail" aria-hidden="true" class="w-5 h-5 text-primary"></i>
               info@mindanddesign.com
             </li>
 
@@ -525,16 +548,16 @@
 
       </div>
 
-      <div class="mt-8 border-t border-border pt-6 text-center text-muted">
+      <div class="mt-8 border-t border-border pt-6 text-center text-foreground/80">
         © 2025 Mind & Design. Todos los derechos reservados.
       </div>
     </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE -->
+  <!-- BOTÓN FLOTANTE DEL CHATBOT -->
   <button aria-label="Chatbot"
     class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-float grid place-content-center hover:bg-primary/90 transition-colors z-50">
-    <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <i data-lucide="message-circle" aria-hidden="true" class="w-6 h-6"></i>
   </button>
 
   <!-- VENTANA DEL CHATBOT -->
@@ -544,15 +567,15 @@
     <!-- Header -->
     <div class="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
       <div class="flex items-center space-x-2">
-        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <i data-lucide="message-circle" aria-hidden="true" class="w-5 h-5"></i>
         <h3 class="text-sm font-medium">Asistente Virtual</h3>
       </div>
       <button id="chatbot-close" class="p-1 hover:bg-primary/20 rounded transition-colors" aria-label="Cerrar chat">
-        <i data-lucide="x" class="w-5 h-5"></i>
+        <i data-lucide="x" aria-hidden="true" class="w-5 h-5"></i>
       </button>
     </div>
 
-    <!-- Messages -->
+    <!-- Mensajes -->
     <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-background text-sm"></div>
 
     <div id="typing-indicator" class="bg-background px-4 py-3 flex items-center">
@@ -571,11 +594,12 @@
         <button id="chatbot-send"
           class="p-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
           aria-label="Enviar mensaje">
-          <i data-lucide="send" class="w-5 h-5"></i>
+          <i data-lucide="send" aria-hidden="true" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
   </div>
+
 
 
   <!-- SCRIPTS -->
