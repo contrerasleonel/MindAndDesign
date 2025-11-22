@@ -43,33 +43,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
 
-    <style>
-        :root {
-            --radius: 10px;
-        }
-
-        * {
-            font-family: Manrope, system-ui, sans-serif;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: "Space Grotesk", Manrope, sans-serif;
-        }
-
-        .chip {
-            border-radius: 9999px;
-        }
-
-        #typing-indicator {
-            justify-content: flex-start;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-    </style>
 </head>
 
 <body class="bg-background text-foreground antialiased">
@@ -327,7 +302,7 @@
                 <div id="mapBottomSheet" class="hidden fixed bottom-0 left-0 w-full max-h-[60vh] bg-card border-t border-border shadow-xl 
             rounded-t-[20px] p-6 z-50 transform translate-y-full transition-all duration-300">
                 </div>
-                
+
                 <!-- LEYENDA -->
                 <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-muted">
 
@@ -525,45 +500,8 @@
 
 
     <!-- SCRIPTS -->
-    <script>
-        // Inicializar iconos
-        lucide.createIcons();
-
-        // Menú mobile
-        const toggle = document.getElementById('menuToggle');
-        const menu = document.getElementById('mobileMenu');
-        let open = false;
-
-        toggle.addEventListener('click', () => {
-            open = !open;
-            menu.classList.toggle('hidden', !open);
-            toggle.setAttribute('aria-expanded', open);
-
-            toggle.innerHTML = open
-                ? '<i data-lucide="x"></i>'
-                : '<i data-lucide="menu"></i>';
-
-            lucide.createIcons();
-        });
-
-        // Detectar página actual
-        const current = window.location.pathname.split("/").pop() || "index.html";
-
-        document.querySelectorAll(".nav-item, .mobile-item").forEach(link => {
-            const href = link.getAttribute("href");
-            if (href === current) {
-                link.classList.add("bg-primary", "text-primary-foreground");
-            } else {
-                link.classList.add(
-                    "hover:bg-secondary",
-                    "hover:text-foreground",
-                    "transition-colors",
-                    "duration-200"
-                );
-            }
-        });
-    </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/site.js"></script>
     <script src="js/locales-data.js"></script>
     <script src="js/locales.js"></script>
     <script src="js/locales-map.js"></script>
